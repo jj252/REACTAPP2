@@ -7,3 +7,11 @@ export const SelectQuestion = (question_number) => {
         
     )
 }
+
+export const Compare_Answer = (answer) => {
+    return (
+        console.log(LOADED_QUESTIONS.find((question) => question.correct === answer )),
+        LOADED_QUESTIONS.find((question) => question.correct === answer )
+        
+    )
+}

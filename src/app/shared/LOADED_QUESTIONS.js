@@ -25,21 +25,33 @@ export const LOADED_QUESTIONS = [
         correct: '1972 Miami Dolphins'
     },
     {
-        id: 2,
-        name: 'Breadcrumb Trail Campground',
-        image: breadCrumbImg,
-        elevation: 2901,
-        featured: false,
-        description:
-            'Let NuCamp be your guide to this off-the-beaten-path, hike-in-only campground.'
+        id: 0,
+        name: 'Question3',
+        question: 'What countries made up the original Axis powers in World War II?',
+        option1: 'Germany,Italy, and Japan',
+        option2: 'Germany,France,Austria',
+        option3: 'Germany,Italy,Austria,',
+        option4: 'USA,Canada,Mexico',
+        correct: 'Germany,Italy, and Japan'
     },
     {
-        id: 3,
-        name: 'Redux Woods Campground',
-        image: reduxWoodsImg,
-        elevation: 42,
-        featured: true,
-        description:
-            "You'll never want to leave this hidden gem, deep within the lush Redux Woods."
+        id: 0,
+        name: 'Question4',
+        question: 'Which restaurants mascot is a clown?',
+        option1: 'Burger King',
+        option2: 'A and W',
+        option3: 'McDonalds',
+        option4: 'Dennies',
+        correct: 'McDonalds'
+    },
+    {
+        id: 0,
+        name: 'Question5',
+        question: 'What is James Bond\'s preferred drink of choice',
+        option1: 'Vodca',
+        option2: 'Martini',
+        option3: 'White Wine',
+        option4: 'Beer',
+        correct: 'Martini'
     }
 ];

@@ -11,15 +11,64 @@
     background-repeat: no-repeat;
     background-size: 1000px;
     height: 900px;
-    
-    }
+}
+.main_container{
+    background-color: black;
+}
+.yellow{
+    background-Color: transparent;
+    position:relative;
+    margin-left: 770px;
+    top:-135px;
+    width: 200px;
+    height: 25px;
+    opacity: 0.2;
+}
+.yellowb{
+    background-Color: transparent;
+    position:relative;
+    margin-left: 770px;
+    top:-165px;
+    width: 200px;
+    height: 25px;
+    opacity: 0.2;
+}
+.yellowc{
+    background-Color: transparent;
+    position:relative;
+    margin-left: 770px;
+    top:-200px;
+    width: 200px;
+    height: 25px;
+    opacity: 0.2;
+}
+.yellowd{
+    background-Color: transparent;
+    position:relative;
+    margin-left: 770px;
+    top:-232px;
+    width: 200px;
+    height: 25px;
+    opacity: 0.2;
+}
+.yellowe{
+    background-Color: transparent;
+    position:relative;
+    margin-left: 770px;
+    top:-268px;
+    width: 200px;
+    height: 25px;
+    opacity: 0.2;
+}
 
 .money_bar{
 background-image: url("../assets/img/money_bar.jpg");
 background-repeat: no-repeat;
 background-size: 500px;
+position:relative;
 height: 1000px;
-        
+left:50px;
+  
         }
 
 .question_menu

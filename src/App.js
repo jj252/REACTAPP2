@@ -34,7 +34,7 @@ function App() {
   return(
   <>
   <Header />
-  <Container >
+  <Container className={style.main_container}>
     <Row>
       <Col md='9' className={style.container}>
           
