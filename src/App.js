@@ -36,15 +36,15 @@ function App() {
   <Header />
   <Container className={style.main_container}>
     <Row>
-      <Col md='9' className={style.container}>
+      <Col xs='12' sm='3' md='9' className={style.container}>
           
       </Col>
-      <Col md='3' className={style.money_bar}>
+      <Col xs='12' sm='9' md='3' className={style.money_bar}>
           
       </Col>
     </Row>
     <Row>
-      <Col md='12' className={style.question_menu}>
+      <Col xs='1' sm='12' md='12' className={style.question_menu}>
           <Logic />
       </Col>
       

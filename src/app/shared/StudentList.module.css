@@ -8,6 +8,7 @@
     top:-700px;
     color: gold;
 }
+
 .sideBar{
     width: 200px;
     height:400px;
@@ -24,8 +25,8 @@
 .yellow{
     background-Color: transparent;
     position:relative;
-    margin-left: 770px;
-    top:-135px;
+    margin-left: 630px;
+    top:-50px;
     width: 200px;
     height: 25px;
     opacity: 0.2;
@@ -33,8 +34,8 @@
 .yellowb{
     background-Color: transparent;
     position:relative;
-    margin-left: 770px;
-    top:-165px;
+    margin-left: 630px;
+    top:-83px;
     width: 200px;
     height: 25px;
     opacity: 0.2;
@@ -42,8 +43,8 @@
 .yellowc{
     background-Color: transparent;
     position:relative;
-    margin-left: 770px;
-    top:-200px;
+    margin-left: 630px;
+    top:-115px;
     width: 200px;
     height: 25px;
     opacity: 0.2;
@@ -51,8 +52,8 @@
 .yellowd{
     background-Color: transparent;
     position:relative;
-    margin-left: 770px;
-    top:-232px;
+    margin-left: 630px;
+    top:-150px;
     width: 200px;
     height: 25px;
     opacity: 0.2;
@@ -60,8 +61,8 @@
 .yellowe{
     background-Color: transparent;
     position:relative;
-    margin-left: 770px;
-    top:-268px;
+    margin-left: 630px;
+    top:-183px;
     width: 200px;
     height: 25px;
     opacity: 0.2;
@@ -73,8 +74,8 @@ background-repeat: no-repeat;
 background-size: 500px;
 position:relative;
 height: 1000px;
-left:50px;
-  
+left:-220px;
+top:50px;
         }
 
 .question_menu
@@ -194,4 +195,12 @@ font-weight: bold;
     margin-left: 635px;
     margin-top: 100px;
     background-color: blue;
+    }
+.bankCheck{
+    position: relative;
+    top: -755px;
+    color:chartreuse;
+    font-size: large;
+    font-weight: bold;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     }

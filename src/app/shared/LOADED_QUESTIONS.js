@@ -53,5 +53,15 @@ export const LOADED_QUESTIONS = [
         option3: 'White Wine',
         option4: 'Beer',
         correct: 'Martini'
+    },
+    {
+        id: 0,
+        name: 'Question6',
+        question: 'When Jack Nicholson improvised \“Here’s Johnny\!\” in The Shining, he was referring to what TV show\?',
+        option1: 'Johnny Carson',
+        option2: 'Saturday Night Live',
+        option3: 'David Letterman',
+        option4: 'The Tonight Show',
+        correct: 'The Tonight Show'
     }
 ];
