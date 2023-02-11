@@ -2,6 +2,12 @@
     width: 900px;
     height: inherit;
     }
+.my_counter{
+    font-size: 300px;
+    position:relative;
+    top:-700px;
+    color: gold;
+}
 .sideBar{
     width: 200px;
     height:400px;
