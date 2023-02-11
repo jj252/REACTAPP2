@@ -23,13 +23,14 @@ import style from '../src/app/shared/StudentList.module.css';
 import AnimatedText from '../src/utils/AnimatedText';
 import Questions from './utils/Questions';
 import Choices from './utils/Choices';
+import Logic from './utils/Logic';
 
 
 
 function App() {
-
-  const [questionNumber,setQuestionNumber] = useState(1);
-
+  let progress = 1
+  
+  
   return(
   <>
   <Header />
@@ -44,18 +45,17 @@ function App() {
     </Row>
     <Row>
       <Col md='12' className={style.question_menu}>
-          <Questions prop={questionNumber}/>
-          <Button className={style.option1} color="info" onClick={() => setQuestionNumber(2) }>A</Button>
-          <Button className={style.option2} color="info" onClick={() => setQuestionNumber(2) }>B</Button>
-          <Button className={style.option3} color="info" onClick={() => setQuestionNumber(2) }>C</Button>
-          <Button className={style.option4} color="info" onClick={() => setQuestionNumber(2) }>D</Button>
+          <Logic />
       </Col>
+      
+    
     </Row>
   
   
   </Container>
   </>
-  );
+  )
+  
         
         
     
