@@ -38,6 +38,7 @@ color:antiquewhite;
 position: relative;
 left: 70px;
 top:25px;
+font-size: small;
 }
 .choice1
 {
@@ -66,6 +67,34 @@ color:antiquewhite;
 position: relative;
 left: 470px;
 top:-35px;
+}
+.option1
+{
+color:antiquewhite;
+position: relative;
+left: 70px;
+top:-105px;
+}
+.option2
+{
+color:antiquewhite;
+position: relative;
+left: 370px;
+top:-105px;
+}
+.option3
+{
+color:antiquewhite;
+position: relative;
+left: 0px;
+top:-60px;
+}
+.option4
+{
+color:antiquewhite;
+position: relative;
+left: 300px;
+top:-60px;
 }
 .col{
 margin-left: 650px;

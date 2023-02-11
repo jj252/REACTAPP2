@@ -28,22 +28,27 @@ import Choices from './utils/Choices';
 
 function App() {
 
+  const [questionNumber,setQuestionNumber] = useState(1);
+
   return(
   <>
   <Header />
   <Container >
     <Row>
-      <Col md='7' className={style.container}>
+      <Col md='9' className={style.container}>
           
       </Col>
-      <Col md='5' className={style.money_bar}>
+      <Col md='3' className={style.money_bar}>
           
       </Col>
     </Row>
     <Row>
       <Col md='12' className={style.question_menu}>
-          <Questions />
-          <Choices />
+          <Questions prop={questionNumber}/>
+          <Button className={style.option1} color="info" onClick={() => setQuestionNumber(2) }>A</Button>
+          <Button className={style.option2} color="info" onClick={() => setQuestionNumber(2) }>B</Button>
+          <Button className={style.option3} color="info" onClick={() => setQuestionNumber(2) }>C</Button>
+          <Button className={style.option4} color="info" onClick={() => setQuestionNumber(2) }>D</Button>
       </Col>
     </Row>
   

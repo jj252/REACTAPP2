@@ -15,13 +15,14 @@ export const LOADED_QUESTIONS = [
         correct: 'Tiger'
     },
     {
-        id: 1,
-        name: 'Chrome River Campground ',
-        image: chromeRiverImg,
-        elevation: 877,
-        featured: false,
-        description:
-            'Spend a few sunny days and starry nights beneath a canopy of old-growth firs at this enchanting spot by the Chrome River.'
+        id: 0,
+        name: 'Question2',
+        question: 'Which is the only American Football team to go a whole season undefeated, including the Super Bowl?',
+        option1: '1989 Sanfrancisco 49ers',
+        option2: '1985 Chicago Bears',
+        option3: '1972 Miami Dolphins',
+        option4: '2007 New England Patriots',
+        correct: '1972 Miami Dolphins'
     },
     {
         id: 2,
