@@ -19,77 +19,42 @@ import ContactPage from './pages/ContactPage';
 import HomePage from './pages/HomePage';
 import CampsiteDetailPage from './pages/CampsiteDetailPage';
 import AboutPage from './pages/AboutPage';
+import style from '../src/app/shared/StudentList.module.css';
+import AnimatedText from '../src/utils/AnimatedText';
+import Questions from './utils/Questions';
+import Choices from './utils/Choices';
 
 
-const test2 = (name) =>{
-  
-  return name;
-}
-
-const basicBtn = {
-  border:'solid 2px purple',
-  color: 'blue',
-  backgroundColor:'yellow'
-}
-
-const test3 = 'this is a test';
-
-const peaceOnEarth = () =>{
-  console.log("peace on earth")
-}
 
 function App() {
-  const [name, setName] = useState('Jeremy');
-  const divEl = useRef(null);
 
-  const getRandomColor = () =>
-    `#${Math.floor(Math.random() * 2 ** 24).toString(16)}`;
-
-  const test1 = (mytest) => {
-    console.log(divEl.current);
-    divEl.current.style.backgroundColor = getRandomColor();
-  }
-
-  const noSetName = () =>{
-    console.log('I never set a name');
-  }
-  let x = 0;
-  useEffect(() => {
-    setTimeout(peaceOnEarth,2000);
-  },[name]);
-
-  return (
-    <>
-    <div ref={divEl} onClick={() => test1(true)} className="App">
-            <Button onclick={() => setName('Marcus')} style={{color:'blue', backgroundColor:'red'}} >This is my New button</Button>
-            <Button onClick={() => x+=2} style={basicBtn} >This is my New button</Button>
-            
-            <Button className='primary' color="info" >This is my New button</Button>
-            <CreatedElement person={{ name: {name}, imageId: '1bX5QH6'}} test={test2({name})} testx={name}  />
-            <CreatedElement2 props={name}  />
-            <CreatedElement2 props={name}  />
-            <New_Button buttonName='Jeremys Button'/>
-            </div> 
-            <Button className='primary' color="info" onClick={() => setName('Jade') }>This is my New button</Button>
-            
-            <New_Button2 />
-            <Header />
-            <Routes>
-              <Route path='/' element={<HomePage />} />
-              <Route path='contact' element={<ContactPage />} />
-              <Route path='directory' element={<CampsiteDirectoryPage />} />
-              <Route path='about' element={<AboutPage />} />
-              <Route 
-                path='directory/:campsiteId'
-                element={<CampsiteDetailPage />}
-              />
-            </Routes>
-            <My_Form />
-            <Footer />
+  return(
+  <>
+  <Header />
+  <Container >
+    <Row>
+      <Col md='7' className={style.container}>
+          
+      </Col>
+      <Col md='5' className={style.money_bar}>
+          
+      </Col>
+    </Row>
+    <Row>
+      <Col md='12' className={style.question_menu}>
+          <Questions />
+          <Choices />
+      </Col>
+    </Row>
+  
+  
+  </Container>
+  </>
+  );
         
-        </>
+        
     
-  )
+  
 }
 
 export default App;

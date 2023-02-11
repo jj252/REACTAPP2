@@ -1,0 +1,113 @@
+.mainImage{
+    width: 900px;
+    height: inherit;
+    }
+.sideBar{
+    width: 200px;
+    height:400px;
+    }
+.container{
+    background-image: url("../assets/img/game_default.jpg");
+    background-repeat: no-repeat;
+    background-size: 1000px;
+    height: 900px;
+    
+    }
+
+.money_bar{
+background-image: url("../assets/img/money_bar.jpg");
+background-repeat: no-repeat;
+background-size: 500px;
+height: 1000px;
+        
+        }
+
+.question_menu
+{
+background-image: url("../assets/img/questions_menu.jpg");
+background-repeat: no-repeat;
+position: relative;
+background-size: 770px;
+height: 500px;
+width: 1000px;
+top: -615px;
+}
+.question
+{
+color:antiquewhite;
+position: relative;
+left: 70px;
+top:25px;
+}
+.choice1
+{
+color:antiquewhite;
+position: relative;
+left: 130px;
+top:65px;
+}
+.choice2
+{
+color:antiquewhite;
+position: relative;
+left: 470px;
+top:15px;
+}
+.choice3
+{
+color:antiquewhite;
+position: relative;
+left: 130px;
+top:15px;
+}
+.choice4
+{
+color:antiquewhite;
+position: relative;
+left: 470px;
+top:-35px;
+}
+.col{
+margin-left: 650px;
+margin-top: 300px;
+font-size: 20px;
+color:blue;
+font-weight: bold;
+        }
+.navbar{
+    background-color: black;
+    font-family: 'Times New Roman', Times, serif;
+    }
+.resize 
+    {
+    width: 400px;
+    margin-left: 300px;
+    height: auto;
+    background-color: blue ;
+    }
+.imageOverlay 
+    {
+    width: 44%;
+    margin-left: 10px;
+    margin-top: 10px;
+    }
+.imageOverlay2 
+    {
+    width: 44%;
+    margin-left: 10px;
+    margin-top: 50px;
+    }
+.headerFont 
+    {
+    font-family: 'Courier New', Courier, monospace;
+    }
+.welcome_text 
+    {
+    margin-top: 50%;
+    }
+.mybutton
+    {
+    margin-left: 635px;
+    margin-top: 100px;
+    background-color: blue;
+    }

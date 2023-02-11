@@ -1,5 +1,6 @@
 
 import NucampLogo from '../app/assets/img/logo.png';
+import NewLogo from '../app/assets/img/logo2.jpg'
 import {useState} from 'react';
 import {
     Navbar,
@@ -10,40 +11,42 @@ import {
     NavItem
 } from 'reactstrap';
 import { NavLink } from "react-router-dom";
+import style from '../app/shared/StudentList.module.css'
 
 const Header = () => {
     const [menuOpen, setMenuOpen] = useState(false);
     
     return(
-    <Navbar dark color='primary' sticky='top' expand='md'>
+    <Navbar color='dark'  sticky='top' expand='md'>
     
          <NavbarBrand className='ms-5' href='/'>
-             <img src={NucampLogo} alt='nucamp logo' className="float-start" />
-             <h1 className='mt-1'>Nucamp</h1> 
+             <img src={NewLogo} alt='nucamp logo' className="float-start" />
+             <h1 className={style.headerFont}>Fount</h1> 
          </NavbarBrand>
          <NavbarToggler onClick={() => setMenuOpen(!menuOpen)} />
          <Collapse isOpen={menuOpen} navbar>
             <Nav className="ms-auto" navbar>
                 <NavItem>
                     <NavLink className='nav-link' to='/'>
-                        <i className="fa fa-home fa-lg" /> Home
+                         Home
                     </NavLink>
                 </NavItem>
                 <NavItem>
                     <NavLink className='nav-link' to='/directory'>
-                    <i className="fa fa-list fa-lg" /> Directory
+                     Portfolio
                     </NavLink>
                 </NavItem>
                 <NavItem>
                     <NavLink className='nav-link' to='/about'>
-                        <i className="fa fa-info fa-lg" /> About
+                         Blog
                     </NavLink>
                 </NavItem>
                 <NavItem>
                     <NavLink className='nav-link' to='/contact'>
-                        <i className="fa fa-address fa-lg" /> Contact
+                         ContactUs
                     </NavLink>
                 </NavItem>
+                
             </Nav>
         </Collapse>
  </Navbar>)

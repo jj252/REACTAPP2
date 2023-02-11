@@ -1,0 +1,39 @@
+.navBarBrand{
+    color: blue;
+    font-size: 53px;
+    margin-left: 200px;
+    display: block;
+    font-family: 'Courier New', Courier, monospace;
+    background-color: aliceblue;
+    }
+.details{
+    color: blue;
+    font-size: 23px;
+    }
+.resize 
+    {
+    width: 400px;
+    margin-left: 300px;
+    height: auto;
+    background-color: blue ;
+    }
+.imageOverlay 
+    {
+    width: 44%;
+    margin-left: 10px;
+    margin-top: 10px;
+    }
+.imageOverlay2 
+    {
+    width: 44%;
+    margin-left: 10px;
+    margin-top: 50px;
+    }
+.headerFont 
+    {
+    font-family: 'Courier New', Courier, monospace;
+    }
+.welcome_text 
+    {
+    margin-top: 50%;
+    }
