@@ -3,23 +3,23 @@
     height: inherit;
     }
 .my_counter{
-    font-size: 300px;
+    font-size: 200px;
     position:relative;
-    top:-700px;
+    top:-500px;
     color: gold;
 }
 
 .life_lines{
-    position:relative;
-    top:-1100px;
-    left:920px;
+    position:absolute;
+    top:-390px;
+    left:930px;
     width:20px;
     height:50px;
 }
 .life_lines2{
-    position:relative;
-    top:-1150px;
-    left:758px;
+    position:absolute;
+    top:-390px;
+    left:768px;
     width:20px;
     height:50px;
 }
@@ -40,45 +40,45 @@
 }
 .yellow{
     background-Color: transparent;
-    position:relative;
-    margin-left: 630px;
-    top:-50px;
+    position:absolute;
+    margin-left: 760px;
+    top:145px;
     width: 200px;
     height: 25px;
     opacity: 0.2;
 }
 .yellowb{
     background-Color: transparent;
-    position:relative;
-    margin-left: 630px;
-    top:-83px;
+    position:absolute;
+    margin-left: 760px;
+    top:111px;
     width: 200px;
     height: 25px;
     opacity: 0.2;
 }
 .yellowc{
     background-Color: transparent;
-    position:relative;
-    margin-left: 630px;
-    top:-115px;
+    position:absolute;
+    margin-left: 760px;
+    top:77px;
     width: 200px;
     height: 25px;
     opacity: 0.2;
 }
 .yellowd{
     background-Color: transparent;
-    position:relative;
-    margin-left: 630px;
-    top:-150px;
+    position:absolute;
+    margin-left: 760px;
+    top:43px;
     width: 200px;
     height: 25px;
     opacity: 0.2;
 }
 .yellowe{
     background-Color: transparent;
-    position:relative;
-    margin-left: 630px;
-    top:-183px;
+    position:absolute;
+    margin-left: 760px;
+    top:9px;
     width: 200px;
     height: 25px;
     opacity: 0.2;
@@ -138,35 +138,35 @@ top:15px;
 color:antiquewhite;
 position: relative;
 left: 470px;
-top:-35px;
+top:-5px;
 }
 .option1
 {
 color:antiquewhite;
-position: relative;
-left: 70px;
-top:-105px;
+position: absolute;
+left: 80px;
+top:80px;
 }
 .option2
 {
-color:antiquewhite;
-position: relative;
-left: 370px;
-top:-105px;
+    color:antiquewhite;
+position: absolute;
+left: 420px;
+top:80px;
 }
 .option3
 {
-color:antiquewhite;
-position: relative;
-left: 0px;
-top:-60px;
+    color:antiquewhite;
+position: absolute;
+left: 80px;
+top:125px;
 }
 .option4
 {
-color:antiquewhite;
-position: relative;
-left: 300px;
-top:-60px;
+    color:antiquewhite;
+    position: absolute;
+    left: 420px;
+    top:125px;
 }
 .col{
 margin-left: 650px;
@@ -214,7 +214,7 @@ font-weight: bold;
     }
 .bankCheck{
     position: relative;
-    top: -755px;
+    top: -515px;
     color:chartreuse;
     font-size: large;
     font-weight: bold;

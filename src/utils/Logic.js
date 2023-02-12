@@ -17,6 +17,7 @@ const Logic = () =>{
     const [questionNumber,setQuestionNumber] = useState(1);
     const [counter, setCounter] = useState(30);
     const [bank,setBank] = useState(0);
+    const [isFifty,setisFifty] = useState(false);
 
     // Third Attempts
     useEffect(() => {
