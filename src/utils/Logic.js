@@ -8,6 +8,7 @@ import yellow from '../app/assets/img/yellow.png';
 import useTimer2 from "./Timer";
 import { useTimer } from "react-timer-hook";
 import life_lines from '../app/assets/img/lifelines.jpg'
+import life_lines2 from '../app/assets/img/lifelines2.jpg'
 
 
 
@@ -18,6 +19,9 @@ const Logic = () =>{
     const [counter, setCounter] = useState(30);
     const [bank,setBank] = useState(0);
     const [isFifty,setisFifty] = useState(false);
+    const [isFiftyUsedOnce,setisFiftyUsedOnce] = useState(false);
+    
+    
 
     // Third Attempts
     useEffect(() => {
@@ -29,6 +33,13 @@ const Logic = () =>{
         return () => {clearInterval(timer)};
         }, [counter]);
 
+        useEffect(() => {
+            const timer = setTimeout(() => {
+                setisFifty(false);
+            }, 1000);
+            return () => clearTimeout(timer);
+          }, [isFifty]);
+
         if(progress === 0){
             console.log('THE PROGRESS IS AT 0');
         }
@@ -38,107 +49,216 @@ const Logic = () =>{
         return(
         <>
          <Questions prop={questionNumber}/>
-          <Button className={style.option1} color="info" onClick={() => {setQuestionNumber(2); setProgress(2);setCounter(30);setBank(100);} }>A</Button>
-          <Button className={style.option2} color="info" onClick={() => setProgress(0) }>B</Button>
-          <Button className={style.option3} color="info" onClick={() => setProgress(0) }>C</Button>
+          {!isFifty 
+          ?(
+          <>
+          <Button className={style.option1} color="info" onClick={() => {setQuestionNumber(2); setProgress(2);setCounter(30);setBank(100);} }>A</Button>,
+          <Button className={style.option2} color="info" onClick={() => setProgress(0) }>B</Button>,
+          <Button className={style.option3} color="info" onClick={() => setProgress(0) }>C</Button>,
           <Button className={style.option4} color="info" onClick={() => setProgress(0) }>D</Button>
+          
+          </>
+          )
+          :(
+          
+          <>
+          <Button className={style.option1} color="info" onClick={() => {setQuestionNumber(2); setProgress(2);setCounter(30);setBank(100);} }>A</Button>,
+          <Button className={style.option2} color="info" onClick={() => setProgress(0) }>B</Button>
+          </>
+          
+          )
+          }
           <Button className={style.yellow} color='warning'></Button>
           <div className={style.my_counter}>{counter}</div>
           <div className={style.bankCheck}>Money Earned ${bank}.00</div>
           <div className={style.life_lines}><img src={life_lines}/></div>
-          <div className={style.life_lines2}><img src={life_lines} alt='life lines'/></div>
+          {!isFiftyUsedOnce 
+          ?<div className={style.life_lines2} onClick={() => {setisFifty(true);setisFiftyUsedOnce(true)}}><img src={life_lines2} alt='life lines'/></div>
+          :console.log('ITS EQUAL TO TRUE')
+          }
           </>
         )
         
         }
         else if(progress === 2){
-        
-            return(
-            <>
-             <Questions prop={questionNumber}/>
-              <Button className={style.option1} color="info" onClick={() => setProgress(0) }>A</Button>
-              <Button className={style.option2} color="info" onClick={() => setProgress(0) }>B</Button>
-              <Button className={style.option3} color="info" onClick={() => {setQuestionNumber(3); setProgress(3);setCounter(30);setBank(200);} }>C</Button>
-              <Button className={style.option4} color="info" onClick={() => setProgress(0) }>D</Button>
-              <Button className={style.yellowb} color='warning'></Button>
-              <div className={style.my_counter}>{counter}</div>
-              <div className={style.bankCheck}>Money Earned ${bank}.00</div>
-              <div className={style.life_lines}><img src={life_lines}/></div>
-              <div className={style.life_lines2}><img src={life_lines} alt='life lines'/></div>
-              </>
-            )
             
-        }
+            return(
+                <>
+                 <Questions prop={questionNumber}/>
+                  {!isFifty 
+                  ?(
+                  <>
+                  <Button className={style.option1} color="info" onClick={() => setProgress(0) }>A</Button>,
+                  <Button className={style.option2} color="info" onClick={() => setProgress(0) }>B</Button>,
+                  <Button className={style.option3} color="info" onClick={() => {setQuestionNumber(3); setProgress(3);setCounter(30);setBank(100);} }>C</Button>,
+                  <Button className={style.option4} color="info" onClick={() => setProgress(0) }>D</Button>
+                  
+                  </>
+                  )
+                  :(
+                   
+                  <>
+                  
+                  <Button className={style.option1} color="info" onClick={() => setProgress(0) }>A</Button>,
+                  <Button className={style.option3} color="info" onClick={() => {setQuestionNumber(3); setProgress(3);setCounter(30);setBank(100);} }>C</Button>
+                  </>
+                  )
+                  }
+                  <Button className={style.yellowb} color='warning'></Button>
+                  <div className={style.my_counter}>{counter}</div>
+                  <div className={style.bankCheck}>Money Earned ${bank}.00</div>
+                  <div className={style.life_lines}><img src={life_lines}/></div>
+
+                  {!isFiftyUsedOnce 
+                  ?<div className={style.life_lines2} onClick={() => {setisFifty(true);setisFiftyUsedOnce(true)}}><img src={life_lines2} alt='life lines'/></div>
+                  :console.log('ITS EQUAL TO TRUE')
+          }
+                  </>
+                )
+                
+                }
         else if(progress === 3){
         
             return(
-            <>
-             <Questions prop={questionNumber}/>
-              <Button className={style.option1} color="info" onClick={() => {setQuestionNumber(4); setProgress(4);setCounter(30);setBank(300);} }>A</Button>
-              <Button className={style.option2} color="info" onClick={() => setProgress(0) }>B</Button>
-              <Button className={style.option3} color="info" onClick={() => setProgress(0) }>C</Button>
-              <Button className={style.option4} color="info" onClick={() => setProgress(0) }>D</Button>
-              <Button className={style.yellowc} color='warning'></Button>
-              <div className={style.my_counter}>{counter}</div>
-              <div className={style.bankCheck}>Money Earned ${bank}.00</div>
-              <div className={style.life_lines}><img src={life_lines}/></div>
-              <div className={style.life_lines2}><img src={life_lines} alt='life lines'/></div>
-              </>
-            )
-            
-        }
+                <>
+                 <Questions prop={questionNumber}/>
+                  {!isFifty 
+                  ?(
+                  <>
+                  <Button className={style.option1} color="info" onClick={() => {setQuestionNumber(4); setProgress(4);setCounter(30);setBank(100);} }>A</Button>,
+                  <Button className={style.option2} color="info" onClick={() => setProgress(0) }>B</Button>,
+                  <Button className={style.option3} color="info" onClick={() => setProgress(0) }>C</Button>,
+                  <Button className={style.option4} color="info" onClick={() => setProgress(0) }>D</Button>
+                  
+                  </>
+                  )
+                  :(
+                   
+                  <>
+                  <Button className={style.option1} color="info" onClick={() => {setQuestionNumber(4); setProgress(4);setCounter(30);setBank(100);} }>A</Button>,
+                  <Button className={style.option3} color="info" onClick={() => setProgress(0) }>C</Button>
+                  </>
+                  )
+                  }
+                  <Button className={style.yellowc} color='warning'></Button>
+                  <div className={style.my_counter}>{counter}</div>
+                  <div className={style.bankCheck}>Money Earned ${bank}.00</div>
+                  <div className={style.life_lines}><img src={life_lines}/></div>
+
+                  {!isFiftyUsedOnce 
+                  ?<div className={style.life_lines2} onClick={() => {setisFifty(true);setisFiftyUsedOnce(true)}}><img src={life_lines2} alt='life lines'/></div>
+                  :console.log('ITS EQUAL TO TRUE')
+          }
+                  </>
+                )
+                
+                }
         else if(progress === 4){
         
             return(
-            <>
-             <Questions prop={questionNumber}/>
-              <Button className={style.option1} color="info" onClick={() => setProgress(0) }>A</Button>
-              <Button className={style.option2} color="info" onClick={() => setProgress(0) }>B</Button>
-              <Button className={style.option3} color="info" onClick={() => {setQuestionNumber(5); setProgress(5);setCounter(30);setBank(500);} }>C</Button>
-              <Button className={style.option4} color="info" onClick={() => setProgress(0) }>D</Button>
-              <Button className={style.yellowd} color='warning'></Button>
-              <div className={style.my_counter}>{counter}</div>
-              <div className={style.bankCheck}>Money Earned ${bank}.00</div>
-              <div className={style.life_lines}><img src={life_lines}/></div>
-              <div className={style.life_lines2}><img src={life_lines} alt='life lines'/></div>
-              </>
-            )
+                <>
+                 <Questions prop={questionNumber}/>
+                  {!isFifty 
+                  ?(
+                  <>
+                  <Button className={style.option1} color="info" onClick={() => setProgress(0) }>A</Button>,
+                  <Button className={style.option2} color="info" onClick={() => setProgress(0) }>B</Button>,
+                  <Button className={style.option3} color="info" onClick={() => {setQuestionNumber(5); setProgress(5);setCounter(30);setBank(100);} }>C</Button>,
+                  <Button className={style.option4} color="info" onClick={() => setProgress(0) }>D</Button>
+                  
+                  </>
+                  )
+                  :(
+                   
+                  <>
+                  <Button className={style.option1} color="info" onClick={() => setProgress(0) }>A</Button>,
+                  <Button className={style.option3} color="info" onClick={() => {setQuestionNumber(5); setProgress(5);setCounter(30);setBank(100);} }>C</Button>
+                  </>
+                  )
+                  }
+                  <Button className={style.yellowd} color='warning'></Button>
+                  <div className={style.my_counter}>{counter}</div>
+                  <div className={style.bankCheck}>Money Earned ${bank}.00</div>
+                  <div className={style.life_lines}><img src={life_lines}/></div>
+
+                  {!isFiftyUsedOnce 
+                  ?<div className={style.life_lines2} onClick={() => {setisFifty(true);setisFiftyUsedOnce(true)}}><img src={life_lines2} alt='life lines'/></div>
+                  :console.log('ITS EQUAL TO TRUE')
+          }
+                  </>
+                )
             
         }
         else if(progress === 5){
         
             return(
-            <>
-             <Questions prop={questionNumber}/>
-              <Button className={style.option1} color="info" onClick={() => setProgress(0) }>A</Button>
-              <Button className={style.option2} color="info" onClick={() => {setQuestionNumber(6); setProgress(6);setCounter(30);setBank(1000);} }>B</Button>
-              <Button className={style.option3} color="info" onClick={() => setProgress(0) }>C</Button>
-              <Button className={style.option4} color="info" onClick={() => setProgress(0) }>D</Button>
-              <Button className={style.yellowe} color='warning'></Button>
-              <div className={style.my_counter}>{counter}</div>
-              <div className={style.bankCheck}>Money Earned ${bank}.00</div>
-              <div className={style.life_lines}><img src={life_lines}/></div>
-              <div className={style.life_lines2}><img src={life_lines} alt='life lines'/></div>
-              </>
-            )
+                <>
+                 <Questions prop={questionNumber}/>
+                  {!isFifty 
+                  ?(
+                  <>
+                  <Button className={style.option1} color="info" onClick={() => setProgress(0) }>A</Button>,
+                  <Button className={style.option2} color="info" onClick={() => {setQuestionNumber(6); setProgress(6);setCounter(30);setBank(100);} }>B</Button>,
+                  <Button className={style.option3} color="info" onClick={() => setProgress(0) }>C</Button>,
+                  <Button className={style.option4} color="info" onClick={() => setProgress(0) }>D</Button>
+                  
+                  </>
+                  )
+                  :(
+                   
+                  <>
+                  <Button className={style.option2} color="info" onClick={() => {setQuestionNumber(6); setProgress(6);setCounter(30);setBank(100);} }>B</Button>,
+                  <Button className={style.option3} color="info" onClick={() => setProgress(0) }>C</Button>
+                  </>
+                  )
+                  }
+                  <Button className={style.yellowe} color='warning'></Button>
+                  <div className={style.my_counter}>{counter}</div>
+                  <div className={style.bankCheck}>Money Earned ${bank}.00</div>
+                  <div className={style.life_lines}><img src={life_lines}/></div>
+
+                  {!isFiftyUsedOnce 
+                  ?<div className={style.life_lines2} onClick={() => {setisFifty(true);setisFiftyUsedOnce(true)}}><img src={life_lines2} alt='life lines'/></div>
+                  :console.log('ITS EQUAL TO TRUE')
+          }
+                  </>
+                )
             
         }
         else if(progress === 6){
         
             return(
-            <>
-             <Questions prop={questionNumber}/>
-              <Button className={style.option1} color="info" onClick={() => setProgress(0) }>A</Button>
-              <Button className={style.option2} color="info" onClick={() => {setQuestionNumber(7); setProgress(7);setCounter(30);setBank(1000);} }>B</Button>
-              <Button className={style.option3} color="info" onClick={() => setProgress(0) }>C</Button>
-              <Button className={style.option4} color="info" onClick={() => setProgress(0) }>D</Button>
-              <Button className={style.yellowe} color='warning'></Button>
-              <div className={style.my_counter}>{counter}</div>
-              <div className={style.bankCheck}>Money Earned ${bank}.00</div>
-              <div className={style.life_lines}><img src={life_lines}/></div>
-              <div className={style.life_lines2}><img src={life_lines} alt='life lines'/></div>
-              </>
-            )
+                <>
+                 <Questions prop={questionNumber}/>
+                  {!isFifty 
+                  ?(
+                  <>
+                  <Button className={style.option1} color="info" onClick={() => setProgress(0) }>A</Button>,
+                  <Button className={style.option2} color="info" onClick={() => setProgress(0) }>B</Button>,
+                  <Button className={style.option3} color="info" onClick={() => setProgress(0) }>C</Button>,
+                  <Button className={style.option4} color="info" onClick={() => {setQuestionNumber(0); setProgress(0);setCounter(30);setBank(100);} }>D</Button>
+                  
+                  </>
+                  )
+                  :(
+                   
+                  <>
+                  <Button className={style.option4} color="info" onClick={() => {setQuestionNumber(0); setProgress(0);setCounter(30);setBank(100);} }>D</Button>,
+                  <Button className={style.option1} color="info" onClick={() => setProgress(0) }>A</Button>
+                  </>
+                  )
+                  }
+                  <Button className={style.yellowe} color='warning'></Button>
+                  <div className={style.my_counter}>{counter}</div>
+                  <div className={style.bankCheck}>Money Earned ${bank}.00</div>
+                  <div className={style.life_lines}><img src={life_lines}/></div>
+
+                  {!isFiftyUsedOnce 
+                  ?<div className={style.life_lines2} onClick={() => {setisFifty(true);setisFiftyUsedOnce(true)}}><img src={life_lines2} alt='life lines'/></div>
+                  :console.log('ITS EQUAL TO TRUE')
+          }
+                  </>
+                )
             
         }
         else if(progress === 7){
