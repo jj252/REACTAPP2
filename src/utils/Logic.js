@@ -7,23 +7,35 @@ import { Compare_Answer } from "./Navigation";
 import yellow from '../app/assets/img/yellow.png';
 import useTimer2 from "./Timer";
 import { useTimer } from "react-timer-hook";
-import life_lines from '../app/assets/img/lifelines.jpg'
-import life_lines2 from '../app/assets/img/lifelines2.jpg'
+import life_lines from '../app/assets/img/lifelines.jpg';
+import life_lines2 from '../app/assets/img/lifelines2.jpg';
+import useSound from 'use-sound';
+import mainTheme from '../app/assets/sounds/1001000 music.mp3';
 
-
+const BoopButton = () => {
+    const [play,stop] = useSound(mainTheme);
+  
+    return <button onClick={play}>Boop!</button>;
+  };
 
 
 const Logic = () =>{
+    const [play] = useSound(mainTheme);
+    //set the progress to use to cycle through the game
     const [progress,setProgress] = useState(1);
     const [questionNumber,setQuestionNumber] = useState(1);
     const [counter, setCounter] = useState(30);
     const [bank,setBank] = useState(0);
     const [isFifty,setisFifty] = useState(false);
     const [isFiftyUsedOnce,setisFiftyUsedOnce] = useState(false);
+    let soundPlayed = false;
+    
+        
+    
     
     
 
-    // Third Attempts
+    // Counter use effect hook
     useEffect(() => {
     const timer =
         counter > 0 && setInterval(() => setCounter(counter - 1), 1000);
@@ -31,7 +43,7 @@ const Logic = () =>{
             setProgress(0);
         }
         return () => {clearInterval(timer)};
-        }, [counter]);
+        }, );
 
         useEffect(() => {
             const timer = setTimeout(() => {
@@ -42,21 +54,25 @@ const Logic = () =>{
 
         if(progress === 0){
             console.log('THE PROGRESS IS AT 0');
+            
         }
 
         else if(progress === 1){
-        
+        {play()}
         return(
         <>
+        
          <Questions prop={questionNumber}/>
+        
           {!isFifty 
           ?(
           <>
+          
           <Button className={style.option1} color="info" onClick={() => {setQuestionNumber(2); setProgress(2);setCounter(30);setBank(100);} }>A</Button>,
           <Button className={style.option2} color="info" onClick={() => setProgress(0) }>B</Button>,
           <Button className={style.option3} color="info" onClick={() => setProgress(0) }>C</Button>,
           <Button className={style.option4} color="info" onClick={() => setProgress(0) }>D</Button>
-          
+          <button onClick={play}>Boop!</button>;
           </>
           )
           :(
@@ -81,7 +97,10 @@ const Logic = () =>{
         
         }
         else if(progress === 2){
+            if (soundPlayed === false){
             
+            soundPlayed = true;
+            }
             return(
                 <>
                  <Questions prop={questionNumber}/>
