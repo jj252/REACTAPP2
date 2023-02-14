@@ -27,7 +27,7 @@ const Logic = () =>{
     const [progress,setProgress] = useState(1);
     const [questionNumber,setQuestionNumber] = useState(1);
     const [counter, setCounter] = useState(30);
-    const [bank,setBank] = useState(0);
+    const [bank,setBank] = useState(100);
     const [isFifty,setisFifty] = useState(false);
     const [isFiftyUsedOnce,setisFiftyUsedOnce] = useState(false);
     const [askTheHost,setaskTheHost] = useState(false);
@@ -43,7 +43,33 @@ const Logic = () =>{
         console.log('ANSWERS:',ans);
         if(ans === question_new[the_progress].ans){
             
+            console.log('$$$$$$$$$',bank);
+            console.log('!!!!!!!!!',the_progress);
             setQuestionNumber2(the_progress +1);
+            setCounter(30);
+
+            if(the_progress === 1 ){
+                console.log('I\'M IN!!!');
+                setBank(100);
+            }
+            else if(the_progress === 2 ){
+                setBank(200);
+                console.log('I\'M IN!!!');
+            }
+            else if(the_progress === 3 ){
+                setBank(300);
+                console.log('I\'M IN!!!');
+            }
+            else if(the_progress === 4 ){
+                setBank(500);
+                console.log('I\'M IN!!!');
+            }
+            else if(the_progress === 5 ){
+                setBank(1000);
+                console.log('I\'M IN!!!');
+            }
+
+            
             console.log('WE\'VE GOT A MATCH');
         }
     }
@@ -90,7 +116,7 @@ const Logic = () =>{
           ?(
           <>
           
-          <Button className={style.option1} color="info" onClick={() => {getAnswers('a',questionNumber2,);setCounter(30);setBank(100);} }>A</Button>,
+          <Button className={style.option1} color="info" onClick={() => {getAnswers('a',questionNumber2,);} }>A</Button>,
           <Button className={style.option2} color="info" onClick={() => getAnswers('b',questionNumber2) }>B</Button>,
           <Button className={style.option3} color="info" onClick={() => getAnswers('c',questionNumber2) }>C</Button>,
           <Button className={style.option4} color="info" onClick={() => getAnswers('d',questionNumber2) }>D</Button>
