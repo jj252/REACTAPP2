@@ -24,6 +24,7 @@ import AnimatedText from '../src/utils/AnimatedText';
 import Questions from './utils/Questions';
 import Choices from './utils/Choices';
 import Logic from './utils/Logic';
+import game_default2 from '../src/app/assets/img/game_default2.jpg';
 
 
 
@@ -34,22 +35,18 @@ function App() {
   return(
   <>
   <Header />
-  <Container className={style.main_container}>
+  <Container>
     <Row>
-      <Col xs='12' sm='3' md='9' className={style.container}>
-          
-      </Col>
-      <Col xs='12' sm='9' md='3' className={style.money_bar}>
-          
+      
+      <Col className={style.main_container} xs='1' sm='5' md='12' >
+      <div><img src={game_default2}></img><Logic /></div>
+        
       </Col>
     </Row>
-    <Row>
-      <Col xs='1' sm='12' md='12' className={style.question_menu}>
-          <Logic />
-      </Col>
+    
       
     
-    </Row>
+    
   
   
   </Container>

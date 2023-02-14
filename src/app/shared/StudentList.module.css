@@ -43,7 +43,7 @@
 .my_counter{
     font-size: 200px;
     position:relative;
-    top:-600px;
+    top:-1000px;
     color: gold;
 }
 
@@ -67,9 +67,9 @@
     height:400px;
     }
 .container{
-    background-image: url("../assets/img/game_default.jpg");
+    background-image: url('../assets/img/game_default2.jpg');
     background-repeat: no-repeat;
-    background-size: 1000px;
+    background-size: 1500px;
     height: 900px;
 }
 .main_container{
@@ -147,64 +147,66 @@ top: -615px;
 color:antiquewhite;
 position: relative;
 left: 70px;
-top:25px;
+top:-335px;
 font-size: small;
+
 }
 .choice1
 {
 color:antiquewhite;
 position: relative;
-left: 130px;
-top:65px;
+left: 97px;
+top:-325px;
 }
 .choice2
 {
 color:antiquewhite;
 position: relative;
-left: 470px;
-top:15px;
+left: 377px;
+top:-370px;
 }
 .choice3
 {
-color:antiquewhite;
-position: relative;
-left: 130px;
-top:15px;
+    color:antiquewhite;
+    position: relative;
+    left: 97px;
+    top:-375px;
 }
 .choice4
 {
-color:antiquewhite;
-position: relative;
-left: 470px;
-top:-5px;
+    color:antiquewhite;
+    position: relative;
+    left: 380px;
+    top:-420px;
 }
 .option1
 {
 color:antiquewhite;
-position: absolute;
-left: 80px;
-top:80px;
+position: relative;
+left: 60px;
+top:-495px;
+
 }
 .option2
 {
     color:antiquewhite;
-position: absolute;
-left: 420px;
-top:80px;
+    position: relative;
+    left: 300px;
+    top:-495px;
 }
 .option3
 {
     color:antiquewhite;
-position: absolute;
-left: 80px;
-top:125px;
+    position: relative;
+    left: -17px;
+    top:-453px;
 }
 .option4
 {
     color:antiquewhite;
-    position: absolute;
-    left: 420px;
-    top:125px;
+    position: relative;
+    left: 222px;
+    top:-453px;
 }
 .col{
 margin-left: 650px;

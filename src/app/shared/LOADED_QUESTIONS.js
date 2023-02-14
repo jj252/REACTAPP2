@@ -18,7 +18,7 @@ export const LOADED_QUESTIONS = [
     {
         id: 0,
         name: 'Question2',
-        question: 'Which is the only American Football team to go a whole season undefeated, including the Super Bowl?',
+        question: 'Which is the only American Football team to go a whole season undefeated?',
         option1: '1989 Sanfrancisco 49ers',
         option2: '1985 Chicago Bears',
         option3: '1972 Miami Dolphins',
