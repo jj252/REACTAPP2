@@ -1,19 +1,22 @@
 import style from '../app/shared/StudentList.module.css';
 import { SelectQuestion } from './Navigation';
 
-const Questions = (my_question,isFifty) =>{
+
+
+const Questions = (my_question) =>{
+    //console.log('CHECK THESE OUT BABY',prop.prop2);
     
-    const test1 = my_question;
-    console.log('THIS IS THE VALUE OF TEST1:',test1.prop);
-    const questions = SelectQuestion(test1.prop);
+    const questions = my_question;
+    const questions_increment = my_question.prop2;
+    console.log('CHECK THESE OUT BABY',questions_increment)
     console.log(questions.name);
     return (
     <>
-    <div className={style.question}>{questions.question}</div>
-    <div className={style.choice1}>{questions.option1}</div>,
-    <div className={style.choice2}>{questions.option2}</div>,
-    <div className={style.choice3}>{questions.option3}</div>
-    <div className={style.choice4}>{questions.option4}</div>
+    <div className={style.question}>{questions.prop[questions_increment].question}</div>,
+    <div className={style.choice1}>{questions.prop[questions_increment].option1}</div>,
+    <div className={style.choice2}>{questions.prop[questions_increment].option2}</div>,
+    <div className={style.choice3}>{questions.prop[questions_increment].option3}</div>,
+    <div className={style.choice4}>{questions.prop[questions_increment].option4}</div>
     
     </>
     )

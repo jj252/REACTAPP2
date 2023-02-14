@@ -13,9 +13,14 @@ import useSound from 'use-sound';
 import mainTheme from '../app/assets/sounds/1001000 music.mp3';
 import finishedMusic from '../app/assets/sounds/main.mp3';
 import the_host from '../app/assets/img/Ask_the_Host.jpg';
+import { SelectAllQuestions } from './Navigation';
+import { SelectQuestion } from './Navigation';
 
 const Logic = () =>{
     
+    const question_new = SelectAllQuestions();
+    console.log('THEEEEEEESE',question_new[0].question);
+
     //set the progress to use to cycle through the game
     const [progress,setProgress] = useState(1);
     const [questionNumber,setQuestionNumber] = useState(1);
@@ -26,6 +31,7 @@ const Logic = () =>{
     const [askTheHost,setaskTheHost] = useState(false);
     const [askTheHost1,setaskTheHost1] = useState(false);
     
+    const [questionNumber2,setQuestionNumber2] = useState(2);
     //responsible for playing the main theme song
     const [play2, {stop}] = useSound(mainTheme);
     
@@ -67,7 +73,7 @@ const Logic = () =>{
         {play2()}
         return(
         <>
-        <Questions prop={questionNumber}/>
+        <Questions prop={question_new} prop2={questionNumber2}/>
         
           {!isFifty 
           ?(
