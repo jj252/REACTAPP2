@@ -19,6 +19,8 @@ import { SelectQuestion } from './Navigation';
 const Logic = () =>{
     
     const question_new = SelectAllQuestions();
+
+    
     console.log('THEEEEEEESE',question_new[0].question);
 
     //set the progress to use to cycle through the game
@@ -31,11 +33,20 @@ const Logic = () =>{
     const [askTheHost,setaskTheHost] = useState(false);
     const [askTheHost1,setaskTheHost1] = useState(false);
     
-    const [questionNumber2,setQuestionNumber2] = useState(2);
+    const [questionNumber2,setQuestionNumber2] = useState(1);
     //responsible for playing the main theme song
     const [play2, {stop}] = useSound(mainTheme);
     
-    
+    const getAnswers = (ans,the_progress) => {
+        
+        console.log('QUESTION_NEW ANSWERS:',question_new[the_progress].ans);
+        console.log('ANSWERS:',ans);
+        if(ans === question_new[the_progress].ans){
+            
+            setQuestionNumber2(the_progress +1);
+            console.log('WE\'VE GOT A MATCH');
+        }
+    }
 
     //Responsible for setting up the timer if the timer is at 0 the game ends
     useEffect(() => {
@@ -79,10 +90,10 @@ const Logic = () =>{
           ?(
           <>
           
-          <Button className={style.option1} color="info" onClick={() => {setQuestionNumber(2); setProgress(2);setCounter(30);setBank(100);} }>A</Button>,
-          <Button className={style.option2} color="info" onClick={() => setProgress(0) }>B</Button>,
-          <Button className={style.option3} color="info" onClick={() => setProgress(0) }>C</Button>,
-          <Button className={style.option4} color="info" onClick={() => setProgress(0) }>D</Button>
+          <Button className={style.option1} color="info" onClick={() => {getAnswers('a',questionNumber2,);setCounter(30);setBank(100);} }>A</Button>,
+          <Button className={style.option2} color="info" onClick={() => getAnswers('b',questionNumber2) }>B</Button>,
+          <Button className={style.option3} color="info" onClick={() => getAnswers('c',questionNumber2) }>C</Button>,
+          <Button className={style.option4} color="info" onClick={() => getAnswers('d',questionNumber2) }>D</Button>
           
           </>
           )
@@ -110,7 +121,7 @@ const Logic = () =>{
         }
         //Loads the second set of questions and answers
         else if(progress === 2){
-           
+            console.log('I\'M IN THE WRONG FUNCTION');
             return(
                 <>
                  <Questions prop={questionNumber}/>

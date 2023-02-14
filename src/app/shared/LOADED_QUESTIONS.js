@@ -12,7 +12,8 @@ export const LOADED_QUESTIONS = [
         option2: 'Lion',
         option3: 'Jaguar',
         option4: 'Borneo Bay Cat',
-        correct: 'Tiger'
+        correct: 'Tiger',
+        ans: 'a'
     },
     {
         id: 0,
@@ -22,7 +23,8 @@ export const LOADED_QUESTIONS = [
         option2: '1985 Chicago Bears',
         option3: '1972 Miami Dolphins',
         option4: '2007 New England Patriots',
-        correct: '1972 Miami Dolphins'
+        correct: '1972 Miami Dolphins',
+        ans: 'c'
     },
     {
         id: 0,
@@ -32,7 +34,8 @@ export const LOADED_QUESTIONS = [
         option2: 'Germany,France,Austria',
         option3: 'Germany,Italy,Austria,',
         option4: 'USA,Canada,Mexico',
-        correct: 'Germany,Italy, and Japan'
+        correct: 'Germany,Italy, and Japan',
+        ans: 'a'
     },
     {
         id: 0,
@@ -42,7 +45,8 @@ export const LOADED_QUESTIONS = [
         option2: 'A and W',
         option3: 'McDonalds',
         option4: 'Dennies',
-        correct: 'McDonalds'
+        correct: 'McDonalds',
+        ans: 'c'
     },
     {
         id: 0,
@@ -52,7 +56,8 @@ export const LOADED_QUESTIONS = [
         option2: 'Martini',
         option3: 'White Wine',
         option4: 'Beer',
-        correct: 'Martini'
+        correct: 'Martini',
+        ans: 'b'
     },
     {
         id: 0,
@@ -62,6 +67,7 @@ export const LOADED_QUESTIONS = [
         option2: 'Saturday Night Live',
         option3: 'David Letterman',
         option4: 'The Tonight Show',
-        correct: 'The Tonight Show'
+        correct: 'The Tonight Show',
+        ans: 'd'
     }
 ];
