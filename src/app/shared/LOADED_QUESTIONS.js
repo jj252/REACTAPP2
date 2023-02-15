@@ -16,7 +16,7 @@ export const LOADED_QUESTIONS = [
         ans: 'a'
     },
     {
-        id: 0,
+        id: 1,
         name: 'Question2',
         question: 'Which is the only American Football team to go a whole season undefeated?',
         option1: '1989 Sanfrancisco 49ers',
@@ -24,10 +24,11 @@ export const LOADED_QUESTIONS = [
         option3: '1972 Miami Dolphins',
         option4: '2007 New England Patriots',
         correct: '1972 Miami Dolphins',
-        ans: 'c'
+        ans: 'c',
+        fifty:'2007 New England Patriots'
     },
     {
-        id: 0,
+        id: 2,
         name: 'Question3',
         question: 'What countries made up the original Axis powers in World War II?',
         option1: 'Germany,Italy, and Japan',
@@ -35,10 +36,11 @@ export const LOADED_QUESTIONS = [
         option3: 'Germany,Italy,Austria,',
         option4: 'USA,Canada,Mexico',
         correct: 'Germany,Italy, and Japan',
-        ans: 'a'
+        ans: 'a',
+        fifty:'Germany,France,Austria'
     },
     {
-        id: 0,
+        id: 3,
         name: 'Question4',
         question: 'Which restaurants mascot is a clown?',
         option1: 'Burger King',
@@ -46,10 +48,11 @@ export const LOADED_QUESTIONS = [
         option3: 'McDonalds',
         option4: 'Dennies',
         correct: 'McDonalds',
-        ans: 'c'
+        ans: 'c',
+        fifty:'Burger King'
     },
     {
-        id: 0,
+        id: 4,
         name: 'Question5',
         question: 'What is James Bond\'s preferred drink of choice',
         option1: 'Vodca',
@@ -57,10 +60,11 @@ export const LOADED_QUESTIONS = [
         option3: 'White Wine',
         option4: 'Beer',
         correct: 'Martini',
-        ans: 'b'
+        ans: 'b',
+        fifty:'White Wine'
     },
     {
-        id: 0,
+        id: 5,
         name: 'Question6',
         question: 'When Jack Nicholson improvised \“Here’s Johnny\!\” in The Shining, he was referring to what TV show\?',
         option1: 'Johnny Carson',
@@ -68,6 +72,7 @@ export const LOADED_QUESTIONS = [
         option3: 'David Letterman',
         option4: 'The Tonight Show',
         correct: 'The Tonight Show',
-        ans: 'd'
+        ans: 'd',
+        fifty:'Saturday Night Live'
     }
 ];
