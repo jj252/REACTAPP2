@@ -15,13 +15,15 @@ import finishedMusic from '../app/assets/sounds/main.mp3';
 import the_host from '../app/assets/img/Ask_the_Host.jpg';
 import { SelectAllQuestions } from './Navigation';
 import { SelectQuestion } from './Navigation';
+import Questions2 from "./Questions2";
+import { AnswersA,AnswersB,AnswersC,AnswersD } from "./Answers";
 
 const Logic = () =>{
     
     const question_new = SelectAllQuestions();
 
     
-    console.log('THEEEEEEESE',question_new[0].question);
+    
 
     //set the progress to use to cycle through the game
     const [progress,setProgress] = useState(1);
@@ -34,13 +36,15 @@ const Logic = () =>{
     const [askTheHost1,setaskTheHost1] = useState(false);
     
     const [questionNumber2,setQuestionNumber2] = useState(1);
+    console.log('THEEEEEEESE',question_new[questionNumber2].fifty);
+    console.log(questionNumber2);
     //responsible for playing the main theme song
     const [play2, {stop}] = useSound(mainTheme);
     
     const getAnswers = (ans,the_progress) => {
         
         
-    if(ans === question_new[the_progress].ans){
+        if(ans === question_new[the_progress].ans){
             
             
             setQuestionNumber2(the_progress +1);
@@ -65,6 +69,9 @@ const Logic = () =>{
             else if(the_progress === 5 ){
                 setBank(1000);
                 console.log('I\'M IN!!!');
+            }
+            else{
+                setProgress(0);
             }
 
             
@@ -105,43 +112,59 @@ const Logic = () =>{
         }
         //When progress is set to 1 the first question is loaded
         else if(progress === 1){
+
+            if(!isFifty){
         //{play2()}
-        return(
-        <>
-        <Questions prop={question_new} prop2={questionNumber2} prop3={isFifty}/>
-        
-          {!isFifty 
-          ?(
-          <>
-          
-          <Button className={style.option1} color="info" onClick={() => {getAnswers('a',questionNumber2,);} }>A</Button>,
-          <Button className={style.option2} color="info" onClick={() => getAnswers('b',questionNumber2) }>B</Button>,
-          <Button className={style.option3} color="info" onClick={() => getAnswers('c',questionNumber2) }>C</Button>,
-          <Button className={style.option4} color="info" onClick={() => getAnswers('d',questionNumber2) }>D</Button>
-          
-          <Button onClick={() => setisFifty(true)}> THIS IS MY BUTTON</Button>
-          </>
-          )
-          :(
-          
-          <>
-          <Button className={style.option1} color="info" onClick={() => {setQuestionNumber(2); setProgress(2);setCounter(30);setBank(100);} }>A</Button>,
-          <Button className={style.option2} color="info" onClick={() => setProgress(0) }>B</Button>
-          </>
-          
-          )
-          }
-          <Button className={style.yellow} color='warning'></Button>
-          <div className={style.my_counter}>{counter}</div>
-          <div className={style.bankCheck}>Money Earned ${bank}.00</div>
-          
-          {!isFiftyUsedOnce 
-          ?<div className={style.life_lines2} onClick={() => {setisFifty(true);setisFiftyUsedOnce(true)}}><img src={life_lines2} alt='life lines'/></div>
-          :console.log('ITS EQUAL TO TRUE')
-          }
-          
-          </>
-        )
+                return(
+                <>
+                <Button className={style.questionButton} color="info" ><Questions2 prop={question_new} prop2={questionNumber2} /></Button>,
+                <Button onClick={() => {getAnswers('a',questionNumber2,);} }className={style.answerButtonA} color="info" ><AnswersA prop={question_new} prop2={questionNumber2} /></Button>
+                <Button onClick={() => getAnswers('b',questionNumber2) } className={style.answerButtonB} color="info" ><AnswersB prop={question_new} prop2={questionNumber2} /></Button>
+                <Button onClick={() => getAnswers('c',questionNumber2) } className={style.answerButtonC} color="info" ><AnswersC prop={question_new} prop2={questionNumber2} /></Button>
+                <Button onClick={() => getAnswers('d',questionNumber2) } className={style.answerButtonD} color="info" ><AnswersD prop={question_new} prop2={questionNumber2} /></Button>
+                <Button onClick={() => setisFifty(true)}> THIS IS MY BUTTON</Button>
+                </>
+                )
+            }
+            else if(isFifty){
+                
+
+                if(question_new[questionNumber2].option1 === question_new[questionNumber2].correct  ){
+                    return (
+                    <>
+                    <Button onClick={() => {getAnswers('a',questionNumber2,);} }className={style.answerButtonA} color="info" ><AnswersA prop={question_new} prop2={questionNumber2} /></Button>,
+                    <Button onClick={() => {getAnswers('b',questionNumber2,);} }className={style.answerButtonB} color="info" ><AnswersB prop={question_new} prop2={questionNumber2} /></Button>
+                    </>
+                    )
+                }
+                else if(question_new[questionNumber2].option2 === question_new[questionNumber2].correct ){
+                    return (
+                        <>
+                        <Button onClick={() => {getAnswers('b',questionNumber2,);} }className={style.answerButtonB} color="info" ><AnswersA prop={question_new} prop2={questionNumber2} /></Button>,
+                        <Button onClick={() => {getAnswers('d',questionNumber2,);} }className={style.answerButtonD} color="info" ><AnswersB prop={question_new} prop2={questionNumber2} /></Button>
+                        </>
+                        )
+                }
+                else if(question_new[questionNumber2].option3 === question_new[questionNumber2].correct ){
+                    return (
+                        <>
+                        <Button onClick={() => {getAnswers('c',questionNumber2,);} }className={style.answerButtonC} color="info" ><AnswersC prop={question_new} prop2={questionNumber2} /></Button>,
+                        <Button onClick={() => {getAnswers('a',questionNumber2,);} }className={style.answerButtonA} color="info" ><AnswersA prop={question_new} prop2={questionNumber2} /></Button>
+                        </>
+                        )
+                }
+                else if(question_new[questionNumber2].option4 === question_new[questionNumber2].correct ){
+                    return (
+                        <>
+                        <Button onClick={() => {getAnswers('d',questionNumber2,);} }className={style.answerButtonD} color="info" ><AnswersD prop={question_new} prop2={questionNumber2} /></Button>,
+                        <Button onClick={() => {getAnswers('b',questionNumber2,);} }className={style.answerButtonB} color="info" ><AnswersB prop={question_new} prop2={questionNumber2} /></Button>
+                        </>
+                        )
+                }
+                
+                }
+
+                
         
         }
         //Loads the second set of questions and answers

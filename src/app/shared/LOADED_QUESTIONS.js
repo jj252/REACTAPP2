@@ -25,7 +25,7 @@ export const LOADED_QUESTIONS = [
         option4: '2007 New England Patriots',
         correct: '1972 Miami Dolphins',
         ans: 'c',
-        fifty:'2007 New England Patriots'
+        fifty:'1989 Sanfrancisco 49ers'
     },
     {
         id: 2,

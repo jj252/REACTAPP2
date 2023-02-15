@@ -46,19 +46,19 @@ const Questions = (my_question) =>{
             }
 
             {questions.prop[questions_increment].option1 === questions.prop[questions_increment].fifty
-            ?<div  className={style.choice1x}>{questions.prop[questions_increment].option1}</div>
+            ?<div  className={style.choice1}>{questions.prop[questions_increment].option1}</div>
             :console.log('I\'M IN')
             }
             {questions.prop[questions_increment].option2 === questions.prop[questions_increment].fifty
-            ?<div  className={style.choice2x}>{questions.prop[questions_increment].option2}</div>
+            ?<div  className={style.choice2}>{questions.prop[questions_increment].option2}</div>
             :console.log('I\'M IN')
             }
             {questions.prop[questions_increment].option3 === questions.prop[questions_increment].fifty
-            ?<div  className={style.choice3x}>{questions.prop[questions_increment].option3}</div>
+            ?<div  className={style.choice3}>{questions.prop[questions_increment].option3}</div>
             :console.log('I\'M IN')
             }
             {questions.prop[questions_increment].option4 === questions.prop[questions_increment].fifty
-            ?<div  className={style.choice4x}>{questions.prop[questions_increment].option4}</div>
+            ?<div  className={style.choice4}>{questions.prop[questions_increment].option4}</div>
             :console.log('I\'M IN')
             }
 

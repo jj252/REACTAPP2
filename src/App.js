@@ -25,6 +25,7 @@ import Questions from './utils/Questions';
 import Choices from './utils/Choices';
 import Logic from './utils/Logic';
 import game_default2 from '../src/app/assets/img/game_default2.jpg';
+import game_default3 from '../src/app/assets/img/game_default3.jpg';
 
 
 
@@ -39,7 +40,7 @@ function App() {
     <Row>
       
       <Col className={style.main_container} xs='1' sm='5' md='12' >
-      <div><img src={game_default2}></img><Logic /></div>
+      <div><img src={game_default3}></img><Logic /></div>
         
       </Col>
     </Row>
