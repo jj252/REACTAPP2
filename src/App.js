@@ -34,7 +34,7 @@ function App() {
   
   return(
   <>
-  <Header />
+  
   <Container>
     <Row>
       

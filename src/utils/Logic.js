@@ -118,6 +118,7 @@ const Logic = () =>{
           <Button className={style.option2} color="info" onClick={() => getAnswers('b',questionNumber2) }>B</Button>,
           <Button className={style.option3} color="info" onClick={() => getAnswers('c',questionNumber2) }>C</Button>,
           <Button className={style.option4} color="info" onClick={() => getAnswers('d',questionNumber2) }>D</Button>
+          
           <Button onClick={() => setisFifty(true)}> THIS IS MY BUTTON</Button>
           </>
           )
