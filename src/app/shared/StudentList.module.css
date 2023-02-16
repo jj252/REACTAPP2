@@ -76,10 +76,12 @@
     height: inherit;
     }
 .my_counter{
-    font-size: 200px;
+    font-size: 150px;
     position:absolute;
     top:-50px;
+    left:150px;
     color: gold;
+    width:100%
 }
 
 .life_lines{

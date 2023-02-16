@@ -123,6 +123,7 @@ const Logic = () =>{
                 <Button onClick={() => getAnswers('c',questionNumber2) } className={style.answerButtonC} color="info" ><AnswersC prop={question_new} prop2={questionNumber2} /></Button>
                 <Button onClick={() => getAnswers('d',questionNumber2) } className={style.answerButtonD} color="info" ><AnswersD prop={question_new} prop2={questionNumber2} /></Button>
                 <Button onClick={() => setisFifty(true)}> THIS IS MY BUTTON</Button>
+                <div className = {style.my_counter}>{counter} </div>
                 </>
                 )
             }
