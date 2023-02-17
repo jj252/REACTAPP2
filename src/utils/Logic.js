@@ -51,7 +51,7 @@ const Logic = () =>{
     
     const [counter, setCounter] = useState(30);
     //set up the amount of money the user earned
-    const [bank,setBank] = useState(100);
+    const [bank,setBank] = useState(0);
     //set up if the lifeline fifty fifty is turned on
     const [isFifty,setisFifty] = useState(false);
     const [isFiftyUsedOnce,setisFiftyUsedOnce] = useState(false);
@@ -150,11 +150,11 @@ const Logic = () =>{
                 <Button onClick={() => {getAnswers('b',questionNumber2);setPlaySound(true); }} className={style.answerButtonB} color="info" ><AnswersB prop={question_new} prop2={questionNumber2} /></Button>
                 <Button onClick={() => {getAnswers('c',questionNumber2);setPlaySound(true);} } className={style.answerButtonC} color="info" ><AnswersC prop={question_new} prop2={questionNumber2} /></Button>
                 <Button onClick={() => {getAnswers('d',questionNumber2);setPlaySound(true);} } className={style.answerButtonD} color="info" ><AnswersD prop={question_new} prop2={questionNumber2} /></Button>
-                <Button onClick={() => setisFifty(true)}> THIS IS MY BUTTON</Button>
+                <Button className = {style.mybutton} onClick={() => setisFifty(true)}> THIS IS MY BUTTON</Button>
                 <div className = {style.my_counter}>{counter} </div>
                 <div className = {style.bankCheck}>${bank} </div>
-                <button ref={divEl} style={basicBtn}></button>
-                <TheSideBar prop={bank} prop2={questionNumber2}/>
+                
+                <div className={style.sideBar}><TheSideBar prop={bank} prop2={questionNumber2}/></div>
                 
                 
                 </>

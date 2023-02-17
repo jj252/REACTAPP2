@@ -102,9 +102,19 @@
 }
 
 .sideBar{
+    position: absolute;
+    top: 50px;
+    right: 550px;
     width: 200px;
-    height:400px;
+    height:50%;
+    
     }
+
+.sideBar2{
+    position: absolute;
+    background-color: darkblue;
+    }
+
 .container{
     background-image: url('../assets/img/game_default2.jpg');
     background-repeat: no-repeat;
