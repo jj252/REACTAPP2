@@ -9,7 +9,7 @@ import mainTheme from '../app/assets/sounds/1001000 music.mp3';
 import two_thousand from '../app/assets/sounds/200032000.mp3';
 import corrent_Ans from '../app/assets/sounds/correct answer.mp3';
 import { SelectAllQuestions } from './Navigation';
-
+import wrong_Ans from '../app/assets/sounds/wrong answer.mp3';
 import Questions2 from "./Questions2";
 import { AnswersA,AnswersB,AnswersC,AnswersD } from "./Answers";
 
@@ -56,9 +56,7 @@ const Logic = () =>{
         buttonD.current.style.background = 'blue';
     }
 
-    //const [play2, {stop}] = useSound(mainTheme);
-    //const [play3, {stop2}] = useSound(two_thousand);
-
+    //sounds used to play in the game
     const [play2, { stop }] = useSound(mainTheme, {
         volume: 0.5,
        });
@@ -66,6 +64,9 @@ const Logic = () =>{
         volume: 0.5,
        });
        const [play4, { stop3 }] = useSound(corrent_Ans, {
+        volume: 0.5,
+       });
+       const [play5, { stop4 }] = useSound(wrong_Ans, {
         volume: 0.5,
        });
 
@@ -96,8 +97,6 @@ const Logic = () =>{
                 play4();
                 
               }, 3000);
-
-            
 
             if(the_progress === 1 ){
                 console.log(buttonA.current);
@@ -152,13 +151,33 @@ const Logic = () =>{
                   }, 1000);
                 setBank(2000);
                 
-            }
-            else{
-                setProgress(0);
-            }
-
+            }  
+        }
+        else{
             
-            console.log('WE\'VE GOT A MATCH');
+            if (ans === 'a' && ans != question_new[the_progress].ans){
+                buttonA.current.style.background = 'red';
+                console.log('WE\'VE GOT A MATCHA');
+                
+            }
+            else if (ans === 'b' && ans != question_new[the_progress].ans){
+                buttonB.current.style.background = 'red';
+                console.log('WE\'VE GOT A MATCHB');
+            }
+            if (ans === 'c' && ans != question_new[the_progress].ans){
+                buttonC.current.style.background = 'red';
+                console.log('WE\'VE GOT A MATCHC');
+                
+            }
+            if (ans === 'd' && ans != question_new[the_progress].ans){
+                buttonD.current.style.background = 'red';
+                console.log('WE\'VE GOT A MATCHD');
+            }
+            const timer3 = setTimeout(() => {
+                play5();
+                setProgress(0);
+                
+              }, 3000);
         }
     }
 
@@ -195,9 +214,9 @@ const Logic = () =>{
             {stop();}
             return(
             <>
-            <div className={style.game_over}>Game Over</div>
-            <div className={style.regular_text}>Thank you for playing Millionaire demo version</div>
-            <div className={style.regular_text2}>Your current Funds are ${bank}.00</div>
+                <animated.div style={animatedStyle} className={style.game_over}>Game Over</animated.div>
+                <animated.div style={animatedStyle} className={style.regular_text}>Thank you for playing Millionaire demo version</animated.div>
+                <animated.div style={animatedStyle} className={style.regular_text2}>Your current Funds are ${bank}.00</animated.div>
             </>
             )
             

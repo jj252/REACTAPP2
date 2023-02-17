@@ -29,11 +29,11 @@
 }
 
 .game_over{
-    font-size: 130px;
+    font-size: 110px;
     color: firebrick;
     position:absolute;
-    top: -300px;
-    left: 70px
+    top: 100px;
+    left: 170px
 }
 .questionButton{
     border: 2px solid black;
@@ -61,7 +61,7 @@
     font-size:larger;
     color:chartreuse;
     position:absolute;
-    top: -130px;
+    top: 300px;
     left: 220px;
     font-weight: bold;
 }
@@ -70,7 +70,7 @@
     font-size:larger;
     color:yellow;
     position:absolute;
-    top: -100px;
+    top: 280px;
     left: 270px;
     font-weight: bold;
 }
