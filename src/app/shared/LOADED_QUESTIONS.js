@@ -25,7 +25,7 @@ export const LOADED_QUESTIONS = [
         option4: '2007 New England Patriots',
         correct: '1972 Miami Dolphins',
         ans: 'c',
-        fifty:'1989 Sanfrancisco 49ers'
+        host:'1972 Miami Dolphins'
     },
     {
         id: 2,
@@ -37,7 +37,7 @@ export const LOADED_QUESTIONS = [
         option4: 'USA,Canada,Mexico',
         correct: 'Germany,Italy, and Japan',
         ans: 'a',
-        fifty:'Germany,France,Austria'
+        host:'Germany,Italy, and Japan'
     },
     {
         id: 3,
@@ -49,7 +49,7 @@ export const LOADED_QUESTIONS = [
         option4: 'Dennies',
         correct: 'McDonalds',
         ans: 'c',
-        fifty:'Burger King'
+        host:'McDonalds'
     },
     {
         id: 4,
@@ -61,7 +61,7 @@ export const LOADED_QUESTIONS = [
         option4: 'Beer',
         correct: 'Martini',
         ans: 'b',
-        fifty:'White Wine'
+        host:'Martini'
     },
     {
         id: 5,
@@ -73,7 +73,7 @@ export const LOADED_QUESTIONS = [
         option4: 'The Tonight Show',
         correct: 'The Tonight Show',
         ans: 'd',
-        fifty:'Saturday Night Live'
+        host:'The Tonight Show'
     },
     {
         id: 6,
@@ -85,6 +85,70 @@ export const LOADED_QUESTIONS = [
         option4: 'Rhianna',
         correct: 'Lady Gaga',
         ans: 'b',
-        fifty:'Lady Gaga'
+        host:'Pink'
+    },
+    {
+        id: 7,
+        name: 'Question7',
+        question: 'What animal is known to be \‘man\’s best friend\’?',
+        option1: 'Cat',
+        option2: 'Wolf',
+        option3: 'Dog',
+        option4: 'Bird',
+        correct: 'Dog',
+        ans: 'c',
+        host:'Dog'
+    }
+    ,
+    {
+        id: 8,
+        name: 'Question8',
+        question: 'Area 51 is located in which US state?',
+        option1: 'Nevada',
+        option2: 'Califonia',
+        option3: 'Indiana',
+        option4: 'Florida',
+        correct: 'Nevada',
+        ans: 'a',
+        host:'Nevada'
+    }
+    ,
+    {
+        id: 9,
+        name: 'Question9',
+        question: 'Generally, which component of a computer draws the most power?',
+        option1: 'Ram',
+        option2: 'Sound Card',
+        option3: 'Mother Board',
+        option4: 'Video Card',
+        correct: 'Video Card',
+        ans: 'd',
+        host:'Video Card'
+    }
+    ,
+    {
+        id: 10,
+        name: 'Question10',
+        question: 'In 1969 Richard Cawston Made A Documentary For The BBC About Which Famous Family?',
+        option1: 'The Cosbeys',
+        option2: 'The Royal Family',
+        option3: 'The Jeffersons',
+        option4: 'The Star Trek Family',
+        correct: 'The Royal Family',
+        ans: 'b',
+        host:'The Royal Family'
+    }
+    ,
+    {
+        id: 11,
+        name: 'Question11',
+        question: 'In Which City Was John F Kennedy Assassinated?',
+        option1: 'New York',
+        option2: 'Chicago',
+        option3: 'Miami',
+        option4: 'Dallas',
+        correct: 'Dallas',
+        ans: 'd',
+        host:'Dallas'
     }
 ];

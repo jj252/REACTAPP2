@@ -12,6 +12,7 @@ import { SelectAllQuestions } from './Navigation';
 import wrong_Ans from '../app/assets/sounds/wrong answer.mp3';
 import Questions2 from "./Questions2";
 import { AnswersA,AnswersB,AnswersC,AnswersD } from "./Answers";
+import getSerious from '../app/assets/sounds/lets play.mp3';
 
 import TheSideBar from '../utils/TheSideBar';
 import fifty_Fifty from '../app/assets/img/ll_fifty.jpg';
@@ -33,6 +34,7 @@ const Logic = () =>{
     const [askTheHost1,setaskTheHost1] = useState(false);
     const [playSound,setPlaySound] = useState(false);
     const [playSound2,setPlaySound2] = useState(false);
+    const [playSound3,setPlaySound3] = useState(false);
     const [questionNumber2,setQuestionNumber2] = useState(1);
     
     //the animated style for most the divs fading them
@@ -69,6 +71,9 @@ const Logic = () =>{
        const [play5, { stop4 }] = useSound(wrong_Ans, {
         volume: 0.5,
        });
+       const [play6, { stop5 }] = useSound(getSerious, {
+        volume: 0.5,
+       });
 
     //responsible for what to do when an answer is selected
     const getAnswers = (ans,the_progress) => {
@@ -91,9 +96,8 @@ const Logic = () =>{
                 buttonD.current.style.background = 'green';
             }
             const timer = setTimeout(() => {
-                console.log('This will run after 1 second!')
                 setQuestionNumber2(the_progress +1);
-                setCounter(30);
+                
                 play4();
                 
               }, 3000);
@@ -105,7 +109,7 @@ const Logic = () =>{
                     resetButtons()
                     
                   }, 1000);
-                
+                setCounter(30);
                 setBank(100);
             }
             else if(the_progress === 2 ){
@@ -113,7 +117,7 @@ const Logic = () =>{
                     resetButtons()
                     
                   }, 1000);
-                
+                setCounter(30);
                 setBank(200);
                 
             }
@@ -123,7 +127,7 @@ const Logic = () =>{
                     
                   }, 1000);
                 
-                
+                setCounter(30);
                 setBank(300);
                 
             }
@@ -133,7 +137,7 @@ const Logic = () =>{
                     
                   }, 1000);
                 setBank(500);
-                
+                setCounter(30);
             }
             else if(the_progress === 5 ){
                 const timer2 = setTimeout(() => {
@@ -142,7 +146,7 @@ const Logic = () =>{
                   }, 1000);
                 setBank(1000);
                 setPlaySound2(true);
-                
+                setCounter(30);
             }
             else if(the_progress === 6 ){
                 const timer2 = setTimeout(() => {
@@ -150,8 +154,40 @@ const Logic = () =>{
                     
                   }, 1000);
                 setBank(2000);
-                
-            }  
+                setCounter(30);
+            }
+            else if(the_progress === 7 ){
+                const timer2 = setTimeout(() => {
+                    resetButtons();
+                    
+                  }, 1000);
+                setBank(4000);
+                setCounter(30);
+            } 
+            else if(the_progress === 8 ){
+                const timer2 = setTimeout(() => {
+                    resetButtons();
+                    
+                  }, 1000);
+                setBank(8000);
+                setCounter(30);
+            } 
+            else if(the_progress === 9 ){
+                const timer2 = setTimeout(() => {
+                    resetButtons();
+                    
+                  }, 1000);
+                setBank(16000);
+                setCounter(30);
+            }
+            else if(the_progress === 10 ){
+                const timer2 = setTimeout(() => {
+                    resetButtons();
+                    setProgress(2);
+                }, 1000);
+                setBank(32000);
+                setCounter(30);
+            }
         }
         else{
             
@@ -206,6 +242,11 @@ const Logic = () =>{
             {stop();}
             play3();
             }, [playSound2]);
+
+            useEffect(() => {
+                {stop();}
+                play6();
+                }, [playSound3]);
 
         
 
@@ -287,6 +328,12 @@ const Logic = () =>{
 
                 
         
+        }
+        else if (progress === 2){
+            const timer2 = setTimeout(() => {
+                setPlaySound3(true);
+                setProgress(1);
+            }, 5000);
         }
         //Loads the second set of questions and answers
         
