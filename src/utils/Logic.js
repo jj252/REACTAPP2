@@ -6,8 +6,8 @@ import {useSpring,animated} from 'react-spring';
 import Selected_Choice from "./Selected_Choice";
 import useSound from 'use-sound';
 import mainTheme from '../app/assets/sounds/1001000 music.mp3';
-import two_thousand from '../app/assets/sounds/200032000.mp3'
-
+import two_thousand from '../app/assets/sounds/200032000.mp3';
+import corrent_Ans from '../app/assets/sounds/correct answer.mp3';
 import { SelectAllQuestions } from './Navigation';
 
 import Questions2 from "./Questions2";
@@ -42,13 +42,6 @@ const Logic = () =>{
         config:{ duration:1500 }
       })
 
-     
-
-      
-
-      
-    
-
     const buttonA = useRef(null);
     const buttonB = useRef(null);
     const buttonC = useRef(null);
@@ -70,6 +63,9 @@ const Logic = () =>{
         volume: 0.5,
        });
        const [play3, { stop2 }] = useSound(two_thousand, {
+        volume: 0.5,
+       });
+       const [play4, { stop3 }] = useSound(corrent_Ans, {
         volume: 0.5,
        });
 
@@ -97,6 +93,7 @@ const Logic = () =>{
                 console.log('This will run after 1 second!')
                 setQuestionNumber2(the_progress +1);
                 setCounter(30);
+                play4();
                 
               }, 3000);
 
