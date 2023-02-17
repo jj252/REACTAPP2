@@ -18,7 +18,7 @@ export const LOADED_QUESTIONS = [
     {
         id: 1,
         name: 'Question2',
-        question: 'Which is the only American Football team to go a whole season undefeated?',
+        question: 'Which is the only American Football team to go a whole season undefeated, including the Superbowl?',
         option1: '1989 Sanfrancisco 49ers',
         option2: '1985 Chicago Bears',
         option3: '1972 Miami Dolphins',
@@ -54,7 +54,7 @@ export const LOADED_QUESTIONS = [
     {
         id: 4,
         name: 'Question5',
-        question: 'What is James Bond\'s preferred drink of choice',
+        question: 'What is James Bond\'s preferred drink of choice?',
         option1: 'Vodca',
         option2: 'Martini',
         option3: 'White Wine',
@@ -74,5 +74,17 @@ export const LOADED_QUESTIONS = [
         correct: 'The Tonight Show',
         ans: 'd',
         fifty:'Saturday Night Live'
+    },
+    {
+        id: 6,
+        name: 'Question6',
+        question: 'Which singer’s real name is Stefani Joanne Angelina Germanotta?',
+        option1: 'Whitney Houston',
+        option2: 'Lady Gaga',
+        option3: 'Pink',
+        option4: 'Rhianna',
+        correct: 'Lady Gaga',
+        ans: 'b',
+        fifty:'Lady Gaga'
     }
 ];

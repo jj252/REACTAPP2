@@ -53,6 +53,10 @@ const TheSideBar = (cash_progress) =>{
         goingFor1000.current.style.background = 'yellow';
         goingFor500.current.style.background = 'transparent';
             }
+        else if(progress3 === 1000){
+        goingFor2000.current.style.background = 'yellow';
+        goingFor1000.current.style.background = 'transparent';
+                    }
     }
     
     return (
