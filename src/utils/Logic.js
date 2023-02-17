@@ -1,36 +1,23 @@
 import Questions from "./Questions";
 import style from '../app/shared/StudentList.module.css';
-import { Container, Row, Col, Button } from 'reactstrap';
+import {  Button } from 'reactstrap';
 import {createElement,useState,useEffect,useRef} from 'react';
-import { LOADED_QUESTIONS } from "../app/shared/LOADED_QUESTIONS";
-import { Compare_Answer } from "./Navigation";
-import yellow from '../app/assets/img/yellow.png';
-import useTimer2 from "./Timer";
-import { useTimer } from "react-timer-hook";
-import life_lines from '../app/assets/img/lifelines.jpg';
-import life_lines2 from '../app/assets/img/lifelines2.jpg';
+
+
 import useSound from 'use-sound';
 import mainTheme from '../app/assets/sounds/1001000 music.mp3';
-import finishedMusic from '../app/assets/sounds/main.mp3';
-import the_host from '../app/assets/img/Ask_the_Host.jpg';
+
 import { SelectAllQuestions } from './Navigation';
-import { SelectQuestion } from './Navigation';
+
 import Questions2 from "./Questions2";
 import { AnswersA,AnswersB,AnswersC,AnswersD } from "./Answers";
-import counterGif from '../app/assets/img/countdown.gif';
-import menusPng from '../app/assets/img/menus.png'
+
 import TheSideBar from '../utils/TheSideBar';
+import fifty_Fifty from '../app/assets/img/ll_fifty.jpg';
 
 const Logic = () =>{
 
-    const setSideBar = (position) =>{
-        console.log('THIS IS RUN');
-        let current_pos = position - 100;
-        
-        divEl.current.style.top = current_pos.toString() + 'px';
-        
-            //divEl.current.style.top = '-500px';
-    }
+    
 
     let basicBtn = {
         position:'absolute',
@@ -59,7 +46,7 @@ const Logic = () =>{
     const [askTheHost1,setaskTheHost1] = useState(false);
     const [playSound,setPlaySound] = useState(false);
     const [questionNumber2,setQuestionNumber2] = useState(1);
-    const divEl = useRef(null);
+    
 
     
     
@@ -146,14 +133,16 @@ const Logic = () =>{
                 return(
                 <>
                 <Button className={style.questionButton} color="info" ><Questions2 prop={question_new} prop2={questionNumber2} /></Button>,
-                <Button onClick={() => {getAnswers('a',questionNumber2,);setPlaySound(true);setSideBar(490);} }className={style.answerButtonA} color="info" ><AnswersA prop={question_new} prop2={questionNumber2} /></Button>
+                <Button onClick={() => {getAnswers('a',questionNumber2,);setPlaySound(true);} }className={style.answerButtonA} color="info" ><AnswersA prop={question_new} prop2={questionNumber2} /></Button>
                 <Button onClick={() => {getAnswers('b',questionNumber2);setPlaySound(true); }} className={style.answerButtonB} color="info" ><AnswersB prop={question_new} prop2={questionNumber2} /></Button>
                 <Button onClick={() => {getAnswers('c',questionNumber2);setPlaySound(true);} } className={style.answerButtonC} color="info" ><AnswersC prop={question_new} prop2={questionNumber2} /></Button>
                 <Button onClick={() => {getAnswers('d',questionNumber2);setPlaySound(true);} } className={style.answerButtonD} color="info" ><AnswersD prop={question_new} prop2={questionNumber2} /></Button>
-                <Button className = {style.mybutton} onClick={() => setisFifty(true)}> THIS IS MY BUTTON</Button>
+                {!isFiftyUsedOnce
+                ?<div className = {style.mybutton} onClick={() => {setisFifty(true);setisFiftyUsedOnce(true)}}><img src={fifty_Fifty}/></div>
+                :console.log('IT\'TS WORKING')
+                }
                 <div className = {style.my_counter}>{counter} </div>
                 <div className = {style.bankCheck}>${bank} </div>
-                
                 <div className={style.sideBar}><TheSideBar prop={bank} prop2={questionNumber2}/></div>
                 
                 

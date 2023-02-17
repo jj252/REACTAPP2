@@ -58,21 +58,21 @@ const TheSideBar = (cash_progress) =>{
     return (
         <>
           <div className={style.sideBar2}>       
-            <div ref={goingFor1000000} style={{background: 'transparent', color:'white'}}>$1,000,000</div>
+            <div ref={goingFor1000000} style={{background: 'transparent', color:'green'}}>$1,000,000</div>
             <div ref={goingFor500000} style={{background: 'transparent', color:'white'}}>$500,000</div>
             <div ref={goingFor250000} style={{background: 'transparent', color:'white'}}>$250,000</div>
             <div ref={goingFor125000} style={{background: 'transparent', color:'white'}}>$125,000</div>
             <div ref={goingFor64000} style={{background: 'transparent', color:'white'}}>$64,000</div>
-            <div ref={goingFor32000} style={{background: 'transparent', color:'white'}}>$32,000</div>
+            <div ref={goingFor32000} style={{background: 'transparent', color:'green'}}>$32,000</div>
             <div ref={goingFor16000} style={{background: 'transparent', color:'white'}}>$16,000</div>
             <div ref={goingFor8000} style={{background: 'transparent', color:'white'}}>$8,000</div>
             <div ref={goingFor4000} style={{background: 'transparent', color:'white'}}>$4,000</div>
             <div ref={goingFor2000} style={{background: 'transparent', color:'white'}}>$2,000</div>
-            <div ref={goingFor1000} style={{background: 'transparent', color:'white'}}>$1,000</div>
+            <div ref={goingFor1000} style={{background: 'transparent', color:'green'}}>$1,000</div>
             <div ref={goingFor500} style={{background: 'transparent', color:'white'}}>$500</div>
             <div ref={goingFor300} style={{background: 'transparent', color:'white'}}>$300</div>
             <div  ref={goingFor200} style={{background: 'transparent', color:'white'}}>$200</div>
-            <div ref={goingFor100} style={{background: 'transparent', color:'white'}}>$100</div>
+            <div ref={goingFor100} style={{background: 'transparent', color:'white',}}>$100</div>
             </div> 
             
             
