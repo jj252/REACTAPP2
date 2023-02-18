@@ -8,8 +8,6 @@ const Questions2 = (my_question) =>{
 
         const questions_increment = my_question.prop2;
         
-        
-        
         const questions = my_question;
 
         return (

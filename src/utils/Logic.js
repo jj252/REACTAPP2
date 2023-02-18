@@ -16,16 +16,24 @@ import getSerious from '../app/assets/sounds/lets play.mp3';
 import My_Modal from "./My_Modal";
 import TheSideBar from '../utils/TheSideBar';
 import fifty_Fifty from '../app/assets/img/ll_fifty.jpg';
+import { SelectQuestion } from "./Navigation";
 
 const Logic = () =>{
 
     let song = new Audio(two_thousand);
-    console.log('SOUND',song);
     
-    
+    let choose_question = Math.floor(Math.random() * 10) + 1;
 
+    let n = [];
+
+    n.push(choose_question);
+    
+    
     const question_new = SelectAllQuestions();
+    const question_new2 = SelectQuestion(choose_question);
 
+
+    
     //set the progress to use to cycle through the game
     const [progress,setProgress] = useState(1);
     
@@ -41,6 +49,8 @@ const Logic = () =>{
     const [playSound2,setPlaySound2] = useState(false);
     const [playSound3,setPlaySound3] = useState(false);
     const [questionNumber2,setQuestionNumber2] = useState(1);
+    const [game_State,set_game_State] = useState(1);
+    const [questionNumber3,setQuestionNumber3] = useState(Math.floor(Math.random() * 10) + 1);
     
     //the animated style for most the divs fading them
     const animatedStyle = useSpring({
@@ -81,24 +91,27 @@ const Logic = () =>{
        });
 
     //responsible for what to do when an answer is selected
-    const getAnswers = (ans,the_progress) => {
-        console.log('TWO THOUSAND $$$ THEME',two_thousand_theme);
+    const getAnswers = (ans,the_progress, state_of_game) => {
+        console.log('THE STATE OF THE GAME',state_of_game);
         if(ans === question_new[the_progress].ans){
             
             if (ans === 'a' && ans === question_new[the_progress].ans){
                 buttonA.current.style.background = 'green';
-                
+                state_of_game =1;
                 
             }
             else if (ans === 'b' && ans === question_new[the_progress].ans){
                 buttonB.current.style.background = 'green';
+                state_of_game =1;
             }
             if (ans === 'c' && ans === question_new[the_progress].ans){
                 buttonC.current.style.background = 'green';
+                state_of_game =1;
                 
             }
             if (ans === 'd' && ans === question_new[the_progress].ans){
                 buttonD.current.style.background = 'green';
+                state_of_game =1;
             }
             const timer = setTimeout(() => {
                 setQuestionNumber2(the_progress +1);
@@ -107,17 +120,16 @@ const Logic = () =>{
                 
               }, 3000);
 
-            if(the_progress === 1 ){
-                console.log(buttonA.current);
-
-                const timer2 = setTimeout(() => {
+            if(state_of_game === 1 ){
+                setQuestionNumber3(Math.floor(Math.random() * 10) + 1);
+                    const timer2 = setTimeout(() => {
                     resetButtons()
                     
                   }, 1000);
                 setCounter(30);
                 setBank(100);
             }
-            else if(the_progress === 2 ){
+            else if(state_of_game === 2 ){
                 const timer2 = setTimeout(() => {
                     resetButtons()
                     
@@ -126,7 +138,7 @@ const Logic = () =>{
                 setBank(200);
                 
             }
-            else if(the_progress === 3 ){
+            else if(state_of_game === 3 ){
                 const timer2 = setTimeout(() => {
                     resetButtons()
                     
@@ -136,7 +148,7 @@ const Logic = () =>{
                 setBank(300);
                 
             }
-            else if(the_progress === 4 ){
+            else if(state_of_game === 4 ){
                 const timer2 = setTimeout(() => {
                     resetButtons()
                     
@@ -144,7 +156,7 @@ const Logic = () =>{
                 setBank(500);
                 setCounter(30);
             }
-            else if(the_progress === 5 ){
+            else if(state_of_game === 5 ){
                 const timer2 = setTimeout(() => {
                     resetButtons()
                     
@@ -153,7 +165,7 @@ const Logic = () =>{
                 setPlaySound2(true);
                 setCounter(30);
             }
-            else if(the_progress === 6 ){
+            else if(state_of_game === 6 ){
                 const timer2 = setTimeout(() => {
                     resetButtons()
                     
@@ -161,7 +173,7 @@ const Logic = () =>{
                 setBank(2000);
                 setCounter(30);
             }
-            else if(the_progress === 7 ){
+            else if(state_of_game === 7 ){
                 const timer2 = setTimeout(() => {
                     resetButtons();
                     
@@ -169,7 +181,7 @@ const Logic = () =>{
                 setBank(4000);
                 setCounter(30);
             } 
-            else if(the_progress === 8 ){
+            else if(state_of_game === 8 ){
                 const timer2 = setTimeout(() => {
                     resetButtons();
                     
@@ -177,7 +189,7 @@ const Logic = () =>{
                 setBank(8000);
                 setCounter(30);
             } 
-            else if(the_progress === 9 ){
+            else if(state_of_game === 9 ){
                 const timer2 = setTimeout(() => {
                     resetButtons();
                     
@@ -185,7 +197,7 @@ const Logic = () =>{
                 setBank(16000);
                 setCounter(30);
             }
-            else if(the_progress === 10 ){
+            else if(state_of_game === 10 ){
                 const timer2 = setTimeout(() => {
                     resetButtons();
                     setProgress(2);
@@ -276,11 +288,11 @@ const Logic = () =>{
                 return(
                 <>
                 <animated.div style={animatedStyle}>
-                <Button className={style.questionButton} color="info" ><Questions2 prop={question_new} prop2={questionNumber2} /></Button>,
-                <button ref={buttonA} style={{background: 'blue', color:'white' }} onClick={() => {getAnswers('a',questionNumber2,);setPlaySound(true);} }className={style.answerButtonA} color="info" ><AnswersA prop={question_new} prop2={questionNumber2} /></button>
-                <button ref={buttonB} style={{background: 'blue', color:'white' }} onClick={() => {getAnswers('b',questionNumber2);setPlaySound(true); }} className={style.answerButtonB} color="info" ><AnswersB prop={question_new} prop2={questionNumber2} /></button>
-                <button ref={buttonC} style={{background: 'blue', color:'white' }} onClick={() => {getAnswers('c',questionNumber2);setPlaySound(true);} } className={style.answerButtonC} color="info" ><AnswersC prop={question_new} prop2={questionNumber2} /></button>
-                <button ref={buttonD} style={{background: 'blue', color:'white' }} onClick={() => {getAnswers('d',questionNumber2);setPlaySound(true);} } className={style.answerButtonD} color="info" ><AnswersD prop={question_new} prop2={questionNumber2} /></button>
+                <Button className={style.questionButton} color="info" ><Questions2 prop={question_new} prop2={questionNumber3} /></Button>,
+                <button ref={buttonA} style={{background: 'blue', color:'white' }} onClick={() => {getAnswers('a',questionNumber3,game_State);setPlaySound(true);} }className={style.answerButtonA} color="info" ><AnswersA prop={question_new} prop2={questionNumber3} /></button>
+                <button ref={buttonB} style={{background: 'blue', color:'white' }} onClick={() => {getAnswers('b',questionNumber3,game_State);setPlaySound(true); }} className={style.answerButtonB} color="info" ><AnswersB prop={question_new} prop2={questionNumber3} /></button>
+                <button ref={buttonC} style={{background: 'blue', color:'white' }} onClick={() => {getAnswers('c',questionNumber3,game_State);setPlaySound(true);} } className={style.answerButtonC} color="info" ><AnswersC prop={question_new} prop2={questionNumber3} /></button>
+                <button ref={buttonD} style={{background: 'blue', color:'white' }} onClick={() => {getAnswers('d',questionNumber3,game_State);setPlaySound(true);} } className={style.answerButtonD} color="info" ><AnswersD prop={question_new} prop2={questionNumber3} /></button>
                 </animated.div>
                 {!isFiftyUsedOnce
                 ?<animated.div style={animatedStyle} className = {style.mybutton} onClick={() => {setisFifty(true);setisFiftyUsedOnce(true)}}><img src={fifty_Fifty}/></animated.div>

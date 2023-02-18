@@ -5,7 +5,7 @@ import reduxWoodsImg from '../assets/img/redux-woods.jpg';
 
 export const LOADED_QUESTIONS = [
     {
-        id: 0,
+        id: 1,
         name: 'Question1',
         question: 'Which big cat is the largest',
         option1: 'Tiger',
@@ -13,7 +13,8 @@ export const LOADED_QUESTIONS = [
         option3: 'Jaguar',
         option4: 'Borneo Bay Cat',
         correct: 'Tiger',
-        ans: 'a'
+        ans: 'a',
+        host:'a'
     },
     {
         id: 1,
@@ -28,7 +29,7 @@ export const LOADED_QUESTIONS = [
         host:'1972 Miami Dolphins'
     },
     {
-        id: 2,
+        id: 1,
         name: 'Question3',
         question: 'What countries made up the original Axis powers in World War II?',
         option1: 'Germany,Italy, and Japan',
@@ -40,7 +41,7 @@ export const LOADED_QUESTIONS = [
         host:'Germany,Italy, and Japan'
     },
     {
-        id: 3,
+        id: 1,
         name: 'Question4',
         question: 'Which restaurants mascot is a clown?',
         option1: 'Burger King',
@@ -52,7 +53,7 @@ export const LOADED_QUESTIONS = [
         host:'McDonalds'
     },
     {
-        id: 4,
+        id: 1,
         name: 'Question5',
         question: 'What is James Bond\'s preferred drink of choice?',
         option1: 'Vodca',
@@ -64,7 +65,7 @@ export const LOADED_QUESTIONS = [
         host:'Martini'
     },
     {
-        id: 5,
+        id: 1,
         name: 'Question6',
         question: 'When Jack Nicholson improvised \“Here’s Johnny\!\” in The Shining, he was referring to what TV show\?',
         option1: 'Johnny Carson',
@@ -76,8 +77,8 @@ export const LOADED_QUESTIONS = [
         host:'The Tonight Show'
     },
     {
-        id: 6,
-        name: 'Question6',
+        id: 1,
+        name: 'Question7',
         question: 'Which singer’s real name is Stefani Joanne Angelina Germanotta?',
         option1: 'Whitney Houston',
         option2: 'Lady Gaga',
@@ -88,8 +89,8 @@ export const LOADED_QUESTIONS = [
         host:'Pink'
     },
     {
-        id: 7,
-        name: 'Question7',
+        id: 1,
+        name: 'Question8',
         question: 'What animal is known to be \‘man\’s best friend\’?',
         option1: 'Cat',
         option2: 'Wolf',
@@ -101,8 +102,8 @@ export const LOADED_QUESTIONS = [
     }
     ,
     {
-        id: 8,
-        name: 'Question8',
+        id: 1,
+        name: 'Question9',
         question: 'Area 51 is located in which US state?',
         option1: 'Nevada',
         option2: 'Califonia',
@@ -114,8 +115,8 @@ export const LOADED_QUESTIONS = [
     }
     ,
     {
-        id: 9,
-        name: 'Question9',
+        id: 1,
+        name: 'Question10',
         question: 'Generally, which component of a computer draws the most power?',
         option1: 'Ram',
         option2: 'Sound Card',
@@ -127,8 +128,8 @@ export const LOADED_QUESTIONS = [
     }
     ,
     {
-        id: 10,
-        name: 'Question10',
+        id: 1,
+        name: 'Question11',
         question: 'In 1969 Richard Cawston Made A Documentary For The BBC About Which Famous Family?',
         option1: 'The Cosbeys',
         option2: 'The Royal Family',
@@ -140,8 +141,8 @@ export const LOADED_QUESTIONS = [
     }
     ,
     {
-        id: 11,
-        name: 'Question11',
+        id: 1,
+        name: 'Question12',
         question: 'In Which City Was John F Kennedy Assassinated?',
         option1: 'New York',
         option2: 'Chicago',
