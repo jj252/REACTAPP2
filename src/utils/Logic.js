@@ -19,6 +19,11 @@ import fifty_Fifty from '../app/assets/img/ll_fifty.jpg';
 
 const Logic = () =>{
 
+    let song = new Audio(two_thousand);
+    console.log('SOUND',song);
+    
+    
+
     const question_new = SelectAllQuestions();
 
     //set the progress to use to cycle through the game
@@ -59,25 +64,25 @@ const Logic = () =>{
     }
 
     //sounds used to play in the game
-    const [play2, { stop }] = useSound(mainTheme, {
+    const [play_main_theme, { stop }] = useSound(mainTheme, {
         volume: 0.5,
        });
-       const [play3, { stop2 }] = useSound(two_thousand, {
+       const [two_thousand_theme, { sound }] = useSound(two_thousand, {
         volume: 0.5,
        });
-       const [play4, { stop3 }] = useSound(corrent_Ans, {
+       const [correct_ans, {stop3 }] = useSound(corrent_Ans, {
         volume: 0.5,
        });
-       const [play5, { stop4 }] = useSound(wrong_Ans, {
+       const [wrong_ans, { stop4 }] = useSound(wrong_Ans, {
         volume: 0.5,
        });
-       const [play6, { stop5 }] = useSound(getSerious, {
+       const [lets_go_theme, { stop5 }] = useSound(getSerious, {
         volume: 0.5,
        });
 
     //responsible for what to do when an answer is selected
     const getAnswers = (ans,the_progress) => {
-        
+        console.log('TWO THOUSAND $$$ THEME',two_thousand_theme);
         if(ans === question_new[the_progress].ans){
             
             if (ans === 'a' && ans === question_new[the_progress].ans){
@@ -98,7 +103,7 @@ const Logic = () =>{
             const timer = setTimeout(() => {
                 setQuestionNumber2(the_progress +1);
                 
-                play4();
+                correct_ans();
                 
               }, 3000);
 
@@ -210,7 +215,7 @@ const Logic = () =>{
                 console.log('WE\'VE GOT A MATCHD');
             }
             const timer3 = setTimeout(() => {
-                play5();
+                wrong_ans();
                 setProgress(0);
                 
               }, 3000);
@@ -235,24 +240,27 @@ const Logic = () =>{
         }, [isFifty]);
 
         useEffect(() => {
-            play2();
+            play_main_theme();
             }, [playSound]);
 
         useEffect(() => {
             {stop();}
-            play3();
+            song.play();
+            
             }, [playSound2]);
 
-            useEffect(() => {
-                {stop();}
-                play6();
-                }, [playSound3]);
+        useEffect(() => {
+            {stop();}
+            song.pause();
+            lets_go_theme();
+            }, [playSound3]);
 
         
 
         //When the game ends the progress is set to zero and the game ends
         if(progress === 0){
             {stop();}
+            {song.pause();}
             return(
             <>
                 <animated.div style={animatedStyle} className={style.game_over}>Game Over</animated.div>
@@ -330,10 +338,13 @@ const Logic = () =>{
         
         }
         else if (progress === 2){
+            
             const timer2 = setTimeout(() => {
+                
                 setPlaySound3(true);
                 setProgress(1);
             }, 5000);
+            
         }
         //Loads the second set of questions and answers
         
