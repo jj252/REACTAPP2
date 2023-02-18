@@ -13,7 +13,7 @@ import wrong_Ans from '../app/assets/sounds/wrong answer.mp3';
 import Questions2 from "./Questions2";
 import { AnswersA,AnswersB,AnswersC,AnswersD } from "./Answers";
 import getSerious from '../app/assets/sounds/lets play.mp3';
-
+import My_Modal from "./My_Modal";
 import TheSideBar from '../utils/TheSideBar';
 import fifty_Fifty from '../app/assets/img/ll_fifty.jpg';
 
@@ -263,9 +263,7 @@ const Logic = () =>{
             {song.pause();}
             return(
             <>
-                <animated.div style={animatedStyle} className={style.game_over}>Game Over</animated.div>
-                <animated.div style={animatedStyle} className={style.regular_text}>Thank you for playing Millionaire demo version</animated.div>
-                <animated.div style={animatedStyle} className={style.regular_text2}>Your current Funds are ${bank}.00</animated.div>
+                <div className={style.theModal}><My_Modal /></div>
             </>
             )
             
