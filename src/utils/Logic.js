@@ -55,6 +55,7 @@ const Logic = () =>{
     const [questionNumber2,setQuestionNumber2] = useState(1);
     const [game_State,set_game_State] = useState(1);
     const [questionNumber3,setQuestionNumber3] = useState(Math.floor(Math.random() * n.length));
+    const [numberUsed,setNumberUsed] = useState(false);
     
     //the animated style for most the divs fading them
     const animatedStyle = useSpring({
@@ -100,188 +101,106 @@ const Logic = () =>{
         if(ans === question_new[the_progress].ans){
             
             
-            if (ans === 'a' && ans === question_new[the_progress].ans){
+            if (ans === 'a' && ans === question_new[the_progress].ans  ){
                 buttonA.current.style.background = 'green';
                 
                 console.log('THE STATE OF THE GAME',buttonA.current);
-                correct_ans();
+                
             }
-            else if (ans === 'b' && ans === question_new[the_progress].ans){
+            else if (ans === 'b' && ans === question_new[the_progress].ans ){
                 buttonB.current.style.background = 'green';
                 
                 console.log('THE STATE OF THE GAME',buttonB.current);
-                correct_ans();
+                
             }
-            if (ans === 'c' && ans === question_new[the_progress].ans){
+            else if (ans === 'c' && ans === question_new[the_progress].ans ){
                 buttonC.current.style.background = 'green';
                 
                 console.log('THE STATE OF THE GAME',buttonC.current);
-                correct_ans();
+                
             }
-            if (ans === 'd' && ans === question_new[the_progress].ans){
+            else if (ans === 'd' && ans === question_new[the_progress].ans ){
                 buttonD.current.style.background = 'green';
                 
-                correct_ans();
+                
                 console.log('THE STATE OF THE GAME',buttonD.current);
             }
             const timer = setTimeout(() => {
-                //setQuestionNumber2(the_progress +1);
-                //the correct answer song plays
-                set_game_State(game_State +1);
+                
+                
+                resetButtons();
 
+                for (var i = 0; i < t.current.length; i++) {
+                    if (t.current[i] === questionNumber3){
+                        console.log('WE DO HAVE A MATCH',t.current[i],'QUESTION NUMBER',questionNumber3);
+                        setQuestionNumber3(Math.floor(Math.random() * 10) + 1);
+                        
+                    }
+                    else{
+                        console.log('WE DONT HAVE A MATCH',t.current[i],'QUESTION NUMBER',questionNumber3);
+                        correct_ans();
+                        setCounter(30);
+                        set_game_State(game_State +1);
+                        setQuestionNumber3(Math.floor(Math.random() * 10) + 1);
+                        
+                    }
+                    //Do something
+                }
                 
               }, 3000);
 
             if(state_of_game === 1 ){
-                const timer2 = setTimeout(() => {
-                    resetButtons();
-
-                    for (var i = 0; i < t.current.length; i++) {
-                        console.log('THE FOR LOOP',t.current[i]);
-                        if(t.current[i] != questionNumber3){
-                            console.log('WE DONT HAVE A MATCH');
-                            setQuestionNumber3(Math.floor(Math.random() * 10) + 1);
-                        }
-                        else{
-                            console.log('WE HAVE A MATCH');
-                        }
-                        //Do something
-                    }
-                        
-                        
-                        
-                    }, 1000);
-                setCounter(30);
                 setBank(100);
             }
             else if(state_of_game === 2 ){
-                
-                const timer2 = setTimeout(() => {
-                    resetButtons();
-                    
-                    for (var i = 0; i < t.current.length; i++) {
-                        console.log('THE FOR LOOP',t.current[i]);
-                        if(!t.current[i] != questionNumber3){
-                            console.log('WE DONT HAVE A MATCH');
-                            setQuestionNumber3(Math.floor(Math.random() * 10) + 1);
-                        }
-                        else{
-                            console.log('WE HAVE A MATCH');
-                        }
-                        //Do something
-                    }
-                        
-                  }, 1000);
-                setCounter(30);
+              
                 setBank(200);
                 
             }
             else if(state_of_game === 3 ){
                 
-                const timer2 = setTimeout(() => {
-                    resetButtons();
-                    for (var i = 0; i < t.current.length; i++) {
-                        console.log('THE FOR LOOP',t.current[i]);
-                        if(!t.current[i] != questionNumber3){
-                            console.log('WE DONT HAVE A MATCH');
-                            setQuestionNumber3(Math.floor(Math.random() * 10) + 1);
-                        }
-                        else{
-                            console.log('WE HAVE A MATCH');
-                        }
-                        //Do something
-                    }
-                    
-                  }, 1000);
                 
-                setCounter(30);
-                setBank(300);
+                setBank(200);
+                
                 
             }
             else if(state_of_game === 4 ){
                 
-                const timer2 = setTimeout(() => {
-                    resetButtons();
-                    for (var i = 0; i < t.current.length; i++) {
-                        console.log('THE FOR LOOP',t.current[i]);
-                        if(!t.current[i] != questionNumber3){
-                            console.log('WE DONT HAVE A MATCH');
-                            setQuestionNumber3(Math.floor(Math.random() * 10) + 1);
-                        }
-                        else{
-                            console.log('WE HAVE A MATCH');
-                        }
-                        //Do something
-                    }
-                        
-                  }, 1000);
                 setBank(500);
-                setCounter(30);
+                
             }
             else if(state_of_game === 5 ){
                 
-                const timer2 = setTimeout(() => {
-                    resetButtons();
-                    
-                        setQuestionNumber3(Math.floor(Math.random() * 10) + 1);
-                        
-                  }, 1000);
+                
                 setBank(1000);
                 setPlaySound2(true);
-                setCounter(30);
+                
             }
             else if(state_of_game === 6 ){
                 
-                const timer2 = setTimeout(() => {
-                    resetButtons();
-                    
-                        setQuestionNumber3(Math.floor(Math.random() * 10) + 1);
-                        
-                  }, 1000);
                 setBank(2000);
-                setCounter(30);
+                
             }
             else if(state_of_game === 7 ){
                 
-                const timer2 = setTimeout(() => {
-                    resetButtons();
-                    
-                        setQuestionNumber3(Math.floor(Math.random() * 10) + 1);
-                        
-                  }, 1000);
                 setBank(4000);
-                setCounter(30);
+                
             } 
             else if(state_of_game === 8 ){
                 
-                const timer2 = setTimeout(() => {
-                    resetButtons();
-                    
-                        setQuestionNumber3(Math.floor(Math.random() * 10) + 1);
-                        
-                  }, 1000);
                 setBank(8000);
-                setCounter(30);
+                
             } 
             else if(state_of_game === 9 ){
                 
-                const timer2 = setTimeout(() => {
-                    resetButtons();
-                    
-                        setQuestionNumber3(Math.floor(Math.random() * 10) + 1);
-                        
-                  }, 1000);
+                
                 setBank(16000);
-                setCounter(30);
+                
             }
             else if(state_of_game === 10 ){
                 
-                const timer2 = setTimeout(() => {
-                    resetButtons();
-                    setProgress(2);
-                }, 1000);
                 setBank(32000);
-                setCounter(30);
+                
             }
         }
         else{
