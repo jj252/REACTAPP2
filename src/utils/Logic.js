@@ -19,8 +19,12 @@ import fifty_Fifty from '../app/assets/img/ll_fifty.jpg';
 import welcome from '../app/assets/img/welcome.jpg';
 import beep from '../app/assets/sounds/beep.mp3';
 import interface_click from '../app/assets/sounds/interface.mp3';
+import Theme_64 from '../app/assets/sounds/64000 music.mp3';
+
 
 const Logic = () =>{
+
+    
 
     
 
@@ -66,8 +70,7 @@ const Logic = () =>{
         }
     }
     //on mouse over button functionality
-    const mouseOver = (event,button) =>{
-        console.log('STYLE', event.target);
+    const mouseOver = (event) =>{
         event.target.style.backgroundColor = 'orange';
         event.target.style.border = 'orange';
         beep_sound();    
@@ -76,9 +79,6 @@ const Logic = () =>{
     const mouseOut = (event) =>{
         event.target.style.backgroundColor = 'blue';
     }
-
-    let song = new Audio(two_thousand);
-    
 
     function shuffle(array) {
         let currentIndex = array.length,  randomIndex;
@@ -137,6 +137,11 @@ const Logic = () =>{
     }
 
     //sounds used to play in the game
+
+    
+    const song = useRef(new Audio(two_thousand));
+    const Theme_64_Grand = useRef(new Audio(Theme_64));
+
     const [play_main_theme, { stop }] = useSound(mainTheme, {
         volume: 0.5,
        });
@@ -158,6 +163,7 @@ const Logic = () =>{
        const [ui_click, { stop7 }] = useSound(interface_click, {
         volume: 0.5,
        });
+       
        
     //responsible for what to do when an answer is selected
     const getAnswers = (ans,the_progress,event) => {
@@ -191,6 +197,7 @@ const Logic = () =>{
 
             if(the_progress === 1 ){
                 setBank(100);
+                
             }
             else if(the_progress === 2 ){
                 setBank(200);
@@ -227,6 +234,7 @@ const Logic = () =>{
             }
             else if(the_progress === 10 ){
                 setBank(32000);
+                setProgress(2);
             }
         }
         else{
@@ -284,13 +292,13 @@ const Logic = () =>{
 
         useEffect(() => {
             {stop();}
-            song.play();
+            song.current.play();
             
             }, [playSound2]);
 
         useEffect(() => {
             {stop();}
-            song.pause();
+            
             lets_go_theme();
             }, [playSound3]);
 
@@ -299,7 +307,7 @@ const Logic = () =>{
         //When the game ends the progress is set to zero and the game ends
         if(progress === 0){
             {stop();}
-            {song.pause();}
+            
             return(
             <>
                 <div className={style.theModal}><My_Modal /></div>
@@ -377,18 +385,18 @@ const Logic = () =>{
         else if (progress === 2){
             
             const timer2 = setTimeout(() => {
-                
+                song.current.pause();
                 setPlaySound3(true);
                 setProgress(1);
             }, 5000);
-            
+            Theme_64_Grand.current.play();
         }
 
         else if (progress === 3){
             return(
             <>
             <animated.div style={animatedStyle} className={style.introduction}><img style={{width:'85%', height:'540px' }} src={welcome}/></animated.div>,
-            <button style={{background: 'blue', color:'white' }} className={style.introduction2} onClick={() => setProgress(1)}>START GAME</button>
+            <button style={{background: 'blue', color:'white' }} className={style.introduction2} onMouseOver={(event) => mouseOver(event)} onClick={() => setProgress(1)} onMouseOut={(event) => mouseOut(event)}>START GAME</button>
             </>
             )
         }
