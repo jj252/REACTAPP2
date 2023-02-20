@@ -18,26 +18,19 @@ import TheSideBar from '../utils/TheSideBar';
 import fifty_Fifty from '../app/assets/img/ll_fifty.jpg';
 
 const Logic = () =>{
+    //responsible for changing the background color of the category when mouse over
+    const mouseOver = (event) =>{
+        console.log('STYLE', event.target.style);
+        event.target.style.backgroundColor = 'orange';
+        event.target.style.border = 'orange';
+        
+    }
+    const mouseOut = (event) =>{
+        event.target.style.backgroundColor = 'blue';
+    }
 
     let song = new Audio(two_thousand);
-    console.log('SOUND',song);
-    let arr2 = [];
-    //const question_new = SelectAllQuestions();
-
-    useEffect(() => {
-            console.log('THE DID RUN ONCE');
-        }, []);
-
     
-    //console.log('QUESTIONSNEW',question_new[0])
-    console.log('ARR2',arr2)
-
-    const array = [];
-    //const shuffledArray = question_new.sort((a, b) => 0.5 - Math.random());
-    //console.log('SHUFFLED ARRAY',shuffledArray);
-    //array.push(question_new);
-    console.log('ARRAY',array[0])
-
     const question_new2 = SelectAllQuestions();
 
     function shuffle(array) {
@@ -120,24 +113,27 @@ const Logic = () =>{
        });
 
     //responsible for what to do when an answer is selected
-    const getAnswers = (ans,the_progress) => {
+    const getAnswers = (ans,the_progress,event) => {
         console.log('TWO THOUSAND $$$ THEME',two_thousand_theme);
         if(ans === question_new[the_progress].ans){
             
             if (ans === 'a' && ans === question_new[the_progress].ans){
                 buttonA.current.style.background = 'green';
-                
+                event.target.style.backgroundColor = 'green';
                 
             }
             else if (ans === 'b' && ans === question_new[the_progress].ans){
                 buttonB.current.style.background = 'green';
+                event.target.style.backgroundColor = 'green';
             }
             if (ans === 'c' && ans === question_new[the_progress].ans){
                 buttonC.current.style.background = 'green';
+                event.target.style.backgroundColor = 'green';
                 
             }
             if (ans === 'd' && ans === question_new[the_progress].ans){
                 buttonD.current.style.background = 'green';
+                event.target.style.backgroundColor = 'green';
             }
             const timer = setTimeout(() => {
                 setQuestionNumber2(the_progress +1);
@@ -237,20 +233,24 @@ const Logic = () =>{
             
             if (ans === 'a' && ans != question_new[the_progress].ans){
                 buttonA.current.style.background = 'red';
+                event.target.style.backgroundColor = 'red';
                 console.log('WE\'VE GOT A MATCHA');
                 
             }
             else if (ans === 'b' && ans != question_new[the_progress].ans){
                 buttonB.current.style.background = 'red';
+                event.target.style.backgroundColor = 'red';
                 console.log('WE\'VE GOT A MATCHB');
             }
             if (ans === 'c' && ans != question_new[the_progress].ans){
                 buttonC.current.style.background = 'red';
+                event.target.style.backgroundColor = 'red';
                 console.log('WE\'VE GOT A MATCHC');
                 
             }
             if (ans === 'd' && ans != question_new[the_progress].ans){
                 buttonD.current.style.background = 'red';
+                event.target.style.backgroundColor = 'red';
                 console.log('WE\'VE GOT A MATCHD');
             }
             const timer3 = setTimeout(() => {
@@ -316,10 +316,10 @@ const Logic = () =>{
                 <>
                 <animated.div style={animatedStyle}>
                 <Button className={style.questionButton} color="info" ><Questions2 prop={question_new} prop2={questionNumber2} /></Button>,
-                <button ref={buttonA} style={{background: 'blue', color:'white' }} onClick={() => {getAnswers('a',questionNumber2,);setPlaySound(true);} }className={style.answerButtonA} color="info" ><AnswersA prop={question_new} prop2={questionNumber2} /></button>
-                <button ref={buttonB} style={{background: 'blue', color:'white' }} onClick={() => {getAnswers('b',questionNumber2);setPlaySound(true); }} className={style.answerButtonB} color="info" ><AnswersB prop={question_new} prop2={questionNumber2} /></button>
-                <button ref={buttonC} style={{background: 'blue', color:'white' }} onClick={() => {getAnswers('c',questionNumber2);setPlaySound(true);} } className={style.answerButtonC} color="info" ><AnswersC prop={question_new} prop2={questionNumber2} /></button>
-                <button ref={buttonD} style={{background: 'blue', color:'white' }} onClick={() => {getAnswers('d',questionNumber2);setPlaySound(true);} } className={style.answerButtonD} color="info" ><AnswersD prop={question_new} prop2={questionNumber2} /></button>
+                <button ref={buttonA} style={{background: 'blue', color:'white' }} onMouseOver={(event) => {mouseOver(event)}} onMouseOut={(event) => {mouseOut(event)}} onClick={(event) => {getAnswers('a',questionNumber2,event);setPlaySound(true);} } className={style.answerButtonA} color="info" ><AnswersA prop={question_new} prop2={questionNumber2} /></button>
+                <button ref={buttonB} style={{background: 'blue', color:'white' }} onMouseOver={(event) => {mouseOver(event)}} onMouseOut={(event) => {mouseOut(event)}} onClick={(event) => {getAnswers('b',questionNumber2,event);setPlaySound(true); }} className={style.answerButtonB} color="info" ><AnswersB prop={question_new} prop2={questionNumber2} /></button>
+                <button ref={buttonC} style={{background: 'blue', color:'white' }} onMouseOver={(event) => {mouseOver(event)}} onMouseOut={(event) => {mouseOut(event)}} onClick={(event) => {getAnswers('c',questionNumber2,event);setPlaySound(true);} } className={style.answerButtonC} color="info" ><AnswersC prop={question_new} prop2={questionNumber2} /></button>
+                <button ref={buttonD} style={{background: 'blue', color:'white' }} onMouseOver={(event) => {mouseOver(event)}} onMouseOut={(event) => {mouseOut(event)}} onClick={(event) => {getAnswers('d',questionNumber2,event);setPlaySound(true);} } className={style.answerButtonD} color="info" ><AnswersD prop={question_new} prop2={questionNumber2} /></button>
                 </animated.div>
                 {!isFiftyUsedOnce
                 ?<animated.div style={animatedStyle} className = {style.mybutton} onClick={() => {setisFifty(true);setisFiftyUsedOnce(true)}}><img src={fifty_Fifty}/></animated.div>

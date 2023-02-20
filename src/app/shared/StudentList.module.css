@@ -6,6 +6,7 @@
     opacity: 0.8;
     font-weight: bold;
 }
+
 .answerButtonB{
     position:absolute;
     top: 400px;
@@ -118,7 +119,7 @@
 
 .sideBar2{
     position: absolute;
-    background-color: darkblue;
+    background-color:black;
     }
 
 .container{
@@ -130,51 +131,6 @@
 .main_container{
     background-color: black;
     height: 50%;
-}
-.yellow{
-    background-Color: transparent;
-    position:absolute;
-    margin-left: 760px;
-    top:145px;
-    width: 200px;
-    height: 25px;
-    opacity: 0.2;
-}
-.yellowb{
-    background-Color: transparent;
-    position:absolute;
-    margin-left: 760px;
-    top:111px;
-    width: 200px;
-    height: 25px;
-    opacity: 0.2;
-}
-.yellowc{
-    background-Color: transparent;
-    position:absolute;
-    margin-left: 760px;
-    top:77px;
-    width: 200px;
-    height: 25px;
-    opacity: 0.2;
-}
-.yellowd{
-    background-Color: transparent;
-    position:absolute;
-    margin-left: 760px;
-    top:43px;
-    width: 200px;
-    height: 25px;
-    opacity: 0.2;
-}
-.yellowe{
-    background-Color: transparent;
-    position:absolute;
-    margin-left: 760px;
-    top:9px;
-    width: 200px;
-    height: 25px;
-    opacity: 0.2;
 }
 
 .money_bar{
@@ -213,8 +169,8 @@ color:antiquewhite;
 position: absolute;
 left: 60px;
 top:-695px;
-
 }
+
 .option2
 {
     color:antiquewhite;
