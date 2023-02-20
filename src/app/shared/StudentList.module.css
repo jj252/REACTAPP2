@@ -1,3 +1,22 @@
+@keyframes rollout {
+    0% {
+      transform: translateY(-100px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes rollout2 {
+    0% {
+      transform: rotate(30deg);
+    }
+    100% {
+      transform: rotate(0);
+    }
+  }
+  
+
 .answerButtonA{
     position:absolute;
     top: 400px;
@@ -5,6 +24,7 @@
     width: 15%;
     opacity: 0.8;
     font-weight: bold;
+    animation: .4s rollout2;
 }
 
 .answerButtonB{
@@ -13,6 +33,7 @@
     left: 470px;
     width: 15%;
     opacity: 0.8;
+    animation: .4s rollout2;
 }
 .answerButtonC{
     position:absolute;
@@ -20,6 +41,7 @@
     left: 170px;
     width: 15%;
     opacity: 0.8;
+    animation: .4s rollout2;
 }
 .answerButtonD{
     position:absolute;
@@ -27,6 +49,7 @@
     left: 470px;
     width: 15%;
     opacity: 0.8;
+    animation: .4s rollout2;
 }
 
 .introduction{
@@ -65,6 +88,7 @@
     left: 170px;
     width: 35%;
     opacity: 0.8;
+    animation: .4s rollout;
 }
 
 .theHost{

@@ -17,6 +17,8 @@ import My_Modal from "./My_Modal";
 import TheSideBar from '../utils/TheSideBar';
 import fifty_Fifty from '../app/assets/img/ll_fifty.jpg';
 import welcome from '../app/assets/img/welcome.jpg';
+import beep from '../app/assets/sounds/beep.mp3';
+import interface_click from '../app/assets/sounds/interface.mp3';
 
 const Logic = () =>{
 
@@ -68,7 +70,7 @@ const Logic = () =>{
         console.log('STYLE', event.target);
         event.target.style.backgroundColor = 'orange';
         event.target.style.border = 'orange';
-              
+        beep_sound();    
     }
     //on mouse out button functionality
     const mouseOut = (event) =>{
@@ -150,10 +152,16 @@ const Logic = () =>{
        const [lets_go_theme, { stop5 }] = useSound(getSerious, {
         volume: 0.5,
        });
-
+       const [beep_sound, { stop6 }] = useSound(beep, {
+        volume: 0.5,
+       });
+       const [ui_click, { stop7 }] = useSound(interface_click, {
+        volume: 0.5,
+       });
+       
     //responsible for what to do when an answer is selected
     const getAnswers = (ans,the_progress,event) => {
-        console.log('TWO THOUSAND $$$ THEME',two_thousand_theme);
+        ui_click();
         if(ans === question_new[the_progress].ans){
             
             if (ans === 'a' && ans === question_new[the_progress].ans){
@@ -307,14 +315,14 @@ const Logic = () =>{
                 return(
                 <>
                 <animated.div style={animatedStyle}>
-                <Button className={style.questionButton} color="info" ><Questions2 prop={question_new} prop2={questionNumber2} /></Button>,
-                <button ref={buttonA} style={{background: 'blue', color:'white' }} onMouseOver={(event) => {mouseOver(event); button_Manage('a')}} onMouseOut={(event) => {mouseOut(event); button_Manage('a1')}} onClick={(event) => {getAnswers('a',questionNumber2,event);setPlaySound(true);} } className={style.answerButtonA} color="info" ><AnswersA prop={question_new} prop2={questionNumber2} /></button>
+                <Button className={style.questionButton} color="info" > <Questions2 prop={question_new} prop2={questionNumber2} /> </Button>,
+                <button ref={buttonA} style={{background: 'blue', color:'white', }} onMouseOver={(event) => {mouseOver(event); button_Manage('a')}} onMouseOut={(event) => {mouseOut(event); button_Manage('a1')}} onClick={(event) => {getAnswers('a',questionNumber2,event);setPlaySound(true);} } className={style.answerButtonA} color="info" ><AnswersA prop={question_new} prop2={questionNumber2} /></button>
                 <button ref={buttonB} style={{background: 'blue', color:'white' }} onMouseOver={(event) => {mouseOver(event); button_Manage('b')}} onMouseOut={(event) => {mouseOut(event); button_Manage('b1')}} onClick={(event) => {getAnswers('b',questionNumber2,event);setPlaySound(true); }} className={style.answerButtonB} color="info" ><AnswersB prop={question_new} prop2={questionNumber2} /></button>
                 <button ref={buttonC} style={{background: 'blue', color:'white' }} onMouseOver={(event) => {mouseOver(event); button_Manage('c')}} onMouseOut={(event) => {mouseOut(event); button_Manage('c1')}} onClick={(event) => {getAnswers('c',questionNumber2,event);setPlaySound(true);} } className={style.answerButtonC} color="info" ><AnswersC prop={question_new} prop2={questionNumber2} /></button>
                 <button ref={buttonD} style={{background: 'blue', color:'white' }} onMouseOver={(event) => {mouseOver(event); button_Manage('d')}} onMouseOut={(event) => {mouseOut(event); button_Manage('d1')}} onClick={(event) => {getAnswers('d',questionNumber2,event);setPlaySound(true);} } className={style.answerButtonD} color="info" ><AnswersD prop={question_new} prop2={questionNumber2} /></button>
                 </animated.div>
                 {!isFiftyUsedOnce
-                ?<animated.div style={animatedStyle} className = {style.mybutton} onClick={() => {setisFifty(true);setisFiftyUsedOnce(true)}}><img src={fifty_Fifty}/></animated.div>
+                ?<animated.div style={animatedStyle} className = {style.mybutton} onClick={() => {setisFifty(true);setisFiftyUsedOnce(true);}}><img src={fifty_Fifty}/></animated.div>
                 :console.log('IT\'TS WORKING')
                 }
                 <animated.div style={animatedStyle} className = {style.my_counter}>{counter}</animated.div>
