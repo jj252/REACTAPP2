@@ -21,10 +21,22 @@ const Logic = () =>{
 
     let song = new Audio(two_thousand);
     console.log('SOUND',song);
-    
-    
+    let arr2 = [];
+    //const question_new = SelectAllQuestions();
 
-    const question_new = SelectAllQuestions();
+    useEffect(() => {
+            console.log('THE DID RUN ONCE');
+        }, []);
+
+    
+    //console.log('QUESTIONSNEW',question_new[0])
+    console.log('ARR2',arr2)
+
+    const array = [];
+    //const shuffledArray = question_new.sort((a, b) => 0.5 - Math.random());
+    //console.log('SHUFFLED ARRAY',shuffledArray);
+    //array.push(question_new);
+    console.log('ARRAY',array[0])
 
     const question_new2 = SelectAllQuestions();
 
@@ -47,7 +59,7 @@ const Logic = () =>{
       }
       
       // Used like so
-      var arr = [];
+      const arr = [];
       const randomized_questions = shuffle(question_new2);
       arr.push(randomized_questions);
       console.log('THIS IS THE VALUE FOR ARR',arr);
@@ -67,6 +79,7 @@ const Logic = () =>{
     const [playSound2,setPlaySound2] = useState(false);
     const [playSound3,setPlaySound3] = useState(false);
     const [questionNumber2,setQuestionNumber2] = useState(1);
+    const [question_new,setQuestion_new] = useState(SelectAllQuestions());
     
     //the animated style for most the divs fading them
     const animatedStyle = useSpring({
