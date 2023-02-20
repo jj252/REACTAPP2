@@ -26,6 +26,32 @@ const Logic = () =>{
 
     const question_new = SelectAllQuestions();
 
+    const question_new2 = SelectAllQuestions();
+
+    function shuffle(array) {
+        let currentIndex = array.length,  randomIndex;
+      
+        // While there remain elements to shuffle.
+        while (currentIndex != 0) {
+      
+          // Pick a remaining element.
+          randomIndex = Math.floor(Math.random() * currentIndex);
+          currentIndex--;
+      
+          // And swap it with the current element.
+          [array[currentIndex], array[randomIndex]] = [
+            array[randomIndex], array[currentIndex]];
+        }
+      
+        return array;
+      }
+      
+      // Used like so
+      var arr = [];
+      const randomized_questions = shuffle(question_new2);
+      arr.push(randomized_questions);
+      console.log('THIS IS THE VALUE FOR ARR',arr);
+
     //set the progress to use to cycle through the game
     const [progress,setProgress] = useState(1);
     
