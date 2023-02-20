@@ -175,96 +175,50 @@ const Logic = () =>{
             }
             const timer = setTimeout(() => {
                 setQuestionNumber2(the_progress +1);
-                
                 correct_ans();
-                
+                setCounter(60);
+                resetButtons();
               }, 3000);
 
             if(the_progress === 1 ){
-                console.log(buttonA.current);
-
-                const timer2 = setTimeout(() => {
-                    resetButtons()
-                    
-                  }, 1000);
-                setCounter(30);
+                
                 setBank(100);
             }
             else if(the_progress === 2 ){
-                const timer2 = setTimeout(() => {
-                    resetButtons()
-                    
-                  }, 1000);
-                setCounter(30);
                 setBank(200);
                 
             }
             else if(the_progress === 3 ){
-                const timer2 = setTimeout(() => {
-                    resetButtons()
-                    
-                  }, 1000);
-                
-                setCounter(30);
                 setBank(300);
                 
             }
             else if(the_progress === 4 ){
-                const timer2 = setTimeout(() => {
-                    resetButtons()
-                    
-                  }, 1000);
                 setBank(500);
-                setCounter(30);
+                
             }
             else if(the_progress === 5 ){
-                const timer2 = setTimeout(() => {
-                    resetButtons()
-                    
-                  }, 1000);
                 setBank(1000);
                 setPlaySound2(true);
-                setCounter(30);
             }
             else if(the_progress === 6 ){
-                const timer2 = setTimeout(() => {
-                    resetButtons()
-                    
-                  }, 1000);
                 setBank(2000);
-                setCounter(30);
+                
             }
             else if(the_progress === 7 ){
-                const timer2 = setTimeout(() => {
-                    resetButtons();
-                    
-                  }, 1000);
                 setBank(4000);
-                setCounter(30);
+                
             } 
             else if(the_progress === 8 ){
-                const timer2 = setTimeout(() => {
-                    resetButtons();
-                    
-                  }, 1000);
+                
                 setBank(8000);
-                setCounter(30);
+                
             } 
             else if(the_progress === 9 ){
-                const timer2 = setTimeout(() => {
-                    resetButtons();
-                    
-                  }, 1000);
                 setBank(16000);
-                setCounter(30);
+                
             }
             else if(the_progress === 10 ){
-                const timer2 = setTimeout(() => {
-                    resetButtons();
-                    setProgress(2);
-                }, 1000);
                 setBank(32000);
-                setCounter(30);
             }
         }
         else{
@@ -377,32 +331,32 @@ const Logic = () =>{
                 if(question_new[questionNumber2].option1 === question_new[questionNumber2].correct  ){
                     return (
                     <>
-                    <Button onClick={() => {getAnswers('a',questionNumber2,);} }className={style.answerButtonA} color="info" ><AnswersA prop={question_new} prop2={questionNumber2} /></Button>,
-                    <Button onClick={() => {getAnswers('b',questionNumber2,);} }className={style.answerButtonB} color="info" ><AnswersB prop={question_new} prop2={questionNumber2} /></Button>
+                    <button style={{background: 'blue', color:'white' }} onClick={() => {getAnswers('a',questionNumber2,);} }className={style.answerButtonA} color="info" ><AnswersA prop={question_new} prop2={questionNumber2} /></button>,
+                    <button style={{background: 'blue', color:'white' }} onClick={() => {getAnswers('b',questionNumber2,);} }className={style.answerButtonB} color="info" ><AnswersB prop={question_new} prop2={questionNumber2} /></button>
                     </>
                     )
                 }
                 else if(question_new[questionNumber2].option2 === question_new[questionNumber2].correct ){
                     return (
                         <>
-                        <Button onClick={() => {getAnswers('b',questionNumber2,);} }className={style.answerButtonB} color="info" ><AnswersA prop={question_new} prop2={questionNumber2} /></Button>,
-                        <Button onClick={() => {getAnswers('d',questionNumber2,);} }className={style.answerButtonD} color="info" ><AnswersB prop={question_new} prop2={questionNumber2} /></Button>
+                        <button style={{background: 'blue', color:'white' }} onClick={() => {getAnswers('b',questionNumber2,);} }className={style.answerButtonB} color="info" ><AnswersA prop={question_new} prop2={questionNumber2} /></button>,
+                        <button style={{background: 'blue', color:'white' }} onClick={() => {getAnswers('d',questionNumber2,);} }className={style.answerButtonD} color="info" ><AnswersB prop={question_new} prop2={questionNumber2} /></button>
                         </>
                         )
                 }
                 else if(question_new[questionNumber2].option3 === question_new[questionNumber2].correct ){
                     return (
                         <>
-                        <Button onClick={() => {getAnswers('c',questionNumber2,);} }className={style.answerButtonC} color="info" ><AnswersC prop={question_new} prop2={questionNumber2} /></Button>,
-                        <Button onClick={() => {getAnswers('a',questionNumber2,);} }className={style.answerButtonA} color="info" ><AnswersA prop={question_new} prop2={questionNumber2} /></Button>
+                        <button style={{background: 'blue', color:'white' }} onClick={() => {getAnswers('c',questionNumber2,);} }className={style.answerButtonC} color="info" ><AnswersC prop={question_new} prop2={questionNumber2} /></button>,
+                        <button style={{background: 'blue', color:'white' }} onClick={() => {getAnswers('a',questionNumber2,);} }className={style.answerButtonA} color="info" ><AnswersA prop={question_new} prop2={questionNumber2} /></button>
                         </>
                         )
                 }
                 else if(question_new[questionNumber2].option4 === question_new[questionNumber2].correct ){
                     return (
                         <>
-                        <Button onClick={() => {getAnswers('d',questionNumber2,);} }className={style.answerButtonD} color="info" ><AnswersD prop={question_new} prop2={questionNumber2} /></Button>,
-                        <Button onClick={() => {getAnswers('b',questionNumber2,);} }className={style.answerButtonB} color="info" ><AnswersB prop={question_new} prop2={questionNumber2} /></Button>
+                        <button style={{background: 'blue', color:'white' }} onClick={() => {getAnswers('d',questionNumber2,);} }className={style.answerButtonD} color="info" ><AnswersD prop={question_new} prop2={questionNumber2} /></button>,
+                        <button style={{background: 'blue', color:'white' }} onClick={() => {getAnswers('b',questionNumber2,);} }className={style.answerButtonB} color="info" ><AnswersB prop={question_new} prop2={questionNumber2} /></button>
                         </>
                         )
                 }

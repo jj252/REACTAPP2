@@ -29,6 +29,10 @@
     opacity: 0.8;
 }
 
+.sideBar_size{
+    font-weight: bold;
+}
+
 .theModal{
     
     background-color: blue;
@@ -112,14 +116,14 @@
 .sideBar{
     position: absolute;
     top: 50px;
-    right: 650px;
-    width: 100px;
+    right: 610px;
+    width: 150px;
     height:50%;
 }
 
 .sideBar2{
     position: absolute;
-    background-color:black;
+    background-image: url('../assets/img/sidebar2.jpg');
     }
 
 .container{
