@@ -18,20 +18,64 @@ import TheSideBar from '../utils/TheSideBar';
 import fifty_Fifty from '../app/assets/img/ll_fifty.jpg';
 
 const Logic = () =>{
+
+    
+
     //responsible for changing the background color of the category when mouse over
-    const mouseOver = (event) =>{
-        console.log('STYLE', event.target.style);
+
+    const button_Manage = (ans) =>{
+        if (ans === 'a'){
+            buttonA.current.style.background = 'orange';
+            
+            
+        }
+        else if (ans === 'b' ){
+            buttonB.current.style.background = 'orange';
+            
+        }
+        if (ans === 'c' ){
+            buttonC.current.style.background = 'orange';
+            
+            
+        }
+        if (ans === 'd' ){
+            buttonD.current.style.background = 'orange';
+            
+        }
+
+        if (ans === 'a1'){
+            buttonA.current.style.background = 'blue';
+            
+            
+        }
+        else if (ans === 'b1' ){
+            buttonB.current.style.background = 'blue';
+            
+        }
+        if (ans === 'c1' ){
+            buttonC.current.style.background = 'blue';
+            
+            
+        }
+        if (ans === 'd1' ){
+            buttonD.current.style.background = 'blue';
+            
+        }
+    }
+    //on mouse over button functionality
+    const mouseOver = (event,button) =>{
+        console.log('STYLE', event.target);
         event.target.style.backgroundColor = 'orange';
         event.target.style.border = 'orange';
-        
+              
     }
+    //on mouse out button functionality
     const mouseOut = (event) =>{
         event.target.style.backgroundColor = 'blue';
     }
 
     let song = new Audio(two_thousand);
     
-    const question_new2 = SelectAllQuestions();
 
     function shuffle(array) {
         let currentIndex = array.length,  randomIndex;
@@ -50,12 +94,6 @@ const Logic = () =>{
       
         return array;
       }
-      
-      // Used like so
-      const arr = [];
-      const randomized_questions = shuffle(question_new2);
-      arr.push(randomized_questions);
-      console.log('THIS IS THE VALUE FOR ARR',arr);
 
     //set the progress to use to cycle through the game
     const [progress,setProgress] = useState(1);
@@ -67,7 +105,7 @@ const Logic = () =>{
     const [isFifty,setisFifty] = useState(false);
     const [isFiftyUsedOnce,setisFiftyUsedOnce] = useState(false);
     const [askTheHost,setaskTheHost] = useState(false);
-    const [askTheHost1,setaskTheHost1] = useState(false);
+    
     const [playSound,setPlaySound] = useState(false);
     const [playSound2,setPlaySound2] = useState(false);
     const [playSound3,setPlaySound3] = useState(false);
@@ -86,7 +124,7 @@ const Logic = () =>{
     const buttonC = useRef(null);
     const buttonD = useRef(null);
 
-    const buttonAA = useRef(null);
+    
 
     const resetButtons = () =>{
         buttonA.current.style.background = 'blue';
@@ -316,10 +354,10 @@ const Logic = () =>{
                 <>
                 <animated.div style={animatedStyle}>
                 <Button className={style.questionButton} color="info" ><Questions2 prop={question_new} prop2={questionNumber2} /></Button>,
-                <button ref={buttonA} style={{background: 'blue', color:'white' }} onMouseOver={(event) => {mouseOver(event)}} onMouseOut={(event) => {mouseOut(event)}} onClick={(event) => {getAnswers('a',questionNumber2,event);setPlaySound(true);} } className={style.answerButtonA} color="info" ><AnswersA prop={question_new} prop2={questionNumber2} /></button>
-                <button ref={buttonB} style={{background: 'blue', color:'white' }} onMouseOver={(event) => {mouseOver(event)}} onMouseOut={(event) => {mouseOut(event)}} onClick={(event) => {getAnswers('b',questionNumber2,event);setPlaySound(true); }} className={style.answerButtonB} color="info" ><AnswersB prop={question_new} prop2={questionNumber2} /></button>
-                <button ref={buttonC} style={{background: 'blue', color:'white' }} onMouseOver={(event) => {mouseOver(event)}} onMouseOut={(event) => {mouseOut(event)}} onClick={(event) => {getAnswers('c',questionNumber2,event);setPlaySound(true);} } className={style.answerButtonC} color="info" ><AnswersC prop={question_new} prop2={questionNumber2} /></button>
-                <button ref={buttonD} style={{background: 'blue', color:'white' }} onMouseOver={(event) => {mouseOver(event)}} onMouseOut={(event) => {mouseOut(event)}} onClick={(event) => {getAnswers('d',questionNumber2,event);setPlaySound(true);} } className={style.answerButtonD} color="info" ><AnswersD prop={question_new} prop2={questionNumber2} /></button>
+                <button ref={buttonA} style={{background: 'blue', color:'white' }} onMouseOver={(event) => {mouseOver(event); button_Manage('a')}} onMouseOut={(event) => {mouseOut(event); button_Manage('a1')}} onClick={(event) => {getAnswers('a',questionNumber2,event);setPlaySound(true);} } className={style.answerButtonA} color="info" ><AnswersA prop={question_new} prop2={questionNumber2} /></button>
+                <button ref={buttonB} style={{background: 'blue', color:'white' }} onMouseOver={(event) => {mouseOver(event); button_Manage('b')}} onMouseOut={(event) => {mouseOut(event); button_Manage('b1')}} onClick={(event) => {getAnswers('b',questionNumber2,event);setPlaySound(true); }} className={style.answerButtonB} color="info" ><AnswersB prop={question_new} prop2={questionNumber2} /></button>
+                <button ref={buttonC} style={{background: 'blue', color:'white' }} onMouseOver={(event) => {mouseOver(event); button_Manage('c')}} onMouseOut={(event) => {mouseOut(event); button_Manage('c1')}} onClick={(event) => {getAnswers('c',questionNumber2,event);setPlaySound(true);} } className={style.answerButtonC} color="info" ><AnswersC prop={question_new} prop2={questionNumber2} /></button>
+                <button ref={buttonD} style={{background: 'blue', color:'white' }} onMouseOver={(event) => {mouseOver(event); button_Manage('d')}} onMouseOut={(event) => {mouseOut(event); button_Manage('d1')}} onClick={(event) => {getAnswers('d',questionNumber2,event);setPlaySound(true);} } className={style.answerButtonD} color="info" ><AnswersD prop={question_new} prop2={questionNumber2} /></button>
                 </animated.div>
                 {!isFiftyUsedOnce
                 ?<animated.div style={animatedStyle} className = {style.mybutton} onClick={() => {setisFifty(true);setisFiftyUsedOnce(true)}}><img src={fifty_Fifty}/></animated.div>

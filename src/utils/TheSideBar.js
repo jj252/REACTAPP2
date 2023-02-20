@@ -38,9 +38,16 @@ const TheSideBar = (cash_progress) =>{
     }
     const setStyle = (progress3) =>{
         console.log('I\'M IN THE FUNCTION');
+        
+        if (progress3 === 0){
+            goingFor100.current.style.background = 'yellow';
+            goingFor100.current.style.color = 'black';
+            }
+        
         if (progress3 === 100){
         goingFor200.current.style.background = 'yellow';
         goingFor200.current.style.color = 'black';
+        goingFor100.current.style.background = 'transparent';
         }
         else if(progress3 === 200){
         goingFor300.current.style.background = 'yellow';
