@@ -16,6 +16,7 @@ import getSerious from '../app/assets/sounds/lets play.mp3';
 import My_Modal from "./My_Modal";
 import TheSideBar from '../utils/TheSideBar';
 import fifty_Fifty from '../app/assets/img/ll_fifty.jpg';
+import welcome from '../app/assets/img/welcome.jpg';
 
 const Logic = () =>{
 
@@ -96,9 +97,9 @@ const Logic = () =>{
       }
 
     //set the progress to use to cycle through the game
-    const [progress,setProgress] = useState(1);
+    const [progress,setProgress] = useState(3);
     
-    const [counter, setCounter] = useState(30);
+    const [counter, setCounter] = useState();
     //set up the amount of money the user earned
     const [bank,setBank] = useState(0);
     //set up if the lifeline fifty fifty is turned on
@@ -181,7 +182,6 @@ const Logic = () =>{
               }, 3000);
 
             if(the_progress === 1 ){
-                
                 setBank(100);
             }
             else if(the_progress === 2 ){
@@ -374,6 +374,15 @@ const Logic = () =>{
                 setProgress(1);
             }, 5000);
             
+        }
+
+        else if (progress === 3){
+            return(
+            <>
+            <animated.div style={animatedStyle} className={style.introduction}><img style={{width:'85%', height:'540px' }} src={welcome}/></animated.div>,
+            <button style={{background: 'blue', color:'white' }} className={style.introduction2} onClick={() => setProgress(1)}>START GAME</button>
+            </>
+            )
         }
         //Loads the second set of questions and answers
         
