@@ -107,6 +107,30 @@ const TheSideBar = (cash_progress) =>{
             goingFor32000.current.style.background = 'transparent';
             goingFor32000.current.style.color = 'orange';
             }
+            else if(progress3 === 64000){
+            goingFor125000.current.style.background = 'yellow';
+            goingFor125000.current.style.color = 'black';
+            goingFor64000.current.style.background = 'transparent';
+            goingFor64000.current.style.color = 'white';
+            }
+            else if(progress3 === 125000){
+            goingFor250000.current.style.background = 'yellow';
+            goingFor250000.current.style.color = 'black';
+            goingFor125000.current.style.background = 'transparent';
+            goingFor125000.current.style.color = 'white';
+            }
+            else if(progress3 === 250000){
+            goingFor500000.current.style.background = 'yellow';
+            goingFor500000.current.style.color = 'black';
+            goingFor250000.current.style.background = 'transparent';
+            goingFor250000.current.style.color = 'white';
+            }
+            else if(progress3 === 500000){
+            goingFor1000000.current.style.background = 'yellow';
+            goingFor1000000.current.style.color = 'black';
+            goingFor500000.current.style.background = 'transparent';
+            goingFor500000.current.style.color = 'white';
+            }
     }
     
     return (

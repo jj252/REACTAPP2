@@ -7,13 +7,14 @@ export const LOADED_QUESTIONS = [
     {
         id: 0,
         name: 'Question1',
-        question: 'Which big cat is the largest',
+        question: 'Which big cat is the largest?',
         option1: 'Tiger',
         option2: 'Lion',
         option3: 'Jaguar',
         option4: 'Borneo Bay Cat',
         correct: 'Tiger',
-        ans: 'a'
+        ans: 'a',
+        host:'Tiger'
     },
     {
         id: 1,
@@ -78,7 +79,7 @@ export const LOADED_QUESTIONS = [
     {
         id: 6,
         name: 'Question6',
-        question: 'Which singer’s real name is Stefani Joanne Angelina Germanotta?',
+        question: 'Which singer\’s real name is Stefani Joanne Angelina Germanotta?',
         option1: 'Whitney Houston',
         option2: 'Lady Gaga',
         option3: 'Pink',
@@ -150,5 +151,70 @@ export const LOADED_QUESTIONS = [
         correct: 'Dallas',
         ans: 'd',
         host:'Dallas'
+    }
+    ,
+    {
+        id: 12,
+        name: 'Question12',
+        question: 'What is the symbol of the football team located in Denver?',
+        option1: 'Stallions',
+        option2: 'Broncos',
+        option3: 'Horses',
+        option4: 'Ravens',
+        correct: 'Broncos',
+        ans: 'b',
+        host:'Broncos'
+    }
+    ,
+    {
+        id: 13,
+        name: 'Question13',
+        question: 'Which mammal is known to have the most powerful bite in the world?',
+        option1: 'Hippopotamus',
+        option2: 'Lion',
+        option3: 'Shark',
+        option4: 'Panther',
+        correct: 'Hippopotamus',
+        ans: 'a',
+        host:'Lion'
+    }
+    ,
+    {
+        id: 14,
+        name: 'Question14',
+        question: 'What is the name of the fastest land animal?',
+        option1: 'Lion',
+        option2: 'Hyena',
+        option3: 'Tiger',
+        option4: 'Cheetah',
+        correct: 'Cheetah',
+        ans: 'd',
+        host:'Cheetah'
+    }
+    ,
+    {
+        id: 15,
+        name: 'Question15',
+        question: 'What do snakes use to smell?',
+        option1: 'Eyes',
+        option2: 'Mouth',
+        option3: 'Tongue',
+        option4: 'Hears',
+        correct: 'Tongue',
+        ans: 'c',
+        host:'Tongue'
+    }
+    ,
+    {
+        id: 16,
+        name: 'Question16',
+        question: 'What is the official state fruit of New York?',
+        option1: 'Orange',
+        option2: 'Apple',
+        option3: 'Banana',
+        option4: 'Watermelon',
+        correct: 'Tongue',
+        ans: 'b',
+        host:'Apple'
     }
 ];

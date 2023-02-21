@@ -153,6 +153,8 @@ const Logic = () =>{
     //sounds used to play in the game 
     const song = useRef(new Audio(two_thousand));
     const Theme_64_Grand = useRef(new Audio(Theme_64));
+    const lets_go_theme = useRef(new Audio(getSerious));
+    
 
     const [play_main_theme, { stop }] = useSound(mainTheme, {
         volume: 0.5,
@@ -163,9 +165,7 @@ const Logic = () =>{
        const [wrong_ans, { stop4 }] = useSound(wrong_Ans, {
         volume: 0.5,
        });
-       const [lets_go_theme, { stop5 }] = useSound(getSerious, {
-        volume: 0.5,
-       });
+       
        const [beep_sound, { stop6 }] = useSound(beep, {
         volume: 0.5,
        });
@@ -225,7 +225,7 @@ const Logic = () =>{
             }
             else if(the_progress === 5 ){
                 setBank(1000);
-                setPlaySound2(true);
+                
             }
             else if(the_progress === 6 ){
                 setBank(2000);
@@ -246,6 +246,26 @@ const Logic = () =>{
             }
             else if(the_progress === 10 ){
                 setBank(32000);
+                setProgress(2);
+            }
+            else if(the_progress === 11 ){
+                setBank(64000);
+                setProgress(2);
+            }
+            else if(the_progress === 12 ){
+                setBank(125000);
+                setProgress(2);
+            }
+            else if(the_progress === 13 ){
+                setBank(250000);
+                setProgress(2);
+            }
+            else if(the_progress === 14 ){
+                setBank(500000);
+                setProgress(2);
+            }
+            else if(the_progress === 15 ){
+                setBank(1000000);
                 setProgress(2);
             }
         }
@@ -311,7 +331,7 @@ const Logic = () =>{
         useEffect(() => {
             {stop();}
             
-            lets_go_theme();
+            lets_go_theme.current.play();
             }, [playSound3]);
 
         
@@ -407,8 +427,8 @@ const Logic = () =>{
                     hit();
                     const timer2 = setTimeout(() => {
                         setaskTheHost(false);
+                        setPlaySound2(true);
                         setProgress(1);
-                        
                     }, 3000);
                     
                     return (
@@ -436,7 +456,7 @@ const Logic = () =>{
             
             const timer2 = setTimeout(() => {
                 song.current.pause();
-                setPlaySound3(true);
+                lets_go_theme.current.play();
                 setProgress(1);
             }, 5000);
             Theme_64_Grand.current.play();
