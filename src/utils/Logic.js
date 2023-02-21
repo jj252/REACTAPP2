@@ -20,13 +20,12 @@ import welcome from '../app/assets/img/welcome.jpg';
 import beep from '../app/assets/sounds/beep.mp3';
 import interface_click from '../app/assets/sounds/interface.mp3';
 import Theme_64 from '../app/assets/sounds/64000 music.mp3';
+import Ask_host from '../app/assets/img/ask_host.jpg';
+import Ask_host2 from '../app/assets/img/Ask_the_Host.jpg';
 
 
 const Logic = () =>{
 
-    
-
-    
 
     //responsible for changing the background color of the category when mouse over
 
@@ -100,7 +99,7 @@ const Logic = () =>{
 
     //set the progress to use to cycle through the game
     const [progress,setProgress] = useState(3);
-    
+    //used to set up the counter
     const [counter, setCounter] = useState();
     //set up the amount of money the user earned
     const [bank,setBank] = useState(0);
@@ -109,6 +108,8 @@ const Logic = () =>{
     const [isFiftyUsedOnce,setisFiftyUsedOnce] = useState(false);
     const [askTheHost,setaskTheHost] = useState(false);
     
+    const [askHostUsedOnce,setaskHostUsedOnce] = useState(false);
+    //for the sound hooks
     const [playSound,setPlaySound] = useState(false);
     const [playSound2,setPlaySound2] = useState(false);
     const [playSound3,setPlaySound3] = useState(false);
@@ -121,14 +122,13 @@ const Logic = () =>{
         to: { opacity: 1 },
         config:{ duration:1500 }
       })
-
+    //some use ref hooks for the buttons
     const buttonA = useRef(null);
     const buttonB = useRef(null);
     const buttonC = useRef(null);
     const buttonD = useRef(null);
 
-    
-
+    //used to reset the buttons when they change color
     const resetButtons = () =>{
         buttonA.current.style.background = 'blue';
         buttonB.current.style.background = 'blue';
@@ -136,16 +136,11 @@ const Logic = () =>{
         buttonD.current.style.background = 'blue';
     }
 
-    //sounds used to play in the game
-
-    
+    //sounds used to play in the game 
     const song = useRef(new Audio(two_thousand));
     const Theme_64_Grand = useRef(new Audio(Theme_64));
 
     const [play_main_theme, { stop }] = useSound(mainTheme, {
-        volume: 0.5,
-       });
-       const [two_thousand_theme, { sound }] = useSound(two_thousand, {
         volume: 0.5,
        });
        const [correct_ans, {stop3 }] = useSound(corrent_Ans, {
@@ -318,10 +313,11 @@ const Logic = () =>{
         //When progress is set to 1 the first question is loaded
         else if(progress === 1){
             
-            if(!isFifty){
+            if(!isFifty && !askTheHost){
         //{play2()}
                 return(
                 <>
+                
                 <animated.div style={animatedStyle}>
                 <Button className={style.questionButton} color="info" > <Questions2 prop={question_new} prop2={questionNumber2} /> </Button>,
                 <button ref={buttonA} style={{background: 'blue', color:'white', }} onMouseOver={(event) => {mouseOver(event); button_Manage('a')}} onMouseOut={(event) => {mouseOut(event); button_Manage('a1')}} onClick={(event) => {getAnswers('a',questionNumber2,event);setPlaySound(true);} } className={style.answerButtonA} color="info" ><AnswersA prop={question_new} prop2={questionNumber2} /></button>
@@ -331,6 +327,11 @@ const Logic = () =>{
                 </animated.div>
                 {!isFiftyUsedOnce
                 ?<animated.div style={animatedStyle} className = {style.mybutton} onClick={() => {setisFifty(true);setisFiftyUsedOnce(true);}}><img src={fifty_Fifty}/></animated.div>
+                :console.log('IT\'TS WORKING')
+                }
+                {!askHostUsedOnce
+                ?<animated.div style={animatedStyle} className = {style.mybutton2} onClick={() => {setaskTheHost(true);setaskHostUsedOnce(true);}}><img src={Ask_host}/></animated.div>
+                
                 :console.log('IT\'TS WORKING')
                 }
                 <animated.div style={animatedStyle} className = {style.my_counter}>{counter}</animated.div>
@@ -378,9 +379,20 @@ const Logic = () =>{
                 }
                 
                 }
-
-                
-        
+                if(askTheHost){
+                    const timer2 = setTimeout(() => {
+                        setaskTheHost(false);
+                        setProgress(1);
+                        
+                    }, 3000);
+                    
+                    return (
+                    <>
+                    <div style={animatedStyle} className={style.theHost}><img src={Ask_host2}></img> The Host Says The Answer Is: {question_new[questionNumber2].host}</div>
+                    </>
+                    )
+                    
+                }
         }
         else if (progress === 2){
             
