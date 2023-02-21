@@ -319,7 +319,7 @@ const Logic = () =>{
             
             return(
             <>
-                <div className={style.theModal}><My_Modal /></div>
+                <div className={style.theModal}><My_Modal prop={bank}/></div>
             </>
             )
             
