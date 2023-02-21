@@ -154,11 +154,8 @@ const Logic = () =>{
     const song = useRef(new Audio(two_thousand));
     const Theme_64_Grand = useRef(new Audio(Theme_64));
     const lets_go_theme = useRef(new Audio(getSerious));
+    const play_main_theme = useRef(new Audio(mainTheme));
     
-
-    const [play_main_theme, { stop }] = useSound(mainTheme, {
-        volume: 0.5,
-       });
        const [correct_ans, {stop3 }] = useSound(corrent_Ans, {
         volume: 0.5,
        });
@@ -209,6 +206,7 @@ const Logic = () =>{
 
             if(the_progress === 1 ){
                 setBank(100);
+                play_main_theme.current.play();
                 
             }
             else if(the_progress === 2 ){
@@ -225,7 +223,8 @@ const Logic = () =>{
             }
             else if(the_progress === 5 ){
                 setBank(1000);
-                
+                play_main_theme.current.pause();
+                song.current.play();
             }
             else if(the_progress === 6 ){
                 setBank(2000);
@@ -318,27 +317,9 @@ const Logic = () =>{
         return () => clearTimeout(timer);
         }, [isFifty]);
 
-        useEffect(() => {
-            play_main_theme();
-            }, [playSound]);
-
-        useEffect(() => {
-            {stop();}
-            song.current.play();
-            
-            }, [playSound2]);
-
-        useEffect(() => {
-            {stop();}
-            
-            lets_go_theme.current.play();
-            }, [playSound3]);
-
-        
-
         //When the game ends the progress is set to zero and the game ends
         if(progress === 0){
-            {stop();}
+            play_main_theme.current.pause();
             
             return(
             <>
