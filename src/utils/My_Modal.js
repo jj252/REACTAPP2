@@ -1,12 +1,14 @@
+import {Modal, ModalHeader,ModalBody} from 'reactstrap';
 import {useState} from 'react';
-import {Button, Modal, ModalHeader,ModalBody} from 'reactstrap';
-import {useSpring,animated} from 'react-spring';
-import style from '../app/shared/StudentList.module.css';
+
 
 const My_Modal = (the_bank) =>{
+    
+    let gameState = 'GAME OVER';
 
     if(the_bank.prop < 1000){
         the_bank = 0
+        
     }
     else if(the_bank.prop > 1000 && the_bank.prop < 32000 ){
         the_bank = 1000
@@ -16,17 +18,18 @@ const My_Modal = (the_bank) =>{
     }
     else{
         the_bank = 1000000
+        gameState = 'WINNER';
     }
 
     const [modalOpen,setModalOpen] = useState(true);
     return(
         <>
             <Modal isOpen={modalOpen}>
-                <ModalHeader toggle={() => setModalOpen(false) } className={style.theModal} style={{ color:'red'}} >
-                    GAME OVER
+                <ModalHeader toggle={() => setModalOpen(false) } style={{background: 'blue'}}>
+                    <div style={{background: 'blue', color:'orange' }}>{gameState}</div>
                 </ModalHeader>
                 <ModalBody>
-                    CURRENT FUNDS:$ {the_bank}
+                    CURRENT FUNDS:${the_bank}
                     
                 </ModalBody>
             </Modal>

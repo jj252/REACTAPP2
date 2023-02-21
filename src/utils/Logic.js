@@ -1,9 +1,7 @@
-import Questions from "./Questions";
 import style from '../app/shared/StudentList.module.css';
 import {  Button } from 'reactstrap';
-import {createElement,useState,useEffect,useRef} from 'react';
+import {useState,useEffect,useRef} from 'react';
 import {useSpring,animated} from 'react-spring';
-import Selected_Choice from "./Selected_Choice";
 import useSound from 'use-sound';
 import mainTheme from '../app/assets/sounds/1001000 music.mp3';
 import two_thousand from '../app/assets/sounds/200032000.mp3';
@@ -25,16 +23,9 @@ import Ask_host2 from '../app/assets/img/Ask_the_Host.jpg';
 //import Bar_Chart from "./Bar_Chart";
 import Thud from '../app/assets/sounds/thud.mp3';
 import Phone from '../app/assets/img/phone.png';
-
-
-
-
-
-
+import my_Logo from '../app/assets/img/logo.jpg';
 
 const Logic = () =>{
-    
-    
     
     //responsible for changing the background color of the category when mouse over
 
@@ -151,6 +142,8 @@ const Logic = () =>{
     const Theme_64_Grand = useRef(new Audio(Theme_64));
     const lets_go_theme = useRef(new Audio(getSerious));
     const play_main_theme = useRef(new Audio(mainTheme));
+    const hit = useRef(new Audio(Thud));
+    
     
        const [correct_ans, {stop3 }] = useSound(corrent_Ans, {
         volume: 0.5,
@@ -165,9 +158,7 @@ const Logic = () =>{
        const [ui_click, { stop7 }] = useSound(interface_click, {
         volume: 0.5,
        });
-       const [hit, { stop8 }] = useSound(Thud, {
-        volume: 0.5,
-       });
+       
        
        
     //responsible for what to do when an answer is selected
@@ -334,6 +325,7 @@ const Logic = () =>{
                 
                 
                 <animated.div style={animatedStyle}>
+                <div className={style.main_logo}><img src={my_Logo}/></div>
                 <Button className={style.questionButton} color="info" > <Questions2 prop={question_new} prop2={questionNumber2} /> </Button>,
                 <button ref={buttonA} style={{background: 'blue', color:'white', }} onMouseOver={(event) => {mouseOver(event); button_Manage('a')}} onMouseOut={(event) => {mouseOut(event); button_Manage('a1')}} onClick={(event) => {getAnswers('a',questionNumber2,event)} } className={style.answerButtonA} color="info" ><AnswersA prop={question_new} prop2={questionNumber2} /></button>
                 <button ref={buttonB} style={{background: 'blue', color:'white' }} onMouseOver={(event) => {mouseOver(event); button_Manage('b')}} onMouseOut={(event) => {mouseOut(event); button_Manage('b1')}} onClick={(event) => {getAnswers('b',questionNumber2,event)}} className={style.answerButtonB} color="info" ><AnswersB prop={question_new} prop2={questionNumber2} /></button>
@@ -364,7 +356,7 @@ const Logic = () =>{
                 )
             }
             else if(isFifty){
-                hit();
+                hit.current.play();
 
                 if(question_new[questionNumber2].option1 === question_new[questionNumber2].correct  ){
                     return (
@@ -401,7 +393,7 @@ const Logic = () =>{
                 
                 }
                 if(askTheHost){
-                    hit();
+                    hit.current.play();
                     const timer2 = setTimeout(() => {
                         setaskTheHost(false);
                         
@@ -415,7 +407,7 @@ const Logic = () =>{
                     )
                 }
                 if(phoneaFriend){
-                    hit();
+                    hit.current.play();
                     const timer2 = setTimeout(() => {
                         setphoneaFriend(false);
                         setProgress(1);
