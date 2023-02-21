@@ -121,10 +121,6 @@ const Logic = () =>{
     //life line for ask the host
     const [phoneaFriend,setphoneaFriend] = useState(false);
     const [phoneaFriendUsedOnce,setphoneaFriendUsedOnce] = useState(false);
-    //for the sound hooks
-    const [playSound,setPlaySound] = useState(false);
-    const [playSound2,setPlaySound2] = useState(false);
-    const [playSound3,setPlaySound3] = useState(false);
     const [questionNumber2,setQuestionNumber2] = useState(1);
     const [question_new,setQuestion_new] = useState(SelectAllQuestions());
     
@@ -265,7 +261,7 @@ const Logic = () =>{
             }
             else if(the_progress === 15 ){
                 setBank(1000000);
-                setProgress(2);
+                setProgress(0);
             }
         }
         else{
@@ -339,10 +335,10 @@ const Logic = () =>{
                 
                 <animated.div style={animatedStyle}>
                 <Button className={style.questionButton} color="info" > <Questions2 prop={question_new} prop2={questionNumber2} /> </Button>,
-                <button ref={buttonA} style={{background: 'blue', color:'white', }} onMouseOver={(event) => {mouseOver(event); button_Manage('a')}} onMouseOut={(event) => {mouseOut(event); button_Manage('a1')}} onClick={(event) => {getAnswers('a',questionNumber2,event);setPlaySound(true);} } className={style.answerButtonA} color="info" ><AnswersA prop={question_new} prop2={questionNumber2} /></button>
-                <button ref={buttonB} style={{background: 'blue', color:'white' }} onMouseOver={(event) => {mouseOver(event); button_Manage('b')}} onMouseOut={(event) => {mouseOut(event); button_Manage('b1')}} onClick={(event) => {getAnswers('b',questionNumber2,event);setPlaySound(true); }} className={style.answerButtonB} color="info" ><AnswersB prop={question_new} prop2={questionNumber2} /></button>
-                <button ref={buttonC} style={{background: 'blue', color:'white' }} onMouseOver={(event) => {mouseOver(event); button_Manage('c')}} onMouseOut={(event) => {mouseOut(event); button_Manage('c1')}} onClick={(event) => {getAnswers('c',questionNumber2,event);setPlaySound(true);} } className={style.answerButtonC} color="info" ><AnswersC prop={question_new} prop2={questionNumber2} /></button>
-                <button ref={buttonD} style={{background: 'blue', color:'white' }} onMouseOver={(event) => {mouseOver(event); button_Manage('d')}} onMouseOut={(event) => {mouseOut(event); button_Manage('d1')}} onClick={(event) => {getAnswers('d',questionNumber2,event);setPlaySound(true);} } className={style.answerButtonD} color="info" ><AnswersD prop={question_new} prop2={questionNumber2} /></button>
+                <button ref={buttonA} style={{background: 'blue', color:'white', }} onMouseOver={(event) => {mouseOver(event); button_Manage('a')}} onMouseOut={(event) => {mouseOut(event); button_Manage('a1')}} onClick={(event) => {getAnswers('a',questionNumber2,event)} } className={style.answerButtonA} color="info" ><AnswersA prop={question_new} prop2={questionNumber2} /></button>
+                <button ref={buttonB} style={{background: 'blue', color:'white' }} onMouseOver={(event) => {mouseOver(event); button_Manage('b')}} onMouseOut={(event) => {mouseOut(event); button_Manage('b1')}} onClick={(event) => {getAnswers('b',questionNumber2,event)}} className={style.answerButtonB} color="info" ><AnswersB prop={question_new} prop2={questionNumber2} /></button>
+                <button ref={buttonC} style={{background: 'blue', color:'white' }} onMouseOver={(event) => {mouseOver(event); button_Manage('c')}} onMouseOut={(event) => {mouseOut(event); button_Manage('c1')}} onClick={(event) => {getAnswers('c',questionNumber2,event)} } className={style.answerButtonC} color="info" ><AnswersC prop={question_new} prop2={questionNumber2} /></button>
+                <button ref={buttonD} style={{background: 'blue', color:'white' }} onMouseOver={(event) => {mouseOver(event); button_Manage('d')}} onMouseOut={(event) => {mouseOut(event); button_Manage('d1')}} onClick={(event) => {getAnswers('d',questionNumber2,event)} } className={style.answerButtonD} color="info" ><AnswersD prop={question_new} prop2={questionNumber2} /></button>
                 </animated.div>
                 {!isFiftyUsedOnce
                 ?<animated.div style={animatedStyle} className = {style.mybutton} onClick={() => {setisFifty(true);setisFiftyUsedOnce(true);}}><img src={fifty_Fifty}/></animated.div>
@@ -408,7 +404,7 @@ const Logic = () =>{
                     hit();
                     const timer2 = setTimeout(() => {
                         setaskTheHost(false);
-                        setPlaySound2(true);
+                        
                         setProgress(1);
                     }, 3000);
                     

@@ -4,16 +4,6 @@ import {useSpring,animated} from 'react-spring';
 import style from '../app/shared/StudentList.module.css';
 
 const My_Modal = () =>{
-    console.log('IM IN THE MODAL');
-    const animatedStyle = useSpring({
-        from: { opacity: 0 },
-        to: { opacity: 1 },
-        config:{ duration:1500 }
-      })
-
-      const set_Progress = () =>{
-        return  1;
-          }
 
     const [modalOpen,setModalOpen] = useState(true);
     return(
@@ -22,7 +12,7 @@ const My_Modal = () =>{
                 <ModalHeader toggle={() => setModalOpen(false) } className={style.theModal} style={{ color:'red'}} >
                     GAME OVER
                 </ModalHeader>
-                <ModalBody onClick={() => {set_Progress()} }>
+                <ModalBody>
                     CURRENT FUNDS:
                     
                 </ModalBody>
