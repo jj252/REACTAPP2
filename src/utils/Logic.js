@@ -24,6 +24,8 @@ import Ask_host from '../app/assets/img/ask_host.jpg';
 import Ask_host2 from '../app/assets/img/Ask_the_Host.jpg';
 //import Bar_Chart from "./Bar_Chart";
 import Thud from '../app/assets/sounds/thud.mp3';
+import Phone from '../app/assets/img/phone.png';
+
 
 
 
@@ -113,9 +115,12 @@ const Logic = () =>{
     //set up if the lifeline fifty fifty is turned on
     const [isFifty,setisFifty] = useState(false);
     const [isFiftyUsedOnce,setisFiftyUsedOnce] = useState(false);
+    //life line for ask the host
     const [askTheHost,setaskTheHost] = useState(false);
-    
     const [askHostUsedOnce,setaskHostUsedOnce] = useState(false);
+    //life line for ask the host
+    const [phoneaFriend,setphoneaFriend] = useState(false);
+    const [phoneaFriendUsedOnce,setphoneaFriendUsedOnce] = useState(false);
     //for the sound hooks
     const [playSound,setPlaySound] = useState(false);
     const [playSound2,setPlaySound2] = useState(false);
@@ -325,7 +330,7 @@ const Logic = () =>{
         //When progress is set to 1 the first question is loaded
         else if(progress === 1){
             
-            if(!isFifty && !askTheHost){
+            if(!isFifty && !askTheHost && !phoneaFriend){
         //{play2()}
                 return(
                 <>
@@ -347,6 +352,12 @@ const Logic = () =>{
                 
                 :console.log('IT\'TS WORKING')
                 }
+                {!phoneaFriendUsedOnce
+                ?<animated.div style={animatedStyle} className = {style.mybutton3} onClick={() => {setphoneaFriend(true);setphoneaFriendUsedOnce(true);}}><img src={Phone}/></animated.div>
+                
+                :console.log('IT\'TS WORKING')
+                }
+                
                 <animated.div style={animatedStyle} className = {style.my_counter}>{counter}</animated.div>
                 <animated.div style={animatedStyle} className = {style.bankCheck}>${bank} </animated.div>
                 <animated.div style={animatedStyle} className={style.sideBar}><TheSideBar prop={bank} prop2={questionNumber2}/></animated.div>
@@ -405,7 +416,20 @@ const Logic = () =>{
                     <div style={animatedStyle} className={style.theHost}><img src={Ask_host2}></img> The Host Says The Answer Is: {question_new[questionNumber2].host}</div>
                     </>
                     )
+                }
+                if(phoneaFriend){
+                    hit();
+                    const timer2 = setTimeout(() => {
+                        setphoneaFriend(false);
+                        setProgress(1);
+                        
+                    }, 3000);
                     
+                    return (
+                    <>
+                    <div style={animatedStyle} className={style.theHost}><img src={Phone}></img> Your Friend Say's The Answer Is: {question_new[questionNumber2].host}</div>
+                    </>
+                    )
                 }
         }
         else if (progress === 2){

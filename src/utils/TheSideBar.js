@@ -74,7 +74,7 @@ const TheSideBar = (cash_progress) =>{
         goingFor2000.current.style.background = 'yellow';
         goingFor2000.current.style.color = 'black';
         goingFor1000.current.style.background = 'transparent';
-        goingFor1000.current.style.color = 'white';
+        goingFor1000.current.style.color = 'orange';
         }
         else if(progress3 === 2000){
         goingFor4000.current.style.background = 'yellow';
@@ -105,7 +105,7 @@ const TheSideBar = (cash_progress) =>{
             goingFor64000.current.style.background = 'yellow';
             goingFor64000.current.style.color = 'black';
             goingFor32000.current.style.background = 'transparent';
-            goingFor32000.current.style.color = 'white';
+            goingFor32000.current.style.color = 'orange';
             }
     }
     
