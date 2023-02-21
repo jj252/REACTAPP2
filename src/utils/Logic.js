@@ -22,11 +22,18 @@ import interface_click from '../app/assets/sounds/interface.mp3';
 import Theme_64 from '../app/assets/sounds/64000 music.mp3';
 import Ask_host from '../app/assets/img/ask_host.jpg';
 import Ask_host2 from '../app/assets/img/Ask_the_Host.jpg';
+//import Bar_Chart from "./Bar_Chart";
+import Thud from '../app/assets/sounds/thud.mp3';
+
+
+
+
 
 
 const Logic = () =>{
-
-
+    
+    
+    
     //responsible for changing the background color of the category when mouse over
 
     const button_Manage = (ans) =>{
@@ -116,6 +123,8 @@ const Logic = () =>{
     const [questionNumber2,setQuestionNumber2] = useState(1);
     const [question_new,setQuestion_new] = useState(SelectAllQuestions());
     
+
+
     //the animated style for most the divs fading them
     const animatedStyle = useSpring({
         from: { opacity: 0 },
@@ -156,6 +165,9 @@ const Logic = () =>{
         volume: 0.5,
        });
        const [ui_click, { stop7 }] = useSound(interface_click, {
+        volume: 0.5,
+       });
+       const [hit, { stop8 }] = useSound(Thud, {
         volume: 0.5,
        });
        
@@ -317,7 +329,8 @@ const Logic = () =>{
         //{play2()}
                 return(
                 <>
-                <a href="tel://+14033833616">call us!</a>
+                
+                
                 <animated.div style={animatedStyle}>
                 <Button className={style.questionButton} color="info" > <Questions2 prop={question_new} prop2={questionNumber2} /> </Button>,
                 <button ref={buttonA} style={{background: 'blue', color:'white', }} onMouseOver={(event) => {mouseOver(event); button_Manage('a')}} onMouseOut={(event) => {mouseOut(event); button_Manage('a1')}} onClick={(event) => {getAnswers('a',questionNumber2,event);setPlaySound(true);} } className={style.answerButtonA} color="info" ><AnswersA prop={question_new} prop2={questionNumber2} /></button>
@@ -343,7 +356,7 @@ const Logic = () =>{
                 )
             }
             else if(isFifty){
-                
+                hit();
 
                 if(question_new[questionNumber2].option1 === question_new[questionNumber2].correct  ){
                     return (
@@ -380,6 +393,7 @@ const Logic = () =>{
                 
                 }
                 if(askTheHost){
+                    hit();
                     const timer2 = setTimeout(() => {
                         setaskTheHost(false);
                         setProgress(1);
@@ -417,4 +431,4 @@ const Logic = () =>{
         
 }
 
-export default Logic
+export default Logic;
