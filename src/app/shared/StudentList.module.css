@@ -132,6 +132,23 @@
     left: 870px
 }
 
+.main_logo2{
+    position:absolute;
+    top: 50px;
+    left: 670px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: larger;
+    color: blue;
+    width: 80%;
+}
+
+.main_logo3{
+    position:absolute;
+    top: 100px;
+    left: 790px;
+    
+}
+
 .game_over{
     font-size: 98px;
     color: firebrick;
@@ -271,7 +288,7 @@
 }
 .main_container{
     background-color: black;
-    height: 50%;
+    height: 5%;
 }
 
 .money_bar{

@@ -15,16 +15,15 @@ import game_default3 from '../src/app/assets/img/game_default3.jpg';
 
 
 function App() {
-  let progress = 1
   
-  
+
   return(
   <>
   
   <Container>
     <Row>
       
-      <Col className={style.main_container} xs='1' sm='5' md='12' >
+      <Col className={style.main_container} xs='12' sm='5' md='12' >
       <div><img src={game_default3}></img><Logic /></div>
         
       </Col>
