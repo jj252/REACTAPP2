@@ -1,4 +1,16 @@
 import {LOADED_QUESTIONS} from '../app/shared/LOADED_QUESTIONS'
+import { createSlice } from '@reduxjs/toolkit';
+
+const initialState = {
+    questionsArray:LOADED_QUESTIONS
+}
+
+const questionsSlice = createSlice({
+    name:'questions',
+    initialState
+});
+
+export const questionsReducer = questionsSlice.reducer;
 
 function shuffle(array) {
     let currentIndex = array.length,  randomIndex;
@@ -18,52 +30,13 @@ function shuffle(array) {
     return array;
   }
 
-export const SelectAllQuestions3 = () => {
-    
-    return LOADED_QUESTIONS.filter((question) => question.name )
-    
-    
-     
-}
 
-export const SelectAllQuestions = (question_number) => {
-    
+export const SelectAllQuestions = (state) => {
+    console.log('STATE',state)
     return (
         
-        shuffle(LOADED_QUESTIONS.filter((question) => question.name ))
+        shuffle(state.questions.questionsArray.filter((question) => question.name ))
         
     )
 }
 
-/*export const Fifty_Fifty = () => {
-    return (
-        console.log(LOADED_QUESTIONS.find((question) => question.name === 'Question' + question_number )),
-        LOADED_QUESTIONS.filter((question) => question.name === 'Question' + question_number.toString() )
-        
-    )
-}*/
-
-  
-  // Used like so
-  var arr = [2, 11, 37, 42];
-  shuffle(arr);
-  console.log(arr);
-
-export const SelectQuestion = (question_number) => {
-    let randomized_questions = [];
-    let random_questions = LOADED_QUESTIONS.find((question) => question.name === 'Question' + question_number.toString() );
-    randomized_questions.push(random_questions);
-    return (
-        
-        randomized_questions
-        
-    )
-}
-
-export const Compare_Answer = (answer) => {
-    return (
-        console.log(LOADED_QUESTIONS.find((question) => question.correct === answer )),
-        LOADED_QUESTIONS.find((question) => question.correct === answer )
-        
-    )
-}

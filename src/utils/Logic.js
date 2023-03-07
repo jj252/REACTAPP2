@@ -25,6 +25,7 @@ import Thud from '../app/assets/sounds/thud.mp3';
 import Phone from '../app/assets/img/phone.png';
 import my_Logo from '../app/assets/img/logo.jpg';
 import settings from '../app/assets/img/settings.jpg';
+import { useSelector } from 'react-redux';
 
 const Logic = () =>{
     
@@ -80,24 +81,6 @@ const Logic = () =>{
         event.target.style.backgroundColor = 'blue';
     }
 
-    function shuffle(array) {
-        let currentIndex = array.length,  randomIndex;
-      
-        // While there remain elements to shuffle.
-        while (currentIndex != 0) {
-      
-          // Pick a remaining element.
-          randomIndex = Math.floor(Math.random() * currentIndex);
-          currentIndex--;
-      
-          // And swap it with the current element.
-          [array[currentIndex], array[randomIndex]] = [
-            array[randomIndex], array[currentIndex]];
-        }
-      
-        return array;
-      }
-
     //set the progress to use to cycle through the game
     const [progress,setProgress] = useState(3);
     //used to set up the counter
@@ -114,7 +97,7 @@ const Logic = () =>{
     const [phoneaFriend,setphoneaFriend] = useState(false);
     const [phoneaFriendUsedOnce,setphoneaFriendUsedOnce] = useState(false);
     const [questionNumber2,setQuestionNumber2] = useState(1);
-    const [question_new,setQuestion_new] = useState(SelectAllQuestions());
+    const [question_new,setQuestion_new] = useState(useSelector(SelectAllQuestions));
     
 
 
