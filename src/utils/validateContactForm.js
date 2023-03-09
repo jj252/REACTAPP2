@@ -1,15 +1,61 @@
-export const validateCommentForm = (values) => {
+export const validateContactForm = (values) =>{
     const errors = {};
 
-    if (!values.rating){
-        errors.rating = 'Required';
+    if(!values.question){
+        errors.question = 'Required';
     }
-    if (values.author.length < 2){
-        errors.author = 'Must be at least 2 characters';
+    else if (values.question.length < 5){
+        errors.question = 'Must be at least 5 characters';
     }
-    else if(values.author.length > 15){
-        errors.author = 'Must be no longer than 15 characters';
+    else if (values.question.length > 25){
+        errors.question = 'Must be 25 characters or less';
     }
 
+    if(!values.option1){
+        errors.option1 = 'Required';
+    }
+    else if (values.option1.length < 2){
+        errors.option1 = 'Must be at least 5 characters';
+    }
+    else if (values.option1.length > 15){
+        errors.option1 = 'Must be 25 characters or less';
+    }
+
+    if(!values.option2){
+        errors.option2 = 'Required';
+    }
+    else if (values.option2.length < 2){
+        errors.option2 = 'Must be at least 5 characters';
+    }
+    else if (values.option2.length > 15){
+        errors.option2 = 'Must be 25 characters or less';
+    }
+
+    if(!values.option3){
+        errors.option3 = 'Required';
+    }
+    else if (values.option3.length < 2){
+        errors.option3 = 'Must be at least 5 characters';
+    }
+    else if (values.option3.length > 15){
+        errors.option3 = 'Must be 25 characters or less';
+    }
+
+    if(!values.option4){
+        errors.option4 = 'Required';
+    }
+    else if (values.option4.length < 2){
+        errors.option4 = 'Must be at least 5 characters';
+    }
+    else if (values.option4.length > 15){
+        errors.option4 = 'Must be 25 characters or less';
+    }
+
+    if(!values.host){
+        errors.host = 'Required';
+    }
+    else if (values.host !== values.option1 && values.host !== values.option2 && values.host !== values.option3 && values.host !== values.option4){
+        errors.host = 'The answer must match up to one of the options';
+    }
     return errors;
 }

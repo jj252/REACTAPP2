@@ -1,5 +1,6 @@
 import {Button, Label, Col, FormGroup} from 'reactstrap';
-import {Formik, Field,Form} from 'formik';
+import {Formik, Field,Form, ErrorMessage} from 'formik';
+import { validateContactForm } from './validateContactForm';
 
 const QuestionForm = () =>{
     const handleSubmit = (values, {resetForm}) => {
@@ -19,6 +20,7 @@ const QuestionForm = () =>{
             host:''
         }}
         onSubmit={handleSubmit}
+        validate={validateContactForm}
         >
             <Form>
                 <FormGroup row>
@@ -29,7 +31,11 @@ const QuestionForm = () =>{
                         <Field 
                         className='form-control'
                         name='question'
-                        placeholder='Your Question Here'/>
+                        placeholder='Your Question Here'
+                        />
+                        <ErrorMessage name='question'>
+                            {(msg) => <p className='text-danger'>{msg}</p>}
+                        </ErrorMessage>
                     </Col>
                 </FormGroup>
                 <FormGroup row>
@@ -41,6 +47,9 @@ const QuestionForm = () =>{
                             name='option1'
                             placeholder='OptionA'
                         />
+                        <ErrorMessage name='option1'>
+                            {(msg) => <p className='text-danger'>{msg}</p>}
+                        </ErrorMessage>
                     </Col>
                 </FormGroup>
                 <FormGroup row>
@@ -52,6 +61,9 @@ const QuestionForm = () =>{
                             name='option2'
                             placeholder='OptionB'
                         />
+                        <ErrorMessage name='option2'>
+                            {(msg) => <p className='text-danger'>{msg}</p>}
+                        </ErrorMessage>
                     </Col>
                 </FormGroup>
                 <FormGroup row>
@@ -63,6 +75,9 @@ const QuestionForm = () =>{
                             name='option3'
                             placeholder='OptionC'
                         />
+                        <ErrorMessage name='option3'>
+                            {(msg) => <p className='text-danger'>{msg}</p>}
+                        </ErrorMessage>
                     </Col>
                 </FormGroup>
                 <FormGroup row>
@@ -74,6 +89,9 @@ const QuestionForm = () =>{
                             name='option4'
                             placeholder='OptionD'
                         />
+                        <ErrorMessage name='option4'>
+                            {(msg) => <p className='text-danger'>{msg}</p>}
+                        </ErrorMessage>
                     </Col>
                 </FormGroup>
                 <FormGroup row>
@@ -101,6 +119,9 @@ const QuestionForm = () =>{
                             name='host'
                             placeholder='Life Line Answer'
                         />
+                        <ErrorMessage name='host'>
+                            {(msg) => <p className='text-danger'>{msg}</p>}
+                        </ErrorMessage>
                     </Col>
                 </FormGroup>
                 <FormGroup row>
