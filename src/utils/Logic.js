@@ -26,6 +26,7 @@ import Phone from '../app/assets/img/phone.png';
 import my_Logo from '../app/assets/img/logo.jpg';
 import settings from '../app/assets/img/settings.jpg';
 import { useSelector } from 'react-redux';
+import QuestionForm from '../utils/QuestionForm';
 
 const Logic = () =>{
     
@@ -244,24 +245,24 @@ const Logic = () =>{
             if (ans === 'a' && ans != question_new[the_progress].ans){
                 buttonA.current.style.background = 'red';
                 event.target.style.backgroundColor = 'red';
-                console.log('WE\'VE GOT A MATCHA');
+                
                 
             }
             else if (ans === 'b' && ans != question_new[the_progress].ans){
                 buttonB.current.style.background = 'red';
                 event.target.style.backgroundColor = 'red';
-                console.log('WE\'VE GOT A MATCHB');
+                
             }
             if (ans === 'c' && ans != question_new[the_progress].ans){
                 buttonC.current.style.background = 'red';
                 event.target.style.backgroundColor = 'red';
-                console.log('WE\'VE GOT A MATCHC');
+                
                 
             }
             if (ans === 'd' && ans != question_new[the_progress].ans){
                 buttonD.current.style.background = 'red';
                 event.target.style.backgroundColor = 'red';
-                console.log('WE\'VE GOT A MATCHD');
+                
             }
             const timer3 = setTimeout(() => {
                 wrong_ans();
@@ -303,7 +304,7 @@ const Logic = () =>{
         else if(progress === 1){
             
             if(!isFifty && !askTheHost && !phoneaFriend){
-        //{play2()}
+        
                 return(
                 <>
                 
@@ -423,6 +424,18 @@ const Logic = () =>{
             <div className={style.main_logo3}><img src={settings} /></div>
             </animated.div>
             <button style={{background: 'blue', color:'white' }} className={style.introduction2} onMouseOver={(event) => mouseOver(event)} onClick={() => setProgress(1)} onMouseOut={(event) => mouseOut(event)}>START GAME</button>
+            <button style={{background: 'blue', color:'white' }} className={style.introduction3} onMouseOver={(event) => mouseOver(event)} onClick={() => setProgress(4)} onMouseOut={(event) => mouseOut(event)}>SETTINGS</button>
+            </>
+            )
+        }
+        else if (progress === 4){
+            return(
+            <>
+            <animated.div style={animatedStyle} className={style.introduction}><img style={{width:'85%', height:'540px' }} src={welcome}/>
+                <div className={style.main_logo2}><QuestionForm /></div>
+            </animated.div>
+            <button style={{background: 'blue', color:'white' }} className={style.introduction2} onMouseOver={(event) => mouseOver(event)} onClick={() => setProgress(1)} onMouseOut={(event) => mouseOut(event)}>START GAME</button>
+            <button style={{background: 'blue', color:'white' }} className={style.introduction3} onMouseOver={(event) => mouseOver(event)} onClick={() => setProgress(4)} onMouseOut={(event) => mouseOut(event)}>SETTINGS</button>
             </>
             )
         }

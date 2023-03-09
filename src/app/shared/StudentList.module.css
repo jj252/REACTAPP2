@@ -122,6 +122,22 @@
     }
     }
 
+    .introduction3{
+        position:absolute;
+        top:350px;
+        left:400px;
+    }
+    
+    @media screen and (max-width:800px){
+    .introduction3{
+        position:absolute;
+        top:350px;
+        left:150px;
+        }
+        }
+
+
+
 .sideBar_size{
     font-weight: bold;
 }
