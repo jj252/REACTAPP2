@@ -7,10 +7,25 @@ const initialState = {
 
 const questionsSlice = createSlice({
     name:'questions',
-    initialState
+    initialState,
+    reducers: {
+        addQuestion: (state,action) => {
+            console.log('addQuestion action.payload', action.payload);
+            console.log('addQuestion state.questionsArray:',state.questionsArray);
+            const newQuestion = {
+                id: state.questionsArray.length + 1,
+                name:'Question' + state.questionsArray.length,
+                ...action.payload
+            }
+            state.questionsArray.push(newQuestion);
+            
+        }
+    }
 });
 
 export const questionsReducer = questionsSlice.reducer;
+
+export const { addQuestion } = questionsSlice.actions;
 
 function shuffle(array) {
     let currentIndex = array.length,  randomIndex;

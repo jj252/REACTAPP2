@@ -1,13 +1,32 @@
 import {Button, Label, Col, FormGroup} from 'reactstrap';
 import {Formik, Field,Form, ErrorMessage} from 'formik';
 import { validateContactForm } from './validateContactForm';
+import { useDispatch } from 'react-redux';
+import { addQuestion } from './Navigation';
+
+
 
 const QuestionForm = () =>{
+
+    const dispatch = useDispatch();
+
     const handleSubmit = (values, {resetForm}) => {
+        const question = {
+            question: values.question,
+            option1: values.option1,
+            option2: values.option2,
+            option3: values.option3,
+            option4: values.option4,
+            ans: values.ans,
+            host: values.host
+        }
+        console.log('QUESTION',question);
         console.log('form values:',values)
         console.log('in JSON format',JSON.stringify(values));
+        dispatch(addQuestion(question));
         resetForm();
     }
+
 
     return (
         <Formik initialValues={{

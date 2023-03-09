@@ -7,4 +7,4 @@ export const store = configureStore({
   }
 });
 
-console.log(store.getState());
+console.log('STATE OF STORE',store.getState());

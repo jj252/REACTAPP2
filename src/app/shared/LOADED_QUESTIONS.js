@@ -213,7 +213,7 @@ export const LOADED_QUESTIONS = [
         option2: 'Apple',
         option3: 'Banana',
         option4: 'Watermelon',
-        correct: 'Tongue',
+        correct: 'Apple',
         ans: 'b',
         host:'Apple'
     }
