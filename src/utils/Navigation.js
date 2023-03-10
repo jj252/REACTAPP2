@@ -10,8 +10,7 @@ const questionsSlice = createSlice({
     initialState,
     reducers: {
         addQuestion: (state,action) => {
-            console.log('addQuestion action.payload', action.payload);
-            console.log('addQuestion state.questionsArray:',state.questionsArray);
+            
             const newQuestion = {
                 id: state.questionsArray.length + 1,
                 name:'Question' + state.questionsArray.length,

@@ -3,6 +3,7 @@ import {Formik, Field,Form, ErrorMessage} from 'formik';
 import { validateContactForm } from './validateContactForm';
 import { useDispatch } from 'react-redux';
 import { addQuestion } from './Navigation';
+import style from '../app/shared/StudentList.module.css';
 
 
 
@@ -21,9 +22,6 @@ const QuestionForm = () =>{
             ans: values.ans,
             host: values.host
         }
-        console.log('QUESTION',question);
-        console.log('form values:',values)
-        console.log('in JSON format',JSON.stringify(values));
         dispatch(addQuestion(question));
         resetForm();
     }
@@ -55,7 +53,7 @@ const QuestionForm = () =>{
                         placeholder='Your Question Here'
                         />
                         <ErrorMessage name='question'>
-                            {(msg) => <p className='text-danger'>{msg}</p>}
+                            {(msg) => <p className={style.errors}>{msg}</p>}
                         </ErrorMessage>
                     </Col>
                 </FormGroup>
@@ -69,7 +67,7 @@ const QuestionForm = () =>{
                             placeholder='OptionA'
                         />
                         <ErrorMessage name='option1'>
-                            {(msg) => <p className='text-danger'>{msg}</p>}
+                            {(msg) => <p className={style.errors}>{msg}</p>}
                         </ErrorMessage>
                     </Col>
                 </FormGroup>
@@ -83,7 +81,7 @@ const QuestionForm = () =>{
                             placeholder='OptionB'
                         />
                         <ErrorMessage name='option2'>
-                            {(msg) => <p className='text-danger'>{msg}</p>}
+                            {(msg) => <p className={style.errors}>{msg}</p>}
                         </ErrorMessage>
                     </Col>
                 </FormGroup>
@@ -97,7 +95,7 @@ const QuestionForm = () =>{
                             placeholder='OptionC'
                         />
                         <ErrorMessage name='option3'>
-                            {(msg) => <p className='text-danger'>{msg}</p>}
+                            {(msg) => <p className={style.errors}>{msg}</p>}
                         </ErrorMessage>
                     </Col>
                 </FormGroup>
@@ -111,7 +109,7 @@ const QuestionForm = () =>{
                             placeholder='OptionD'
                         />
                         <ErrorMessage name='option4'>
-                            {(msg) => <p className='text-danger'>{msg}</p>}
+                            {(msg) => <p className={style.errors}>{msg}</p>}
                         </ErrorMessage>
                     </Col>
                 </FormGroup>
@@ -141,7 +139,7 @@ const QuestionForm = () =>{
                             placeholder='Type the correct answer'
                         />
                         <ErrorMessage name='correct'>
-                            {(msg) => <p className='text-danger'>{msg}</p>}
+                            {(msg) => <p className={style.errors}>{msg}</p>}
                         </ErrorMessage>
                     </Col>
                 </FormGroup>
@@ -155,7 +153,7 @@ const QuestionForm = () =>{
                             placeholder='Life Line Answer'
                         />
                         <ErrorMessage name='host'>
-                            {(msg) => <p className='text-danger'>{msg}</p>}
+                            {(msg) => <p className={style.errors}>{msg}</p>}
                         </ErrorMessage>
                     </Col>
                 </FormGroup>

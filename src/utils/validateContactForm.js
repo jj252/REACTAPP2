@@ -64,5 +64,11 @@ export const validateContactForm = (values) =>{
     else if (values.host !== values.option1 && values.host !== values.option2 && values.host !== values.option3 && values.host !== values.option4){
         errors.host = 'The answer must match up to one of the options';
     }
+
+    if(!values.ans){
+        errors.ans = 'Required';
+    }
+    
+
     return errors;
 }

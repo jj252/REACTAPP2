@@ -24,9 +24,10 @@ import Ask_host2 from '../app/assets/img/Ask_the_Host.jpg';
 import Thud from '../app/assets/sounds/thud.mp3';
 import Phone from '../app/assets/img/phone.png';
 import my_Logo from '../app/assets/img/logo.jpg';
-import settings from '../app/assets/img/settings.jpg';
+import settings from '../app/assets/img/settings2.jpg';
 import { useSelector } from 'react-redux';
 import QuestionForm from '../utils/QuestionForm';
+import black from '../app/assets/img/black_wallpaper.jpg';
 
 const Logic = () =>{
     
@@ -99,12 +100,6 @@ const Logic = () =>{
     const [phoneaFriendUsedOnce,setphoneaFriendUsedOnce] = useState(false);
     const [questionNumber2,setQuestionNumber2] = useState(1);
     const [question_new,setQuestion_new] = useState(useSelector(SelectAllQuestions));
-
-    
-    
-    
-    
-
 
     //the animated style for most the divs fading them
     const animatedStyle = useSpring({
@@ -428,7 +423,7 @@ const Logic = () =>{
             return(
             <>
             <animated.div style={animatedStyle} className={style.introduction}><img style={{width:'85%', height:'540px' }} src={welcome}/>,
-            <div className={style.main_logo2}>Welcome to Millionaire React By: Jeremy Jeremiah</div>
+            
             <div className={style.main_logo3}><img src={settings} /></div>
             </animated.div>
             <button style={{background: 'blue', color:'white' }} className={style.introduction2} onMouseOver={(event) => mouseOver(event)} onClick={() => setProgress(1)} onMouseOut={(event) => mouseOut(event)}>START GAME</button>
@@ -440,10 +435,12 @@ const Logic = () =>{
             return(
             <>
             <animated.div style={animatedStyle} className={style.introduction}><img style={{width:'85%', height:'540px' }} src={welcome}/>
-                <div className={style.main_logo2}><QuestionForm /></div>
+                <div className={style.main_logo4}><QuestionForm /></div>
             </animated.div>
             <button style={{background: 'blue', color:'white' }} className={style.introduction2} onMouseOver={(event) => mouseOver(event)} onClick={() => setProgress(1)} onMouseOut={(event) => mouseOut(event)}>START GAME</button>
             <button style={{background: 'blue', color:'white' }} className={style.introduction3} onMouseOver={(event) => mouseOver(event)} onClick={() => setProgress(4)} onMouseOut={(event) => mouseOut(event)}>SETTINGS</button>
+            <div><img src={black}/></div>
+            <div className={style.create_question}>Create Your Own Question</div>
             </>
             )
         }
