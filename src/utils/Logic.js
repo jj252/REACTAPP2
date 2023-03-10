@@ -99,6 +99,10 @@ const Logic = () =>{
     const [phoneaFriendUsedOnce,setphoneaFriendUsedOnce] = useState(false);
     const [questionNumber2,setQuestionNumber2] = useState(1);
     const [question_new,setQuestion_new] = useState(useSelector(SelectAllQuestions));
+
+    
+    
+    
     
 
 
@@ -289,6 +293,8 @@ const Logic = () =>{
         return () => clearTimeout(timer);
         }, [isFifty]);
 
+        
+
         //When the game ends the progress is set to zero and the game ends
         if(progress === 0){
             play_main_theme.current.pause();
@@ -303,8 +309,10 @@ const Logic = () =>{
         //When progress is set to 1 the first question is loaded
         else if(progress === 1){
             
+            
+            console.log('QUESTIONS_NEW',question_new);
             if(!isFifty && !askTheHost && !phoneaFriend){
-        
+                
                 return(
                 <>
                 

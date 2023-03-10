@@ -51,6 +51,13 @@ export const validateContactForm = (values) =>{
         errors.option4 = 'Must be 25 characters or less';
     }
 
+    if(!values.correct){
+        errors.correct = 'Required';
+    }
+    else if (values.correct !== values.option1 && values.correct !== values.option2 && values.correct !== values.option3 && values.correct !== values.option4){
+        errors.correct = 'The answer must match up to one of the options';
+    }
+
     if(!values.host){
         errors.host = 'Required';
     }

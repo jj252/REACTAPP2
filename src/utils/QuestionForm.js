@@ -17,6 +17,7 @@ const QuestionForm = () =>{
             option2: values.option2,
             option3: values.option3,
             option4: values.option4,
+            correct: values.correct,
             ans: values.ans,
             host: values.host
         }
@@ -35,6 +36,7 @@ const QuestionForm = () =>{
             option2:'',
             option3:'',
             option4:'',
+            correct:'',
             ans:'',
             host:''
         }}
@@ -127,6 +129,20 @@ const QuestionForm = () =>{
                                 <option>C</option>
                                 <option>D</option>
                         </Field>
+                    </Col>
+                </FormGroup>
+                <FormGroup row>
+                    <Label htmlFor='correct' md='5'>
+                        Correct Answer
+                    </Label>
+                    <Col md='6'>
+                        <Field className='form-control'
+                            name='correct'
+                            placeholder='Type the correct answer'
+                        />
+                        <ErrorMessage name='correct'>
+                            {(msg) => <p className='text-danger'>{msg}</p>}
+                        </ErrorMessage>
                     </Col>
                 </FormGroup>
                 <FormGroup row>
