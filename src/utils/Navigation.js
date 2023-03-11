@@ -48,9 +48,14 @@ function shuffle(array) {
 export const SelectAllQuestions = (state) => {
     console.log('STATE',state)
     return (
-        
         shuffle(state.questions.questionsArray.filter((question) => question.name ))
-        
+    )
+}
+
+export const SelectAllQuestions2 = () => {
+    
+    return (
+        shuffle(LOADED_QUESTIONS.filter((question) => question.name ))
     )
 }
 

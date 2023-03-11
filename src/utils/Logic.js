@@ -6,7 +6,7 @@ import useSound from 'use-sound';
 import mainTheme from '../app/assets/sounds/1001000 music.mp3';
 import two_thousand from '../app/assets/sounds/200032000.mp3';
 import corrent_Ans from '../app/assets/sounds/correct answer.mp3';
-import { SelectAllQuestions } from './Navigation';
+import { addQuestion, SelectAllQuestions } from './Navigation';
 import wrong_Ans from '../app/assets/sounds/wrong answer.mp3';
 import Questions2 from "./Questions2";
 import { AnswersA,AnswersB,AnswersC,AnswersD } from "./Answers";
@@ -28,6 +28,9 @@ import settings from '../app/assets/img/settings2.jpg';
 import { useSelector } from 'react-redux';
 import QuestionForm from '../utils/QuestionForm';
 import black from '../app/assets/img/black_wallpaper.jpg';
+import Question_new from './Question_new';
+import { SelectAllQuestions2 } from './Navigation';
+
 
 const Logic = () =>{
     
@@ -101,6 +104,8 @@ const Logic = () =>{
     const [questionNumber2,setQuestionNumber2] = useState(1);
     const [question_new,setQuestion_new] = useState(useSelector(SelectAllQuestions));
 
+    
+    //
     //the animated style for most the divs fading them
     const animatedStyle = useSpring({
         from: { opacity: 0 },
@@ -151,22 +156,42 @@ const Logic = () =>{
         if(ans === question_new[the_progress].ans){
             
             if (ans === 'a' && ans === question_new[the_progress].ans){
-                buttonA.current.style.background = 'green';
-                event.target.style.backgroundColor = 'green';
+                buttonA.current.style.background = 'red';
+                event.target.style.backgroundColor = 'red';
+                const timer2 = setTimeout(() => {
+                    buttonA.current.style.background = 'green';
+                    event.target.style.backgroundColor = 'green';
+                    
+                }, 1000);
                 
             }
             else if (ans === 'b' && ans === question_new[the_progress].ans){
-                buttonB.current.style.background = 'green';
-                event.target.style.backgroundColor = 'green';
+                buttonB.current.style.background = 'red';
+                event.target.style.backgroundColor = 'red';
+                const timer2 = setTimeout(() => {
+                    buttonB.current.style.background = 'green';
+                    event.target.style.backgroundColor = 'green';
+                    
+                }, 1000);
             }
             if (ans === 'c' && ans === question_new[the_progress].ans){
-                buttonC.current.style.background = 'green';
-                event.target.style.backgroundColor = 'green';
+                buttonC.current.style.background = 'red';
+                event.target.style.backgroundColor = 'red';
+                const timer2 = setTimeout(() => {
+                    buttonC.current.style.background = 'green';
+                    event.target.style.backgroundColor = 'green';
+                    
+                }, 1000);
                 
             }
             if (ans === 'd' && ans === question_new[the_progress].ans){
-                buttonD.current.style.background = 'green';
-                event.target.style.backgroundColor = 'green';
+                buttonD.current.style.background = 'red';
+                event.target.style.backgroundColor = 'red';
+                const timer2 = setTimeout(() => {
+                    buttonD.current.style.background = 'green';
+                    event.target.style.backgroundColor = 'green';
+                    
+                }, 1000);
             }
             const timer = setTimeout(() => {
                 setQuestionNumber2(the_progress +1);
@@ -304,8 +329,6 @@ const Logic = () =>{
         //When progress is set to 1 the first question is loaded
         else if(progress === 1){
             
-            
-            console.log('QUESTIONS_NEW',question_new);
             if(!isFifty && !askTheHost && !phoneaFriend){
                 
                 return(
