@@ -22,6 +22,8 @@
     top:100px;
 }
 
+
+
 .answerButtonA{
     position:absolute;
     top: 400px;
@@ -351,6 +353,13 @@
     background-color: black;
     height: 75%;
 }
+
+@media screen and (max-width:800px){
+    .main_container{
+        background-color: black;
+        height: 1700px;
+    }
+    }
 
 .money_bar{
 background-image: url("../assets/img/money_bar.jpg");
