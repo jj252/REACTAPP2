@@ -12,11 +12,16 @@ import Logic from './utils/Logic';
 
 import game_default3 from '../src/app/assets/img/game_default3.jpg';
 
+import Home_Screen from './utils/Home_Screen'
+import {useState} from 'react';
+
 
 
 function App() {
   
+  const [startGame,setStartGame] = useState(false);
 
+if (startGame){
   return(
   <>
   
@@ -25,18 +30,17 @@ function App() {
       
       <Col className={style.main_container} xs='12' sm='5' md='12' >
       <div><img src={game_default3}></img><Logic /></div>
-        
+      
       </Col>
     </Row>
-    
-      
-    
-    
-  
-  
   </Container>
   </>
   )
+}
+
+else{
+  return <button onClick={()=> setStartGame(true)}>start game</button>
+}
   
         
         
