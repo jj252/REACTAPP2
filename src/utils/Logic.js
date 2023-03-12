@@ -28,8 +28,7 @@ import settings from '../app/assets/img/settings2.jpg';
 import { useSelector } from 'react-redux';
 import QuestionForm from '../utils/QuestionForm';
 import black from '../app/assets/img/black_wallpaper.jpg';
-import Question_new from './Question_new';
-import { SelectAllQuestions2 } from './Navigation';
+
 
 
 const Logic = () =>{
@@ -87,7 +86,7 @@ const Logic = () =>{
     }
 
     //set the progress to use to cycle through the game
-    const [progress,setProgress] = useState(3);
+    const [progress,setProgress] = useState(1);
     //used to set up the counter
     const [counter, setCounter] = useState();
     //set up the amount of money the user earned
@@ -324,7 +323,7 @@ const Logic = () =>{
         }
         //When progress is set to 1 the first question is loaded
         else if(progress === 1){
-            
+            console.log('QUESTION_NEW', question_new);
             if(!isFifty && !askTheHost && !phoneaFriend){
                 
                 return(
