@@ -122,10 +122,11 @@ const QuestionForm = () =>{
                             name='ans'
                             as='select'
                             >
-                                <option>A</option>
-                                <option>B</option>
-                                <option>C</option>
-                                <option>D</option>
+                                <option>-</option>
+                                <option>a</option>
+                                <option>b</option>
+                                <option>c</option>
+                                <option>d</option>
                         </Field>
                     </Col>
                 </FormGroup>

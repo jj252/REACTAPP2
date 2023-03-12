@@ -7,7 +7,7 @@ export const validateContactForm = (values) =>{
     else if (values.question.length < 5){
         errors.question = 'Must be at least 5 characters';
     }
-    else if (values.question.length > 25){
+    else if (values.question.length > 45){
         errors.question = 'Must be 25 characters or less';
     }
 
@@ -65,7 +65,7 @@ export const validateContactForm = (values) =>{
         errors.host = 'The answer must match up to one of the options';
     }
 
-    if(!values.ans){
+    if(values.ans === '-'){
         errors.ans = 'Required';
     }
     
