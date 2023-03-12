@@ -15,7 +15,12 @@
       transform: rotate(0);
     }
   }
-  
+
+.black{
+    width: 200%;
+    left:100px;
+    top:100px;
+}
 
 .answerButtonA{
     position:absolute;

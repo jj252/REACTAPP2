@@ -59,13 +59,20 @@ if (startGame){
 if (open_Settings){
   return(
     <>
-    <animated.div style={animatedStyle} className={style.introduction}><img style={{width:'85%', height:'540px' }} src={welcome}/>
-        <div className={style.main_logo4}><QuestionForm /></div>
-    </animated.div>
-    <button onClick={()=> setStartGame(true)} style={{background: 'blue', color:'white' }} className={style.introduction2} >START GAME</button>
-    <div><img src={black}/></div>
-    <div className={style.create_question}>Create Your Own Question</div>
+    <Container>
+      <Row>
+        <Col className={style.main_container} xs='12' sm='5' md='12' > 
+          <animated.div style={animatedStyle} className={style.introduction}><img style={{width:'85%', height:'540px' }} src={welcome}/>
+              <div className={style.main_logo4}><QuestionForm /></div>
+          </animated.div>
+          <button onClick={()=> setStartGame(true)} style={{background: 'blue', color:'white' }} className={style.introduction2} >START GAME</button>
+          <div className={style.black}><img src={black}/></div>
+          <div className={style.create_question}>Create Your Own Question</div>
+        </Col>
+      </Row>
+    </Container>
     </>
+    
     )
 }
 
@@ -74,12 +81,17 @@ else{
   return (
   
   <>
-        
-        <animated.div style={animatedStyle} className={style.introduction}><img style={{width:'85%', height:'540px' }} src={welcome}/>,
-        <div className={style.main_logo3}><img src={settings} /></div>
-        </animated.div>
-        <button onClick={()=> setStartGame(true)} style={{background: 'blue', color:'white' }} className={style.introduction2} >START GAME</button>
-        <button onClick={()=> set_open_Settings(true)} style={{background: 'blue', color:'white' }} className={style.introduction3} >SETTINGS</button>
+        <Container>
+          <Row>
+            <Col className={style.main_container} xs='12' sm='5' md='12' >
+              <animated.div style={animatedStyle} className={style.introduction}><img style={{width:'85%', height:'540px' }} src={welcome}/>,
+              
+              </animated.div>
+              <button onClick={()=> setStartGame(true)} style={{background: 'blue', color:'white' }} className={style.introduction2} >START GAME</button>
+              <button onClick={()=> set_open_Settings(true)} style={{background: 'blue', color:'white' }} className={style.introduction3} >SETTINGS</button>
+            </Col>
+          </Row>
+        </Container>
         </>
   )
 }
