@@ -148,8 +148,6 @@ const Logic = () =>{
         volume: 0.5,
        });
        
-       
-       
     //responsible for what to do when an answer is selected
     const getAnswers = (ans,the_progress,event) => {
         ui_click();
@@ -313,8 +311,6 @@ const Logic = () =>{
         return () => clearTimeout(timer);
         }, [isFifty]);
 
-        
-
         //When the game ends the progress is set to zero and the game ends
         if(progress === 0){
             play_main_theme.current.pause();
@@ -333,8 +329,6 @@ const Logic = () =>{
                 
                 return(
                 <>
-                
-                
                 <animated.div style={animatedStyle}>
                 <div className={style.main_logo}><img src={my_Logo}/></div>
                 <Button className={style.questionButton} color="info" > <Questions2 prop={question_new} prop2={questionNumber2} /> </Button>,
@@ -360,9 +354,7 @@ const Logic = () =>{
                 
                 <animated.div style={animatedStyle} className = {style.my_counter}>{counter}</animated.div>
                 <animated.div style={animatedStyle} className = {style.bankCheck}>${bank} </animated.div>
-                <animated.div style={animatedStyle} className={style.sideBar}><TheSideBar prop={bank} prop2={questionNumber2}/></animated.div>
-                
-                
+                <animated.div style={animatedStyle} className={style.sideBar}><TheSideBar prop={bank} prop2={questionNumber2}/></animated.div>  
                 </>
                 )
             }
@@ -446,7 +438,6 @@ const Logic = () =>{
             return(
             <>
             <animated.div style={animatedStyle} className={style.introduction}><img style={{width:'85%', height:'540px' }} src={welcome}/>,
-            
             <div className={style.main_logo3}><img src={settings} /></div>
             </animated.div>
             <button style={{background: 'blue', color:'white' }} className={style.introduction2} onMouseOver={(event) => mouseOver(event)} onClick={() => setProgress(1)} onMouseOut={(event) => mouseOut(event)}>START GAME</button>
@@ -468,7 +459,6 @@ const Logic = () =>{
             )
         }
         //Loads the second set of questions and answers
-        
         
 }
 
