@@ -17,7 +17,7 @@ import fifty_Fifty from '../app/assets/img/ll_fifty.jpg';
 import welcome from '../app/assets/img/welcome.jpg';
 import beep from '../app/assets/sounds/beep.mp3';
 import interface_click from '../app/assets/sounds/interface.mp3';
-import Theme_64 from '../app/assets/sounds/64000 music.mp3';
+import Theme_64 from '../app/assets/sounds/64000_music.mp3';
 import Ask_host from '../app/assets/img/ask_host.jpg';
 import Ask_host2 from '../app/assets/img/Ask_the_Host.jpg';
 //import Bar_Chart from "./Bar_Chart";
@@ -28,6 +28,9 @@ import settings from '../app/assets/img/settings2.jpg';
 import { useSelector } from 'react-redux';
 import QuestionForm from '../utils/QuestionForm';
 import black from '../app/assets/img/black_wallpaper.jpg';
+import Theme_150 from '../app/assets/sounds/150music.mp3';
+import Theme_500 from '../app/assets/sounds/500music.mp3';
+import Theme_Mill from '../app/assets/sounds/milmusic.mp3';
 
 
 
@@ -128,6 +131,9 @@ const Logic = () =>{
     //sounds used to play in the game 
     const song = useRef(new Audio(two_thousand));
     const Theme_64_Grand = useRef(new Audio(Theme_64));
+    const Theme_150_Grand = useRef(new Audio(Theme_150));
+    const Theme_500_Grand = useRef(new Audio(Theme_500));
+    const Theme_Milly = useRef(new Audio(Theme_Mill));
     const lets_go_theme = useRef(new Audio(getSerious));
     const play_main_theme = useRef(new Audio(mainTheme));
     const hit = useRef(new Audio(Thud));
@@ -242,10 +248,13 @@ const Logic = () =>{
             }
             else if(the_progress === 11 ){
                 setBank(64000);
+                
+                
                 setProgress(2);
             }
             else if(the_progress === 12 ){
                 setBank(125000);
+                
                 setProgress(2);
             }
             else if(the_progress === 13 ){
@@ -254,6 +263,7 @@ const Logic = () =>{
             }
             else if(the_progress === 14 ){
                 setBank(500000);
+                
                 setProgress(2);
             }
             else if(the_progress === 15 ){
@@ -424,13 +434,45 @@ const Logic = () =>{
                 }
         }
         else if (progress === 2){
-            
-            const timer2 = setTimeout(() => {
+            if (bank === 64000){
                 song.current.pause();
+                
+            }
+            else if(bank === 125000){
+                Theme_64_Grand.current.pause();
+                
+            }
+            else if(bank === 250000){
+                Theme_150_Grand.current.pause();
+                
+            }
+            else if(bank === 500000){
+                Theme_500_Grand.current.pause();
+                
+            }
+            const timer2 = setTimeout(() => {
+                
                 lets_go_theme.current.play();
+                if (bank === 64000){
+                    
+                    Theme_64_Grand.current.play();
+                }
+                else if(bank === 125000){
+                    
+                    Theme_150_Grand.current.play();
+                }
+                else if(bank === 250000){
+                    Theme_500_Grand.current.play();
+                    
+                }
+                else if(bank === 500000){
+                    
+                    Theme_Milly.current.play();
+                }
                 setProgress(1);
             }, 5000);
-            Theme_64_Grand.current.play();
+            
+            
         }
 
         else if (progress === 3){
