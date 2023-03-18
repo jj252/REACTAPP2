@@ -31,6 +31,7 @@ import black from '../app/assets/img/black_wallpaper.jpg';
 import Theme_150 from '../app/assets/sounds/150music.mp3';
 import Theme_500 from '../app/assets/sounds/500music.mp3';
 import Theme_Mill from '../app/assets/sounds/milmusic.mp3';
+import final from '../app/assets/sounds/final_ans.mp3';
 
 
 
@@ -136,6 +137,7 @@ const Logic = () =>{
     const Theme_Milly = useRef(new Audio(Theme_Mill));
     const lets_go_theme = useRef(new Audio(getSerious));
     const play_main_theme = useRef(new Audio(mainTheme));
+    const final_ans = useRef(new Audio(final));
     const hit = useRef(new Audio(Thud));
     
     
@@ -155,7 +157,8 @@ const Logic = () =>{
        
     //responsible for what to do when an answer is selected
     const getAnswers = (ans,the_progress,event) => {
-        ui_click();
+        //ui_click();
+        final_ans.current.play();
         if(ans === question_new[the_progress].ans){
             
             if (ans === 'a' && ans === question_new[the_progress].ans){
@@ -373,32 +376,32 @@ const Logic = () =>{
                 if(question_new[questionNumber2].option1 === question_new[questionNumber2].correct  ){
                     return (
                     <>
-                    <button style={{background: 'blue', color:'white' }} onClick={() => {getAnswers('a',questionNumber2,);} }className={style.answerButtonA} color="info" ><AnswersA prop={question_new} prop2={questionNumber2} /></button>,
-                    <button style={{background: 'blue', color:'white' }} onClick={() => {getAnswers('b',questionNumber2,);} }className={style.answerButtonB} color="info" ><AnswersB prop={question_new} prop2={questionNumber2} /></button>
+                    <button style={{background: 'blue', color:'white' }} onClick={() => {getAnswers('a',questionNumber2);} }className={style.answerButtonA} color="info" ><AnswersA prop={question_new} prop2={questionNumber2} /></button>,
+                    <button style={{background: 'blue', color:'white' }} onClick={() => {getAnswers('b',questionNumber2);} }className={style.answerButtonB} color="info" ><AnswersB prop={question_new} prop2={questionNumber2} /></button>
                     </>
                     )
                 }
                 else if(question_new[questionNumber2].option2 === question_new[questionNumber2].correct ){
                     return (
                         <>
-                        <button style={{background: 'blue', color:'white' }} onClick={() => {getAnswers('b',questionNumber2,);} }className={style.answerButtonB} color="info" ><AnswersA prop={question_new} prop2={questionNumber2} /></button>,
-                        <button style={{background: 'blue', color:'white' }} onClick={() => {getAnswers('d',questionNumber2,);} }className={style.answerButtonD} color="info" ><AnswersB prop={question_new} prop2={questionNumber2} /></button>
+                        <button style={{background: 'blue', color:'white' }} onClick={() => {getAnswers('b',questionNumber2);} }className={style.answerButtonB} color="info" ><AnswersA prop={question_new} prop2={questionNumber2} /></button>,
+                        <button style={{background: 'blue', color:'white' }} onClick={() => {getAnswers('d',questionNumber2);} }className={style.answerButtonD} color="info" ><AnswersB prop={question_new} prop2={questionNumber2} /></button>
                         </>
                         )
                 }
                 else if(question_new[questionNumber2].option3 === question_new[questionNumber2].correct ){
                     return (
                         <>
-                        <button style={{background: 'blue', color:'white' }} onClick={() => {getAnswers('c',questionNumber2,);} }className={style.answerButtonC} color="info" ><AnswersC prop={question_new} prop2={questionNumber2} /></button>,
-                        <button style={{background: 'blue', color:'white' }} onClick={() => {getAnswers('a',questionNumber2,);} }className={style.answerButtonA} color="info" ><AnswersA prop={question_new} prop2={questionNumber2} /></button>
+                        <button style={{background: 'blue', color:'white' }} onClick={() => {getAnswers('c',questionNumber2);} }className={style.answerButtonC} color="info" ><AnswersC prop={question_new} prop2={questionNumber2} /></button>,
+                        <button style={{background: 'blue', color:'white' }} onClick={() => {getAnswers('a',questionNumber2);} }className={style.answerButtonA} color="info" ><AnswersA prop={question_new} prop2={questionNumber2} /></button>
                         </>
                         )
                 }
                 else if(question_new[questionNumber2].option4 === question_new[questionNumber2].correct ){
                     return (
                         <>
-                        <button style={{background: 'blue', color:'white' }} onClick={() => {getAnswers('d',questionNumber2,);} }className={style.answerButtonD} color="info" ><AnswersD prop={question_new} prop2={questionNumber2} /></button>,
-                        <button style={{background: 'blue', color:'white' }} onClick={() => {getAnswers('b',questionNumber2,);} }className={style.answerButtonB} color="info" ><AnswersB prop={question_new} prop2={questionNumber2} /></button>
+                        <button style={{background: 'blue', color:'white' }} onClick={() => {getAnswers('d',questionNumber2);} }className={style.answerButtonD} color="info" ><AnswersD prop={question_new} prop2={questionNumber2} /></button>,
+                        <button style={{background: 'blue', color:'white' }} onClick={() => {getAnswers('b',questionNumber2);} }className={style.answerButtonB} color="info" ><AnswersB prop={question_new} prop2={questionNumber2} /></button>
                         </>
                         )
                 }
