@@ -6,7 +6,7 @@ import useSound from 'use-sound';
 import mainTheme from '../app/assets/sounds/1001000 music.mp3';
 import two_thousand from '../app/assets/sounds/200032000.mp3';
 import corrent_Ans from '../app/assets/sounds/correct answer.mp3';
-import { addQuestion, SelectAllQuestions } from './Navigation';
+import { SelectAllQuestions } from './Navigation';
 import wrong_Ans from '../app/assets/sounds/wrong answer.mp3';
 import Questions2 from "./Questions2";
 import { AnswersA,AnswersB,AnswersC,AnswersD } from "./Answers";
@@ -32,6 +32,8 @@ import Theme_150 from '../app/assets/sounds/150music.mp3';
 import Theme_500 from '../app/assets/sounds/500music.mp3';
 import Theme_Mill from '../app/assets/sounds/milmusic.mp3';
 import final from '../app/assets/sounds/final_ans.mp3';
+import { CircularProgressbar } from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
 
 
 
@@ -92,7 +94,7 @@ const Logic = () =>{
     //set the progress to use to cycle through the game
     const [progress,setProgress] = useState(1);
     //used to set up the counter
-    const [counter, setCounter] = useState();
+    const [counter, setCounter] = useState(60);
     //set up the amount of money the user earned
     const [bank,setBank] = useState(0);
     //set up if the lifeline fifty fifty is turned on
@@ -310,6 +312,7 @@ const Logic = () =>{
     useEffect(() => {
     const timer =
         counter > 0 && setInterval(() => setCounter(counter - 1), 1000);
+        
         if(counter === 0){
             setProgress(0);
         }
@@ -327,24 +330,37 @@ const Logic = () =>{
         if(progress === 0){
             play_main_theme.current.pause();
             
+            const timer3 = setTimeout(() => {
+                window.location.reload(false);
+                
+              }, 5000);
             return(
             <>
+                
                 <div className={style.theModal}><My_Modal prop={bank}/></div>
+                
             </>
             )
             
         }
         //When progress is set to 1 the first question is loaded
         else if(progress === 1){
-            console.log('QUESTION_NEW', question_new);
+            
+            
+            
             if(!isFifty && !askTheHost && !phoneaFriend){
                 
                 return(
                 <>
+                <div className={style.cirle} style={{ width: 200, height: 200, marginTop: -505  }}>
+                <CircularProgressbar value={counter} text={`${counter}`} />
+                </div>
+                
                 <animated.div style={animatedStyle}>
                 <div className={style.main_logo}><img src={my_Logo}/></div>
+                
                 <Button className={style.questionButton} color="info" > <Questions2 prop={question_new} prop2={questionNumber2} /> </Button>,
-                <button ref={buttonA} style={{background: 'blue', color:'white', }} onMouseOver={(event) => {mouseOver(event); button_Manage('a')}} onMouseOut={(event) => {mouseOut(event); button_Manage('a1')}} onClick={(event) => {getAnswers('a',questionNumber2,event)} } className={style.answerButtonA} color="info" ><AnswersA prop={question_new} prop2={questionNumber2} /></button>
+                <button ref={buttonA} style={{background: 'blue', color:'white' }} onMouseOver={(event) => {mouseOver(event); button_Manage('a')}} onMouseOut={(event) => {mouseOut(event); button_Manage('a1')}} onClick={(event) => {getAnswers('a',questionNumber2,event)} } className={style.answerButtonA} color="info" ><AnswersA prop={question_new} prop2={questionNumber2} /></button>
                 <button ref={buttonB} style={{background: 'blue', color:'white' }} onMouseOver={(event) => {mouseOver(event); button_Manage('b')}} onMouseOut={(event) => {mouseOut(event); button_Manage('b1')}} onClick={(event) => {getAnswers('b',questionNumber2,event)}} className={style.answerButtonB} color="info" ><AnswersB prop={question_new} prop2={questionNumber2} /></button>
                 <button ref={buttonC} style={{background: 'blue', color:'white' }} onMouseOver={(event) => {mouseOver(event); button_Manage('c')}} onMouseOut={(event) => {mouseOut(event); button_Manage('c1')}} onClick={(event) => {getAnswers('c',questionNumber2,event)} } className={style.answerButtonC} color="info" ><AnswersC prop={question_new} prop2={questionNumber2} /></button>
                 <button ref={buttonD} style={{background: 'blue', color:'white' }} onMouseOver={(event) => {mouseOver(event); button_Manage('d')}} onMouseOut={(event) => {mouseOut(event); button_Manage('d1')}} onClick={(event) => {getAnswers('d',questionNumber2,event)} } className={style.answerButtonD} color="info" ><AnswersD prop={question_new} prop2={questionNumber2} /></button>
@@ -364,7 +380,7 @@ const Logic = () =>{
                 :console.log('IT\'TS WORKING')
                 }
                 
-                <animated.div style={animatedStyle} className = {style.my_counter}>{counter}</animated.div>
+                
                 <animated.div style={animatedStyle} className = {style.bankCheck}>${bank} </animated.div>
                 <animated.div style={animatedStyle} className={style.sideBar}><TheSideBar prop={bank} prop2={questionNumber2}/></animated.div>  
                 </>

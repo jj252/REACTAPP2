@@ -16,6 +16,12 @@
     }
   }
 
+  .circle{
+    top:'10px';
+    width:-350px;
+    z-index: 50000;
+  }
+
 .black{
     width: 200%;
     left:100px;
