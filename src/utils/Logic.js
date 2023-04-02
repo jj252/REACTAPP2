@@ -352,18 +352,17 @@ const Logic = () =>{
                 
                 return(
                 <>
-                <div className={style.cirle} style={{ width: 200, height: 200, marginTop: -505  }}>
-                <CircularProgressbar value={counter} text={`${counter}`} />
-                </div>
-                
                 <animated.div style={animatedStyle}>
+                    <div className={style.cirle} style={{ width: 200, height: 200, marginTop: -505  }}>
+                        <CircularProgressbar value={counter} text={`${counter}`} />
+                    </div>
                 <div className={style.main_logo}><img src={my_Logo}/></div>
                 
-                <Button className={style.questionButton} color="info" > <Questions2 prop={question_new} prop2={questionNumber2} /> </Button>,
-                <button ref={buttonA} style={{background: 'blue', color:'white' }} onMouseOver={(event) => {mouseOver(event); button_Manage('a')}} onMouseOut={(event) => {mouseOut(event); button_Manage('a1')}} onClick={(event) => {getAnswers('a',questionNumber2,event)} } className={style.answerButtonA} color="info" ><AnswersA prop={question_new} prop2={questionNumber2} /></button>
-                <button ref={buttonB} style={{background: 'blue', color:'white' }} onMouseOver={(event) => {mouseOver(event); button_Manage('b')}} onMouseOut={(event) => {mouseOut(event); button_Manage('b1')}} onClick={(event) => {getAnswers('b',questionNumber2,event)}} className={style.answerButtonB} color="info" ><AnswersB prop={question_new} prop2={questionNumber2} /></button>
-                <button ref={buttonC} style={{background: 'blue', color:'white' }} onMouseOver={(event) => {mouseOver(event); button_Manage('c')}} onMouseOut={(event) => {mouseOut(event); button_Manage('c1')}} onClick={(event) => {getAnswers('c',questionNumber2,event)} } className={style.answerButtonC} color="info" ><AnswersC prop={question_new} prop2={questionNumber2} /></button>
-                <button ref={buttonD} style={{background: 'blue', color:'white' }} onMouseOver={(event) => {mouseOver(event); button_Manage('d')}} onMouseOut={(event) => {mouseOut(event); button_Manage('d1')}} onClick={(event) => {getAnswers('d',questionNumber2,event)} } className={style.answerButtonD} color="info" ><AnswersD prop={question_new} prop2={questionNumber2} /></button>
+                    <Button className={style.questionButton} color="info" > <Questions2 prop={question_new} prop2={questionNumber2} /> </Button>,
+                    <button ref={buttonA} style={{background: 'blue', color:'white' }} onMouseOver={(event) => {mouseOver(event); button_Manage('a')}} onMouseOut={(event) => {mouseOut(event); button_Manage('a1')}} onClick={(event) => {getAnswers('a',questionNumber2,event)} } className={style.answerButtonA} color="info" ><AnswersA prop={question_new} prop2={questionNumber2} /></button>
+                    <button ref={buttonB} style={{background: 'blue', color:'white' }} onMouseOver={(event) => {mouseOver(event); button_Manage('b')}} onMouseOut={(event) => {mouseOut(event); button_Manage('b1')}} onClick={(event) => {getAnswers('b',questionNumber2,event)}} className={style.answerButtonB} color="info" ><AnswersB prop={question_new} prop2={questionNumber2} /></button>
+                    <button ref={buttonC} style={{background: 'blue', color:'white' }} onMouseOver={(event) => {mouseOver(event); button_Manage('c')}} onMouseOut={(event) => {mouseOut(event); button_Manage('c1')}} onClick={(event) => {getAnswers('c',questionNumber2,event)} } className={style.answerButtonC} color="info" ><AnswersC prop={question_new} prop2={questionNumber2} /></button>
+                    <button ref={buttonD} style={{background: 'blue', color:'white' }} onMouseOver={(event) => {mouseOver(event); button_Manage('d')}} onMouseOut={(event) => {mouseOut(event); button_Manage('d1')}} onClick={(event) => {getAnswers('d',questionNumber2,event)} } className={style.answerButtonD} color="info" ><AnswersD prop={question_new} prop2={questionNumber2} /></button>
                 </animated.div>
                 {!isFiftyUsedOnce
                 ?<animated.div style={animatedStyle} className = {style.mybutton} onClick={() => {setisFifty(true);setisFiftyUsedOnce(true);}}><img src={fifty_Fifty}/></animated.div>
@@ -380,7 +379,7 @@ const Logic = () =>{
                 :console.log('IT\'TS WORKING')
                 }
                 
-                
+                <animated.div style={animatedStyle} className = {style.my_counter}>{counter} </animated.div>
                 <animated.div style={animatedStyle} className = {style.bankCheck}>${bank} </animated.div>
                 <animated.div style={animatedStyle} className={style.sideBar}><TheSideBar prop={bank} prop2={questionNumber2}/></animated.div>  
                 </>

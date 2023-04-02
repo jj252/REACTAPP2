@@ -286,16 +286,7 @@
     width: 900px;
     height: inherit;
     }
-.my_counter{
-    font-size: 50px;
-    position:absolute;
-    top:200px;
-    left:150px;
-    color: gold;
-    width:100%;
-    background-image: transparent;
-    
-}
+
 
 @media screen and (max-width:800px){
     .my_counter{
@@ -356,8 +347,8 @@
     height: 900px;
 }
 .main_container{
-    background-color: black;
-    height: 75%;
+    background-color: blue;
+    height: 650px;
 }
 
 @media screen and (max-width:800px){
@@ -467,8 +458,8 @@ font-weight: bold;
 .mybutton
     {
         position:absolute;
-        margin-left: 160px;
-        margin-top: -500px;
+        margin-left: 250px;
+        margin-top: -200px;
         
     }
 
@@ -484,8 +475,8 @@ font-weight: bold;
 .mybutton2
     {
         position:absolute;
-        margin-left: 260px;
-        margin-top: -500px;
+        margin-left: 350px;
+        margin-top: -200px;
     }
 
     @media screen and (max-width:800px){
@@ -499,8 +490,8 @@ font-weight: bold;
 .mybutton3
     {
         position:absolute;
-        margin-left: 360px;
-        margin-top: -500px;
+        margin-left: 450px;
+        margin-top: -200px;
     }
 
     @media screen and (max-width:800px){
